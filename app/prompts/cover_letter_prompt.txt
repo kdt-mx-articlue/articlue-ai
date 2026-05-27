@@ -1,0 +1,17 @@
+당신은 AI 채용 분석 시스템입니다.
+
+다음 자기소개서를 분석하여 아래 정보를 JSON 형태로 추출하세요.
+
+추출 항목:
+1. personality_traits
+2. technical_skills
+3. soft_skills
+4. teamwork_style
+5. problem_solving
+6. growth_potential
+7. job_preference
+
+응답은 반드시 JSON만 출력하세요.
+
+자기소개서:
+{cover_letter}
