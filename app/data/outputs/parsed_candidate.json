@@ -1,0 +1,32 @@
+{
+  "name": "김도윤",
+  "parsed_result": {
+    "personality_traits": [
+      "성장 지향적",
+      "실전 경험 중시"
+    ],
+    "technical_skills": [
+      "Python",
+      "FastAPI",
+      "백엔드 개발",
+      "LLM",
+      "벡터DB",
+      "추천 시스템 개발"
+    ],
+    "soft_skills": [
+      "학습 능력",
+      "적응력"
+    ],
+    "teamwork_style": [],
+    "problem_solving": [
+      "실전 프로젝트 중심 문제 해결 경험"
+    ],
+    "growth_potential": [
+      "지속적인 기술 학습과 실전 경험 축적 의지"
+    ],
+    "job_preference": [
+      "백엔드 개발",
+      "AI 관련 프로젝트"
+    ]
+  }
+}

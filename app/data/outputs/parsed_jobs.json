@@ -1,0 +1,33 @@
+[
+  {
+    "company_name": "비큐에이아이",
+    "job_title": "백엔드개발자(AIROOT)",
+    "parsed_result": {
+      "role": "백엔드개발자(AIROOT)",
+      "required_skills": [
+        "백엔드 개발 3년 이상",
+        "Spring 기반 백엔드 개발 실무 경험 1년 이상",
+        "Python 웹 프레임워크(Flask 또는 FastAPI) 사용 경험"
+      ],
+      "preferred_skills": [],
+      "soft_skills": [],
+      "min_experience": 3,
+      "responsibilities": [
+        "웹 크롤러 및 스크래퍼 설계, 개발 및 유지보수",
+        "정적/동적 웹사이트 데이터 수집 로직 구현",
+        "대량 수집 환경에서의 차단 우회 및 안정성 개선",
+        "수집 데이터 정제 및 DB 적재 자동화",
+        "사이트 구조 변경 대응 및 크롤러 유지관리",
+        "모니터링 및 로그 분석 후 대응",
+        "데이터 수집 분산 시스템 구성",
+        "Springboot 기반 백엔드 API 개발/운영",
+        "매체 연계 에이전트 개발/운영",
+        "레거시 API 운영",
+        "매체 크롤러 개발/운영",
+        "데이터 파이프라인 구축 및 최적화",
+        "AI 백엔드 시스템 개발/운영 (Flask or FastAPI)",
+        "검색엔진(Elasticsearch) 운영"
+      ]
+    }
+  }
+]
