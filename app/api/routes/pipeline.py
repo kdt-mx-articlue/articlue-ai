@@ -1,9 +1,13 @@
 from fastapi import APIRouter, BackgroundTasks
 from pydantic import BaseModel
-from app.services.ranking_service import rank_jobs
+import uuid
+
 from app.pipeline.service import run_pipeline
 
 router = APIRouter()
+
+# 간단 in-memory job store (MVP용)
+JOB_STORE = {}
 
 
 class PipelineRequest(BaseModel):
@@ -11,21 +15,50 @@ class PipelineRequest(BaseModel):
     resume_id: int
 
 
-# 백그라운드 작업 함수
-def process_pipeline(json_path: str, resume_id: int):
-    run_pipeline(json_path, resume_id)
+def process_pipeline(job_id: str, json_path: str, resume_id: int):
+    try:
+        result = run_pipeline(json_path, resume_id)
+        JOB_STORE[job_id] = {
+            "status": "done",
+            "result": result
+        }
+    except Exception as e:
+        JOB_STORE[job_id] = {
+            "status": "failed",
+            "error": str(e)
+        }
 
 
 @router.post("/pipeline/analyze")
 def analyze(req: PipelineRequest, background_tasks: BackgroundTasks):
 
+    job_id = str(uuid.uuid4())
+
+    JOB_STORE[job_id] = {
+        "status": "processing"
+    }
+
     background_tasks.add_task(
         process_pipeline,
+        job_id,
         req.json_path,
         req.resume_id
     )
 
     return {
-        "status": "processing",
-        "message": "pipeline started"
+        "job_id": job_id,
+        "status": "processing"
     }
+
+
+@router.get("/pipeline/result/{job_id}")
+def get_result(job_id: str):
+
+    job = JOB_STORE.get(job_id)
+
+    if not job:
+        return {
+            "status": "not_found"
+        }
+
+    return job

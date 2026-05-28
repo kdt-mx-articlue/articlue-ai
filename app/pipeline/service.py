@@ -3,31 +3,48 @@ from app.analyzers.cover_letter_analyzer import (
     combine_cover_letters
 )
 
-from app.analyzers.semantic_extraction import analyze_cover_letter
-from app.analyzers.vector_store_service import save_to_vector_db
+from app.analyzers.semantic_extraction import (
+    analyze_cover_letter
+)
+
+from app.analyzers.vector_store_service import (
+    save_to_vector_db
+)
+
+from app.services.scoring import weighted_score
 
 
 def run_pipeline(json_path: str, resume_id: int):
 
     # 1. 데이터 로드
     cover_letters = load_cover_letters(json_path)
-
-    # 2. 전처리 (병합)
     merged_text = combine_cover_letters(cover_letters)
 
-    # 3. LLM 분석
+    # 2. LLM 분석
     analysis_result = analyze_cover_letter(merged_text)
 
-    # 4. VectorDB 저장
+    # 3. scoring (너가 만든 weighted_score 구조 사용)
+    dummy_job = {
+        "required_skills": ["Python", "FastAPI", "MySQL"]
+    }
+
+    score_result = weighted_score(
+        analysis_result,
+        dummy_job
+    )
+
+    # 4. DB 저장
     save_to_vector_db(
         semantic_text=merged_text,
-        analysis_result=analysis_result,
+        analysis_result={
+            **analysis_result,
+            **score_result
+        },
         resume_id=resume_id
     )
 
-    # 5. 결과 반환
     return {
         "resume_id": resume_id,
-        "merged_text": merged_text,
-        "analysis_result": analysis_result
+        "analysis": analysis_result,
+        "score": score_result
     }

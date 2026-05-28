@@ -3,18 +3,18 @@
     "candidate_name": "김도윤",
     "job_title": "백엔드개발자(AIROOT)",
     "company_name": "비큐에이아이",
-    "semantic_score": 0.7105,
+    "semantic_score": 0.6785,
     "skill_score": 0.0,
-    "matching_score": 0.4973,
+    "matching_score": 0.4749,
     "matched_skills": [],
     "missing_skills": [
+      "Python 웹 프레임워크(Flask 또는 FastAPI) 사용 경험",
       "Spring 기반 백엔드 개발 실무 경험 1년 이상",
-      "백엔드 개발 3년 이상",
-      "Python 웹 프레임워크(Flask 또는 FastAPI) 사용 경험"
+      "백엔드 개발 3년 이상"
     ],
     "match_reasons": [
       "일부 역량만 일치",
-      "추가 필요 기술: Spring 기반 백엔드 개발 실무 경험 1년 이상, 백엔드 개발 3년 이상, Python 웹 프레임워크(Flask 또는 FastAPI) 사용 경험"
+      "추가 필요 기술: Python 웹 프레임워크(Flask 또는 FastAPI) 사용 경험, Spring 기반 백엔드 개발 실무 경험 1년 이상, 백엔드 개발 3년 이상"
     ]
   }
 ]
