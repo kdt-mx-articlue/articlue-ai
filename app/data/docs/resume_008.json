@@ -1,0 +1,106 @@
+{
+  "resume": {
+    "resume_id": 15,
+    "member_id": 13,
+    "resume_title": "머신러닝 기반 백엔드 개발자",
+    "name": "박도현",
+    "phone": "01023234545",
+    "email": "dohyun.park@example.com",
+    "birth_date": "1996-06-22",
+    "address": "서울특별시 동작구",
+    "gender": "male",
+    "military_status": "Y",
+    "desired_location": "서울",
+    "resume_status": "작성완료",
+    "representative_yn": "N",
+    "career_years": 6,
+    "create_date": "2026-06-01",
+    "update_date": "2026-06-01"
+  },
+
+  "education": [
+    {
+      "education_id": 14,
+      "resume_id": 15,
+      "school_type": "대학교",
+      "school_name": "고려대학교",
+      "major": "컴퓨터공학과",
+      "gpa": 3.6,
+      "start_ym": "2014.03",
+      "end_ym": "2020.02"
+    }
+  ],
+
+  "resume_activity": [
+    {
+      "activity_id": 16,
+      "resume_id": 15,
+      "activity_type": "연구",
+      "activity_name": "딥러닝 기반 추천 알고리즘 성능 개선",
+      "start_ym": "2023.02",
+      "end_ym": "2024.01"
+    }
+  ],
+
+  "career": [
+    {
+      "career_id": 14,
+      "resume_id": 15,
+      "company_name": "ML Systems Lab",
+      "department": "AI Engineering",
+      "position": "Machine Learning Engineer",
+      "start_ym": "2020.03",
+      "end_ym": "2025.03",
+      "experience_months": 60,
+      "main_achievement": "추천 시스템 모델 경량화 및 API 서빙 구조 개선"
+    }
+  ],
+
+  "certificate": [
+    {
+      "certificate_id": 14,
+      "resume_id": 15,
+      "certificate_name": "TensorFlow Developer Certificate",
+      "acquired_ym": "2022.11",
+      "issuer": "Google"
+    }
+  ],
+
+  "resume_tech_stack": [
+    {
+      "resume_tech_id": 28,
+      "resume_id": 15,
+      "tech_name": "Python",
+      "proficiency_level": "상",
+      "experience_months": 60,
+      "main_usage": "ML 모델 개발 및 서빙"
+    },
+    {
+      "resume_tech_id": 29,
+      "resume_id": 15,
+      "tech_name": "TensorFlow",
+      "proficiency_level": "상",
+      "experience_months": 48,
+      "main_usage": "딥러닝 모델 학습"
+    },
+    {
+      "resume_tech_id": 30,
+      "resume_id": 15,
+      "tech_name": "FastAPI",
+      "proficiency_level": "중상",
+      "experience_months": 30,
+      "main_usage": "ML API 서비스 구축"
+    }
+  ],
+
+  "self_introduction": [
+    {
+      "section": "성장과정",
+      "content": "머신러닝 모델을 실제 서비스에 연결하는 과정에 흥미를 느끼며 엔지니어링 역량을 키워왔습니다."
+    },
+    {
+      "section": "강점",
+      "content": "모델 최적화와 백엔드 서빙 구조 설계에 강점이 있습니다."
+    }
+  ]
+}

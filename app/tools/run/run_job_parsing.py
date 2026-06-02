@@ -1,7 +1,11 @@
 import json
 
-from app.services.job_service import (
+from app.services.jobs.job_service import (
     process_job_postings
+)
+
+from app.services.vector.job_vector_service import (
+    save_job_vectors
 )
 
 
@@ -17,10 +21,23 @@ OUTPUT_PATH = (
 
 def main():
 
+    # =========================
+    # 채용공고 파싱
+    # =========================
     results = process_job_postings(
         EXCEL_PATH
     )
 
+    # =========================
+    # Vector DB 저장
+    # =========================
+    save_job_vectors(
+        results
+    )
+
+    # =========================
+    # JSON 저장
+    # =========================
     with open(
         OUTPUT_PATH,
         "w",
@@ -36,6 +53,11 @@ def main():
 
     print(
         f"저장 완료: {OUTPUT_PATH}"
+    )
+
+    print(
+        "벡터 저장 완료: "
+        "app/data/vectors/job_vectors"
     )
 
 

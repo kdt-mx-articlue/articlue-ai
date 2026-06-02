@@ -11,7 +11,7 @@ from app.analyzers.vector_store_service import (
     save_to_vector_db
 )
 
-from app.services.scoring import weighted_score
+from app.services.matching.scoring import weighted_score
 
 
 def run_pipeline(json_path: str, resume_id: int):

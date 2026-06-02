@@ -1,0 +1,106 @@
+{
+  "resume": {
+    "resume_id": 14,
+    "member_id": 12,
+    "resume_title": "AI 서비스 플랫폼 백엔드 엔지니어",
+    "name": "김하린",
+    "phone": "01011112222",
+    "email": "harin.kim@example.com",
+    "birth_date": "1997-12-09",
+    "address": "서울특별시 강서구",
+    "gender": "female",
+    "military_status": "N",
+    "desired_location": "서울",
+    "resume_status": "작성완료",
+    "representative_yn": "N",
+    "career_years": 5,
+    "create_date": "2026-06-01",
+    "update_date": "2026-06-01"
+  },
+
+  "education": [
+    {
+      "education_id": 13,
+      "resume_id": 14,
+      "school_type": "대학교",
+      "school_name": "이화여자대학교",
+      "major": "컴퓨터공학과",
+      "gpa": 3.8,
+      "start_ym": "2016.03",
+      "end_ym": "2022.02"
+    }
+  ],
+
+  "resume_activity": [
+    {
+      "activity_id": 15,
+      "resume_id": 14,
+      "activity_type": "프로젝트",
+      "activity_name": "LLM 기반 고객 상담 자동화 시스템",
+      "start_ym": "2024.05",
+      "end_ym": "2025.02"
+    }
+  ],
+
+  "career": [
+    {
+      "career_id": 13,
+      "resume_id": 14,
+      "company_name": "NeoAI",
+      "department": "Backend Platform Team",
+      "position": "Backend Engineer",
+      "start_ym": "2022.03",
+      "end_ym": "2025.04",
+      "experience_months": 37,
+      "main_achievement": "AI 서비스 API 아키텍처 설계 및 트래픽 최적화"
+    }
+  ],
+
+  "certificate": [
+    {
+      "certificate_id": 13,
+      "resume_id": 14,
+      "certificate_name": "SQLD",
+      "acquired_ym": "2023.07",
+      "issuer": "한국데이터산업진흥원"
+    }
+  ],
+
+  "resume_tech_stack": [
+    {
+      "resume_tech_id": 25,
+      "resume_id": 14,
+      "tech_name": "Java",
+      "proficiency_level": "상",
+      "experience_months": 48,
+      "main_usage": "대규모 백엔드 시스템 개발"
+    },
+    {
+      "resume_tech_id": 26,
+      "resume_id": 14,
+      "tech_name": "Spring Boot",
+      "proficiency_level": "상",
+      "experience_months": 40,
+      "main_usage": "REST API 서버 구축"
+    },
+    {
+      "resume_tech_id": 27,
+      "resume_id": 14,
+      "tech_name": "Redis",
+      "proficiency_level": "중상",
+      "experience_months": 24,
+      "main_usage": "캐싱 및 세션 관리"
+    }
+  ],
+
+  "self_introduction": [
+    {
+      "section": "성장과정",
+      "content": "확장 가능한 서비스 구조와 안정적인 백엔드 설계에 관심을 가지며 실무 중심으로 성장했습니다."
+    },
+    {
+      "section": "강점",
+      "content": "고트래픽 환경에서의 API 설계 및 성능 튜닝 경험이 강점입니다."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "resume": {
+    "resume_id": 13,
+    "member_id": 11,
+    "resume_title": "데이터 기반 AI 백엔드 개발자",
+    "name": "최유진",
+    "phone": "01099990000",
+    "email": "yujin.choi@example.com",
+    "birth_date": "1998-02-28",
+    "address": "서울특별시 마포구",
+    "gender": "female",
+    "military_status": "N",
+    "desired_location": "서울",
+    "resume_status": "작성완료",
+    "representative_yn": "Y",
+    "career_years": 4,
+    "create_date": "2026-06-01",
+    "update_date": "2026-06-01"
+  },
+
+  "education": [
+    {
+      "education_id": 12,
+      "resume_id": 13,
+      "school_type": "대학교",
+      "school_name": "연세대학교",
+      "major": "산업공학과",
+      "gpa": 3.9,
+      "start_ym": "2016.03",
+      "end_ym": "2022.02"
+    }
+  ],
+
+  "resume_activity": [
+    {
+      "activity_id": 14,
+      "resume_id": 13,
+      "activity_type": "프로젝트",
+      "activity_name": "추천 시스템 A/B 테스트 플랫폼 개발",
+      "start_ym": "2024.03",
+      "end_ym": "2024.12"
+    }
+  ],
+
+  "career": [
+    {
+      "career_id": 12,
+      "resume_id": 13,
+      "company_name": "DataMind",
+      "department": "AI Product Team",
+      "position": "AI Backend Engineer",
+      "start_ym": "2022.06",
+      "end_ym": "2025.05",
+      "experience_months": 36,
+      "main_achievement": "추천 모델 서빙 API 구축 및 실시간 데이터 파이프라인 설계"
+    }
+  ],
+
+  "certificate": [
+    {
+      "certificate_id": 12,
+      "resume_id": 13,
+      "certificate_name": "ADsP",
+      "acquired_ym": "2023.04",
+      "issuer": "한국데이터산업진흥원"
+    }
+  ],
+
+  "resume_tech_stack": [
+    {
+      "resume_tech_id": 22,
+      "resume_id": 13,
+      "tech_name": "Python",
+      "proficiency_level": "상",
+      "experience_months": 42,
+      "main_usage": "AI 모델 서빙 및 데이터 처리"
+    },
+    {
+      "resume_tech_id": 23,
+      "resume_id": 13,
+      "tech_name": "FastAPI",
+      "proficiency_level": "상",
+      "experience_months": 28,
+      "main_usage": "ML API 서버 구축"
+    },
+    {
+      "resume_tech_id": 24,
+      "resume_id": 13,
+      "tech_name": "Airflow",
+      "proficiency_level": "중상",
+      "experience_months": 18,
+      "main_usage": "데이터 파이프라인 자동화"
+    }
+  ],
+
+  "self_introduction": [
+    {
+      "section": "성장과정",
+      "content": "데이터 기반 의사결정과 AI 시스템 구조에 관심을 가지며 백엔드와 데이터 엔지니어링을 함께 학습해왔습니다."
+    },
+    {
+      "section": "강점",
+      "content": "실시간 데이터 파이프라인 설계 및 AI 서비스 서빙 구조 이해도가 강점입니다."
+    }
+  ]
+}

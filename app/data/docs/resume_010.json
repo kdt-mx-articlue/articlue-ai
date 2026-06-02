@@ -1,0 +1,106 @@
+{
+  "resume": {
+    "resume_id": 17,
+    "member_id": 15,
+    "resume_title": "AI 기반 추천 시스템 백엔드 엔지니어",
+    "name": "정우성",
+    "phone": "01056567777",
+    "email": "wooseong.jung@example.com",
+    "birth_date": "1997-08-05",
+    "address": "서울특별시 관악구",
+    "gender": "male",
+    "military_status": "Y",
+    "desired_location": "서울",
+    "resume_status": "작성완료",
+    "representative_yn": "N",
+    "career_years": 5,
+    "create_date": "2026-06-01",
+    "update_date": "2026-06-01"
+  },
+
+  "education": [
+    {
+      "education_id": 16,
+      "resume_id": 17,
+      "school_type": "대학교",
+      "school_name": "중앙대학교",
+      "major": "컴퓨터공학과",
+      "gpa": 3.6,
+      "start_ym": "2015.03",
+      "end_ym": "2021.02"
+    }
+  ],
+
+  "resume_activity": [
+    {
+      "activity_id": 18,
+      "resume_id": 17,
+      "activity_type": "프로젝트",
+      "activity_name": "실시간 추천 시스템 API 고도화",
+      "start_ym": "2024.02",
+      "end_ym": "2024.11"
+    }
+  ],
+
+  "career": [
+    {
+      "career_id": 16,
+      "resume_id": 17,
+      "company_name": "RecoAI",
+      "department": "Recommendation Engineering",
+      "position": "Backend Engineer",
+      "start_ym": "2021.03",
+      "end_ym": "2025.04",
+      "experience_months": 49,
+      "main_achievement": "추천 모델 서빙 API latency 35% 개선 및 캐시 전략 재설계"
+    }
+  ],
+
+  "certificate": [
+    {
+      "certificate_id": 16,
+      "resume_id": 17,
+      "certificate_name": "SQLD",
+      "acquired_ym": "2022.09",
+      "issuer": "한국데이터산업진흥원"
+    }
+  ],
+
+  "resume_tech_stack": [
+    {
+      "resume_tech_id": 34,
+      "resume_id": 17,
+      "tech_name": "Python",
+      "proficiency_level": "상",
+      "experience_months": 54,
+      "main_usage": "추천 알고리즘 API 개발"
+    },
+    {
+      "resume_tech_id": 35,
+      "resume_id": 17,
+      "tech_name": "FastAPI",
+      "proficiency_level": "상",
+      "experience_months": 40,
+      "main_usage": "ML 서빙 API 구축"
+    },
+    {
+      "resume_tech_id": 36,
+      "resume_id": 17,
+      "tech_name": "Redis",
+      "proficiency_level": "중상",
+      "experience_months": 28,
+      "main_usage": "추천 결과 캐싱"
+    }
+  ],
+
+  "self_introduction": [
+    {
+      "section": "성장과정",
+      "content": "추천 시스템 구조와 실시간 데이터 처리에 관심을 가지며 백엔드와 ML 서빙 영역을 함께 경험해왔습니다."
+    },
+    {
+      "section": "강점",
+      "content": "추천 시스템 아키텍처 설계 및 latency 최적화 경험이 강점입니다."
+    }
+  ]
+}

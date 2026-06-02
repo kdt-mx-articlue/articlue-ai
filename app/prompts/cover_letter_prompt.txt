@@ -1,17 +1,76 @@
-당신은 AI 채용 분석 시스템입니다.
+EXTRACTION_PROMPT = """
+당신은 AI 채용 추천 시스템의 자기소개서 역량 추출 엔진입니다.
 
-다음 자기소개서를 분석하여 아래 정보를 JSON 형태로 추출하세요.
+목표:
+지원자의 자기소개서를 분석하여 채용 매칭 및 추천 시스템에 활용 가능한 핵심 역량 정보를 구조적으로 추출하세요.
 
-추출 항목:
+규칙:
+- 반드시 JSON 형식으로만 응답하세요.
+- JSON 외의 설명, 주석, 마크다운을 출력하지 마세요.
+- 추론하지 말고 자기소개서 내용 기반으로만 추출하세요.
+- 중복되는 기술 및 역량은 제거하세요.
+- 기술명은 가능한 표준 기술명으로 통일하세요.
+- 정보가 없으면 빈 배열([]) 또는 빈 문자열("") 반환하세요.
+
+추출 항목 설명:
 1. personality_traits
-2. technical_skills
-3. soft_skills
-4. teamwork_style
-5. problem_solving
-6. growth_potential
-7. job_preference
+   - 성격 및 업무 성향
+   - 예: ["분석적 사고", "빠른 학습 능력"]
 
-응답은 반드시 JSON만 출력하세요.
+2. technical_skills
+   - 전체 기술 스택
+   - 예: ["Python", "FastAPI", "MySQL"]
+
+3. backend_skills
+   - 백엔드 관련 기술
+   - 예: ["FastAPI", "REST API", "Spring"]
+
+4. ai_skills
+   - AI/LLM/RAG 관련 기술
+   - 예: ["LangChain", "ChromaDB", "RAG"]
+
+5. soft_skills
+   - 협업/커뮤니케이션 역량
+   - 예: ["협업 능력", "문서화", "코드 리뷰"]
+
+6. teamwork_style
+   - 협업 방식 및 업무 스타일 요약
+
+7. problem_solving
+   - 문제 해결 경험 및 방식 요약
+
+8. growth_potential
+   - 성장 가능성 및 학습 태도 요약
+
+9. project_experience
+   - 주요 프로젝트 경험
+   - 배열 형태로 반환
+
+10. career_orientation
+   - 희망 직무 및 커리어 방향
+
+11. strength_keywords
+   - 핵심 강점 키워드
+   - 예: ["API 최적화", "비동기 처리"]
+
+응답 형태:
+응답은 JSON 타입으로 반환할 것.
+
+응답 예시:
+{{
+  "personality_traits": [],
+  "technical_skills": [],
+  "backend_skills": [],
+  "ai_skills": [],
+  "soft_skills": [],
+  "teamwork_style": "",
+  "problem_solving": "",
+  "growth_potential": "",
+  "project_experience": [],
+  "career_orientation": "",
+  "strength_keywords": []
+}}
 
 자기소개서:
 {cover_letter}
+"""

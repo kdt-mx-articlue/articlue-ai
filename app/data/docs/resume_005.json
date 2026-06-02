@@ -1,0 +1,106 @@
+{
+  "resume": {
+    "resume_id": 12,
+    "member_id": 10,
+    "resume_title": "클라우드 기반 백엔드 엔지니어",
+    "name": "윤지훈",
+    "phone": "01077776666",
+    "email": "jihun.yoon@example.com",
+    "birth_date": "1996-10-03",
+    "address": "경기도 성남시 분당구",
+    "gender": "male",
+    "military_status": "Y",
+    "desired_location": "서울",
+    "resume_status": "작성완료",
+    "representative_yn": "N",
+    "career_years": 6,
+    "create_date": "2026-05-31",
+    "update_date": "2026-05-31"
+  },
+
+  "education": [
+    {
+      "education_id": 11,
+      "resume_id": 12,
+      "school_type": "대학교",
+      "school_name": "경희대학교",
+      "major": "컴퓨터공학과",
+      "gpa": 3.5,
+      "start_ym": "2015.03",
+      "end_ym": "2021.02"
+    }
+  ],
+
+  "resume_activity": [
+    {
+      "activity_id": 13,
+      "resume_id": 12,
+      "activity_type": "프로젝트",
+      "activity_name": "AWS 기반 서버리스 아키텍처 구축",
+      "start_ym": "2024.01",
+      "end_ym": "2024.11"
+    }
+  ],
+
+  "career": [
+    {
+      "career_id": 11,
+      "resume_id": 12,
+      "company_name": "CloudWave",
+      "department": "Cloud Engineering",
+      "position": "Backend Engineer",
+      "start_ym": "2022.02",
+      "end_ym": "2025.03",
+      "experience_months": 37,
+      "main_achievement": "AWS Lambda 및 ECS 기반 서비스 아키텍처 설계 및 운영"
+    }
+  ],
+
+  "certificate": [
+    {
+      "certificate_id": 11,
+      "resume_id": 12,
+      "certificate_name": "AWS Solutions Architect Associate",
+      "acquired_ym": "2023.09",
+      "issuer": "Amazon"
+    }
+  ],
+
+  "resume_tech_stack": [
+    {
+      "resume_tech_id": 19,
+      "resume_id": 12,
+      "tech_name": "AWS",
+      "proficiency_level": "상",
+      "experience_months": 48,
+      "main_usage": "클라우드 인프라 설계"
+    },
+    {
+      "resume_tech_id": 20,
+      "resume_id": 12,
+      "tech_name": "Docker",
+      "proficiency_level": "상",
+      "experience_months": 36,
+      "main_usage": "컨테이너 기반 배포"
+    },
+    {
+      "resume_tech_id": 21,
+      "resume_id": 12,
+      "tech_name": "Kubernetes",
+      "proficiency_level": "중상",
+      "experience_months": 24,
+      "main_usage": "오케스트레이션 및 운영"
+    }
+  ],
+
+  "self_introduction": [
+    {
+      "section": "성장과정",
+      "content": "인프라 자동화와 확장성 있는 시스템 설계에 관심을 가지며 클라우드 환경 중심으로 성장했습니다."
+    },
+    {
+      "section": "강점",
+      "content": "AWS 기반 아키텍처 설계 및 운영 자동화 경험이 강점입니다."
+    }
+  ]
+}

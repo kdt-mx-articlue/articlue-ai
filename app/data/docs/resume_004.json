@@ -1,0 +1,106 @@
+{
+  "resume": {
+    "resume_id": 11,
+    "member_id": 9,
+    "resume_title": "AI 백엔드 개발자 이력서",
+    "name": "강민재",
+    "phone": "01088889999",
+    "email": "minjae.kang@example.com",
+    "birth_date": "1998-04-17",
+    "address": "서울특별시 서초구",
+    "gender": "male",
+    "military_status": "Y",
+    "desired_location": "서울",
+    "resume_status": "작성완료",
+    "representative_yn": "Y",
+    "career_years": 4,
+    "create_date": "2026-05-30",
+    "update_date": "2026-05-30"
+  },
+
+  "education": [
+    {
+      "education_id": 10,
+      "resume_id": 11,
+      "school_type": "대학교",
+      "school_name": "서강대학교",
+      "major": "컴퓨터공학과",
+      "gpa": 3.7,
+      "start_ym": "2016.03",
+      "end_ym": "2022.02"
+    }
+  ],
+
+  "resume_activity": [
+    {
+      "activity_id": 12,
+      "resume_id": 11,
+      "activity_type": "프로젝트",
+      "activity_name": "LLM 기반 채용 추천 시스템 개발",
+      "start_ym": "2025.01",
+      "end_ym": "2025.10"
+    }
+  ],
+
+  "career": [
+    {
+      "career_id": 10,
+      "resume_id": 11,
+      "company_name": "AI Nexus",
+      "department": "플랫폼팀",
+      "position": "백엔드 개발자",
+      "start_ym": "2023.03",
+      "end_ym": "2025.02",
+      "experience_months": 24,
+      "main_achievement": "FastAPI 기반 추천 시스템 API 설계 및 성능 개선"
+    }
+  ],
+
+  "certificate": [
+    {
+      "certificate_id": 10,
+      "resume_id": 11,
+      "certificate_name": "SQLD",
+      "acquired_ym": "2024.08",
+      "issuer": "한국데이터산업진흥원"
+    }
+  ],
+
+  "resume_tech_stack": [
+    {
+      "resume_tech_id": 16,
+      "resume_id": 11,
+      "tech_name": "Python",
+      "proficiency_level": "상",
+      "experience_months": 40,
+      "main_usage": "AI 백엔드 서비스 개발"
+    },
+    {
+      "resume_tech_id": 17,
+      "resume_id": 11,
+      "tech_name": "FastAPI",
+      "proficiency_level": "상",
+      "experience_months": 24,
+      "main_usage": "REST API 서버 개발"
+    },
+    {
+      "resume_tech_id": 18,
+      "resume_id": 11,
+      "tech_name": "PostgreSQL",
+      "proficiency_level": "중상",
+      "experience_months": 20,
+      "main_usage": "데이터 모델링 및 최적화"
+    }
+  ],
+
+  "self_introduction": [
+    {
+      "section": "성장과정",
+      "content": "백엔드 시스템 구조와 AI 기술을 함께 학습하며 실무 중심으로 성장해왔습니다."
+    },
+    {
+      "section": "강점",
+      "content": "API 설계 및 LLM 기반 서비스 구조 이해도가 높습니다."
+    }
+  ]
+}

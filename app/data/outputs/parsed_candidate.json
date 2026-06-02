@@ -1,32 +1,168 @@
 {
-  "name": "김도윤",
-  "parsed_result": {
+  "resume_data": {
+    "resume": {
+      "resume_id": 1,
+      "member_id": 1,
+      "resume_title": "AI 백엔드 개발자 이력서",
+      "name": "이준호",
+      "phone": "01012345678",
+      "email": "minsu.kim@example.com",
+      "birth_date": "1999-03-14",
+      "address": "광주광역시 북구",
+      "gender": "male",
+      "military_status": "Y",
+      "desired_location": "서울",
+      "resume_status": "작성완료",
+      "representative_yn": "Y",
+      "career_years": 2,
+      "create_date": "2026-05-26",
+      "update_date": "2026-05-26"
+    },
+    "education": [
+      {
+        "education_id": 1,
+        "resume_id": 1,
+        "school_type": "대학교",
+        "school_name": "조선대학교",
+        "major": "컴퓨터공학과",
+        "gpa": 3.8,
+        "start_ym": "2021.03",
+        "end_ym": "2025.02"
+      }
+    ],
+    "resume_activity": [
+      {
+        "activity_id": 1,
+        "resume_id": 1,
+        "activity_type": "교육",
+        "activity_name": "SMHRD AI 과정 수료",
+        "start_ym": "2024.09",
+        "end_ym": "2025.06"
+      },
+      {
+        "activity_id": 2,
+        "resume_id": 1,
+        "activity_type": "프로젝트",
+        "activity_name": "AI 기반 채용 추천 플랫폼 개발",
+        "start_ym": "2026.01",
+        "end_ym": "2026.05"
+      }
+    ],
+    "cover_letter": [
+      {
+        "cover_letter_id": 1,
+        "resume_id": 1,
+        "sub_title": "성장과정",
+        "content": "새로운 기술을 빠르게 학습하고 실제 프로젝트에 적용하는 과정에서 성취감을 느끼며 성장해왔습니다. Python과 FastAPI 기반 백엔드 개발을 학습했고 LangGraph와 ChromaDB를 활용한 AI Agent 시스템 프로젝트를 수행했습니다.",
+        "create_date": "2026-05-26",
+        "update_date": "2026-05-26"
+      }
+    ],
+    "career": [
+      {
+        "career_id": 1,
+        "resume_id": 1,
+        "company_name": "아티클루랩",
+        "department": "개발팀",
+        "position": "AI 백엔드 인턴",
+        "start_ym": "2025.06",
+        "end_ym": "2025.12",
+        "experience_months": 7,
+        "main_achievement": "FastAPI 기반 REST API 개발 및 ChromaDB 기반 RAG 검색 기능 구현에 참여했습니다."
+      }
+    ],
+    "certificate": [
+      {
+        "certificate_id": 1,
+        "resume_id": 1,
+        "certificate_name": "정보처리기사",
+        "acquired_ym": "2025.11",
+        "issuer": "한국산업인력공단"
+      }
+    ],
+    "resume_tech_stack": [
+      {
+        "resume_tech_id": 1,
+        "resume_id": 1,
+        "tech_stack_id": 1,
+        "tech_name": "Spring",
+        "proficiency_level": "중상",
+        "experience_months": 18,
+        "main_usage": "백엔드 서비스 개발"
+      },
+      {
+        "resume_tech_id": 2,
+        "resume_id": 1,
+        "tech_stack_id": 2,
+        "tech_name": "Python",
+        "proficiency_level": "상",
+        "experience_months": 36,
+        "main_usage": "AI/백엔드 개발"
+      },
+      {
+        "resume_tech_id": 3,
+        "resume_id": 1,
+        "tech_stack_id": 3,
+        "tech_name": "FastAPI",
+        "proficiency_level": "상",
+        "experience_months": 18,
+        "main_usage": "REST API 및 AI 서비스 개발"
+      },
+      {
+        "resume_tech_id": 4,
+        "resume_id": 1,
+        "tech_stack_id": 4,
+        "tech_name": "MySQL",
+        "proficiency_level": "중",
+        "experience_months": 24,
+        "main_usage": "DB 설계 및 쿼리 처리"
+      }
+    ],
+    "self_introduction": [
+      {
+        "section": "성장과정",
+        "content": "빠르게 새로운 기술을 습득하고 실제 프로젝트에 적용하는 과정에서 성장했습니다."
+      },
+      {
+        "section": "강점",
+        "content": "API 성능 개선과 시스템 구조 설계가 강점이며 비동기 처리 경험이 있습니다."
+      }
+    ]
+  },
+  "analysis_result": {
     "personality_traits": [
-      "성장 지향적",
-      "실전 경험 중시"
+      "빠른 학습 능력",
+      "성취감 추구"
     ],
     "technical_skills": [
+      "Spring",
       "Python",
       "FastAPI",
-      "백엔드 개발",
-      "LLM",
-      "벡터DB",
-      "추천 시스템 개발"
+      "MySQL",
+      "LangGraph",
+      "ChromaDB"
     ],
-    "soft_skills": [
-      "학습 능력",
-      "적응력"
+    "backend_skills": [
+      "Spring",
+      "Python",
+      "FastAPI",
+      "MySQL"
     ],
-    "teamwork_style": [],
-    "problem_solving": [
-      "실전 프로젝트 중심 문제 해결 경험"
+    "ai_skills": [
+      "LangGraph",
+      "ChromaDB"
     ],
-    "growth_potential": [
-      "지속적인 기술 학습과 실전 경험 축적 의지"
+    "soft_skills": [],
+    "teamwork_style": "",
+    "problem_solving": "",
+    "growth_potential": "새로운 기술을 빠르게 학습하고 실제 프로젝트에 적용하며 성장함",
+    "project_experience": [
+      "LangGraph와 ChromaDB를 활용한 AI Agent 시스템 프로젝트 수행"
     ],
-    "job_preference": [
-      "백엔드 개발",
-      "AI 관련 업무"
+    "career_orientation": "백엔드 개발 및 AI 관련 시스템 개발",
+    "strength_keywords": [
+      "빠른 기술 학습",
+      "AI Agent 시스템 개발"
     ]
   }
 }
