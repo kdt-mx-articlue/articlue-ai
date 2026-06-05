@@ -22,12 +22,20 @@ def save_job_vectors(job_list):
         직무: {job['job_title']}
 
         기술:
-        {' '.join(parsed.get('required_skills', []))}
+        {' '.join(parsed.get('tech_stacks', []))}
 
-        우대:
-        {' '.join(parsed.get('preferred_skills', []))}
+        자격요건:
+        {parsed.get('requirements', '')}
 
-        """
+        우대사항:
+        {parsed.get('preference', '')}
+
+        인재상:
+        {parsed.get('team_culture', '')}
+
+        업무:
+        {parsed.get('responsibilities', '')}
+        """.strip()
 
         doc = Document(
 

@@ -3,7 +3,7 @@
     "resume_id": 1,
     "member_id": 1,
     "resume_title": "AI 백엔드 개발자 이력서",
-    "name": "김민수",
+    "name": "이준호",
     "phone": "01012345678",
     "email": "minsu.kim@example.com",
     "birth_date": "1999-03-14",
@@ -11,6 +11,7 @@
     "gender": "male",
     "military_status": "Y",
     "desired_location": "서울",
+    "career_years": 2,
     "resume_status": "작성완료",
     "representative_yn": "Y",
     "create_date": "2026-05-26",
@@ -27,6 +28,20 @@
       "gpa": 3.8,
       "start_ym": "2021.03",
       "end_ym": "2025.02"
+    }
+  ],
+
+  "career": [
+    {
+      "career_id": 1,
+      "resume_id": 1,
+      "company_name": "아티클루랩",
+      "department": "개발팀",
+      "position": "AI 백엔드 인턴",
+      "start_ym": "2025.06",
+      "end_ym": "2025.12",
+      "experience_months": 7,
+      "main_achievement": "FastAPI 기반 REST API 개발 및 ChromaDB 기반 RAG 검색 기능 구현 참여"
     }
   ],
 
@@ -54,46 +69,60 @@
       "cover_letter_id": 1,
       "resume_id": 1,
       "sub_title": "성장과정",
-      "content": "새로운 기술을 빠르게 학습하고 실제 프로젝트에 적용하는 과정에서 성취감을 느끼며 성장해왔습니다. Python과 FastAPI 기반 백엔드 개발을 학습했고 LangGraph와 ChromaDB를 활용한 AI Agent 시스템 프로젝트를 수행했습니다.",
-      "create_date": "2026-05-26",
-      "update_date": "2026-05-26"
+      "content": "새로운 기술을 빠르게 학습하고 실제 프로젝트에 적용하는 과정에서 성장했습니다."
     },
     {
       "cover_letter_id": 2,
       "resume_id": 1,
       "sub_title": "협업 경험",
-      "content": "Git 기반 협업 경험을 통해 기능 단위 브랜치 전략과 코드 리뷰 프로세스를 경험했습니다. 프로젝트 진행 시 API 명세와 문서화를 통해 원활한 협업 환경을 구축했습니다.",
-      "create_date": "2026-05-26",
-      "update_date": "2026-05-26"
+      "content": "Git 기반 협업 경험과 코드 리뷰 경험을 통해 팀 개발 프로세스를 이해했습니다."
     },
     {
       "cover_letter_id": 3,
       "resume_id": 1,
       "sub_title": "강점",
-      "content": "문제 해결 과정에서 원인을 빠르게 분석하고 개선 방향을 제시하는 역량이 강점입니다. API 응답 속도 문제를 비동기 처리 방식으로 개선한 경험이 있습니다.",
-      "create_date": "2026-05-26",
-      "update_date": "2026-05-26"
+      "content": "API 성능 개선과 비동기 처리 구조 설계 경험이 강점입니다."
     },
     {
       "cover_letter_id": 4,
       "resume_id": 1,
       "sub_title": "지원동기 및 목표",
-      "content": "LLM 기반 AI 서비스와 Agent 시스템을 전문적으로 개발하는 AI Backend Engineer로 성장하고 싶습니다. 사용자 데이터를 기반으로 실제 서비스에 활용 가능한 AI 시스템 구축을 목표로 하고 있습니다.",
-      "create_date": "2026-05-26",
-      "update_date": "2026-05-26"
+      "content": "LLM 기반 AI 백엔드 시스템을 개발하는 엔지니어로 성장하고 싶습니다."
     }
   ],
 
-  "career": [
+  "resume_tech_stack": [
     {
-      "career_id": 1,
+      "resume_tech_id": 1,
       "resume_id": 1,
-      "company_name": "아티클루랩",
-      "department": "개발팀",
-      "position": "AI 백엔드 인턴",
-      "start_ym": "2025.06",
-      "end_ym": "2025.12",
-      "main_achievement": "FastAPI 기반 REST API 개발과 ChromaDB 기반 RAG 검색 기능 구현에 참여했습니다."
+      "tech_stack_id": 1,
+      "tech_name": "Spring",
+      "proficiency_level": "상",
+      "experience_months": 18
+    },
+    {
+      "resume_tech_id": 2,
+      "resume_id": 1,
+      "tech_stack_id": 2,
+      "tech_name": "Python",
+      "proficiency_level": "상",
+      "experience_months": 36
+    },
+    {
+      "resume_tech_id": 3,
+      "resume_id": 1,
+      "tech_stack_id": 3,
+      "tech_name": "FastAPI",
+      "proficiency_level": "상",
+      "experience_months": 18
+    },
+    {
+      "resume_tech_id": 4,
+      "resume_id": 1,
+      "tech_stack_id": 4,
+      "tech_name": "MySQL",
+      "proficiency_level": "중",
+      "experience_months": 24
     }
   ],
 
@@ -104,27 +133,6 @@
       "certificate_name": "정보처리기사",
       "acquired_ym": "2025.11",
       "issuer": "한국산업인력공단"
-    }
-  ],
-
-  "resume_tech_stack": [
-    {
-      "resume_tech_id": 1,
-      "resume_id": 1,
-      "tech_stack_id": 1,
-      "proficiency_level": "상",
-      "experience_months": 36,
-      "main_usage": "백엔드 API 및 AI 서비스 개발",
-      "create_date": "2026-05-26"
-    },
-    {
-      "resume_tech_id": 2,
-      "resume_id": 1,
-      "tech_stack_id": 2,
-      "proficiency_level": "상",
-      "experience_months": 18,
-      "main_usage": "REST API 서버 개발",
-      "create_date": "2026-05-26"
     }
   ]
 }

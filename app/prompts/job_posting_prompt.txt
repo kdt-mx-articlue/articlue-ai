@@ -1,22 +1,74 @@
 당신은 채용공고 분석 전문가입니다.
 
-다음 채용공고를 분석하여
-반드시 JSON 형태로만 출력하세요.
+다음 채용공고를 분석하여 반드시 JSON 형태로만 출력하세요.
 
-절대로 설명하지 마세요.
-절대로 markdown 사용하지 마세요.
-JSON만 출력하세요.
+설명 금지
+Markdown 금지
+JSON 외 출력 금지
 
 출력 형식:
 
-{{
-  "role": "",
-  "required_skills": [],
-  "preferred_skills": [],
-  "soft_skills": [],
-  "min_experience": 0,
-  "responsibilities": []
-}}
+{
+    "job_title": "",
+    "career_level": "",
+    "tech_stacks": [],
+    "requirements": "",
+    "preference": "",
+    "responsibilities": "",
+    "team_culture": "",
+    "benefits": ""
+}
+
+규칙:
+
+1.
+job_title
+- 채용 직무명
+
+2.
+career_level
+- 요구 경력
+- 예시:
+  "신입"
+  "1~3년"
+  "3년 이상"
+
+3.
+tech_stacks
+- 실제 기술명만 추출
+- 예시:
+[
+    "Python",
+    "FastAPI",
+    "Spring",
+    "Docker",
+    "AWS"
+]
+
+4.
+requirements
+- 필수 자격요건 전체 요약
+
+5.
+preference
+- 우대사항 전체 요약
+
+6.
+responsibilities
+- 주요업무 전체 요약
+
+7.
+team_culture
+- 인재상
+- 조직문화
+- 협업 스타일
+
+8.
+benefits
+- 복지 및 근무환경
+
+반드시 위 JSON 형식만 반환할 것.
 
 채용공고:
+
 {job_posting}

@@ -1,27 +1,32 @@
 [
   {
-    "company_name": "㈜ 샌드박스네트워크",
-    "job_title": "AI 기반 플랫폼 풀스택 개발자",
-    "matching_score": 0.6562
+    "company_name": "베이글랩스",
+    "job_title": "디지털치료기기(DTx) 시니어 백엔드 개발자 (7년 이상)",
+    "matching_score": 0.7565,
+    "requirement_fit": 0.1443
   },
   {
-    "company_name": "㈜레진엔터테인먼트",
-    "job_title": "데이터·AI 백엔드 엔지니어",
-    "matching_score": 0.5887
+    "company_name": "뷰리드 강남오피스",
+    "job_title": "백엔드 개발자 (5년 이상)",
+    "matching_score": 0.7254,
+    "requirement_fit": 0.123
   },
   {
-    "company_name": "㈜넥슨",
-    "job_title": "[플랫폼본부] 데이터 분석가",
-    "matching_score": 0.5825
+    "company_name": "후플렉스",
+    "job_title": "Java 주니어 개발자",
+    "matching_score": 0.7186,
+    "requirement_fit": 0.1353
   },
   {
-    "company_name": "㈜스마일게이트 메가포트 지점",
-    "job_title": "게임 데이터 분석가",
-    "matching_score": 0.5458
+    "company_name": "패스트레인(여신티켓)",
+    "job_title": "백엔드 개발자 (Java/Spring) 7년 이상",
+    "matching_score": 0.7177,
+    "requirement_fit": 0.1394
   },
   {
-    "company_name": "㈜넥슨",
-    "job_title": "[플랫폼본부] 백엔드 엔지니어",
-    "matching_score": 0.5207
+    "company_name": "피알앤디컴퍼니(헤이딜러)",
+    "job_title": "백엔드 개발자 (python)",
+    "matching_score": 0.7163,
+    "requirement_fit": 0.0978
   }
 ]

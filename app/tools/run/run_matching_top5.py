@@ -6,12 +6,13 @@ from app.services.candidate.candidate_json_service import (
 )
 
 from app.services.matching.matching_service import (
-    calculate_matching_score
+    calculate_matching_score,
+    calculate_requirement_fit
 )
 
 from langchain_community.embeddings import HuggingFaceEmbeddings
 import chromadb
-import os
+
 
 
 # =========================
@@ -24,7 +25,7 @@ Path("app/data/vectors/job_vectors").mkdir(parents=True, exist_ok=True)
 # =========================
 # 파일 경로
 # =========================
-RESUME_PATH = "app/data/docs/resume_003.json"
+RESUME_PATH = "app/data/docs/resume_001.json"
 JOB_PATH = "app/data/parsed/job_postings_parsed.json"
 OUTPUT_PATH = "app/data/outputs/matching_results_top5.json"
 
@@ -58,24 +59,62 @@ def save_jobs_to_chroma(jobs):
 
     for job in jobs:
 
-        parsed = job.get("parsed_result", {})
-
-        text = (
-            f"{parsed.get('role','')} "
-            + " ".join(parsed.get("required_skills", []))
-            + " ".join(parsed.get("preferred_skills", []))
+        parsed = job.get(
+            "parsed_result",
+            {}
         )
+
+        text = f"""
+직무:
+{job.get("job_title", "")}
+
+기술스택:
+{parsed.get("tech_stacks", "")}
+
+자격요건:
+{parsed.get("requirements", "")}
+
+우대사항:
+{parsed.get("preference", "")}
+
+주요업무:
+{parsed.get("responsibilities", "")}
+
+인재상:
+{parsed.get("team_culture", "")}
+
+복지혜택:
+{parsed.get("benefits", "")}
+""".strip()
 
         texts.append(text)
 
-        ids.append(str(job.get("job_id", len(ids))))
+        ids.append(
+            str(
+                job.get(
+                    "job_id",
+                    len(ids)
+                )
+            )
+        )
 
         metadatas.append({
-            "company": job.get("company_name", ""),
-            "title": job.get("job_title", "")
+            "company":
+            job.get(
+                "company_name",
+                ""
+            ),
+
+            "title":
+            job.get(
+                "job_title",
+                ""
+            )
         })
 
-    embeddings = embedding_model.embed_documents(texts)
+    embeddings = embedding_model.embed_documents(
+        texts
+    )
 
     collection.add(
         documents=texts,
@@ -108,16 +147,36 @@ def main():
 
     for job in jobs:
 
-        score = calculate_matching_score(
-            candidate_result,
-            job
+        matching_score = calculate_matching_score(
+        candidate_result,
+        job
+    )
+        requirement_fit = calculate_requirement_fit(
+        candidate_result,
+        job
     )
 
         results.append({
-            "company_name": job.get("company_name", ""),
-            "job_title": job.get("job_title", ""),
-            "matching_score": score
-        })
+
+                "company_name":
+                job.get(
+                    "company_name",
+                    ""
+                ),
+
+                "job_title":
+                job.get(
+                    "job_title",
+                    ""
+                ),
+
+                "matching_score":
+                matching_score,
+
+                "requirement_fit":
+                requirement_fit
+
+})
 
     # =========================
     # 점수 정렬
@@ -151,6 +210,9 @@ def main():
 
 매칭 점수:
 {result['matching_score']}
+
+Requirement Fit:
+{result['requirement_fit']}
 =========================
 """)
 

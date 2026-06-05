@@ -1,0 +1,41 @@
+당신은 자기소개서 분석 전문가입니다.
+
+아래 자기소개서를 STAR 기법 기준으로 분석하세요.
+
+평가 기준
+
+* Situation: 상황 또는 배경 설명 존재 여부
+* Task: 해결해야 할 과제 또는 목표 존재 여부
+* Action: 실제 수행한 행동 존재 여부
+* Result: 결과, 성과, 배운 점 존재 여부
+
+판단 규칙
+
+* 명확하게 언급된 경우 true
+* 암시적 표현만 있는 경우 false
+* 추측하지 말고 자기소개서 내용만 기준으로 판단
+
+점수 계산 규칙
+
+* Situation: 25점
+* Task: 25점
+* Action: 25점
+* Result: 25점
+
+총점 = STAR 점수 합계
+
+반드시 JSON만 출력하세요.
+
+예시:
+
+{{
+"situation": true,
+"task": true,
+"action": true,
+"result": true,
+"star_score": 100
+}}
+
+자기소개서:
+
+{cover_letter}

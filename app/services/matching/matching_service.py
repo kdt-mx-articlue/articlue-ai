@@ -1,6 +1,10 @@
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
+from app.services.matching.skill_chipset import (
+    expand_skills
+)
+
 
 
 # =========================
@@ -27,6 +31,65 @@ def safe_join(values):
         ]
     )
 
+    # =========================
+# 기술 스택 확장
+# =========================
+TECH_RELATIONS = {
+
+    "Python": [
+        "FastAPI",
+        "Django",
+        "Flask",
+        "Pandas",
+        "NumPy"
+    ],
+
+    "FastAPI": [
+        "Python",
+        "REST API",
+        "Swagger"
+    ],
+
+    "Spring": [
+        "Java",
+        "Spring Boot",
+        "JPA"
+    ],
+
+    "MySQL": [
+        "SQL",
+        "Database"
+    ],
+
+    "LangChain": [
+        "LLM",
+        "RAG",
+        "Prompt Engineering"
+    ],
+
+    "ChromaDB": [
+        "Vector DB",
+        "Embedding",
+        "RAG"
+    ]
+}
+
+
+def expand_skills(skills):
+
+    expanded = set(skills)
+
+    for skill in skills:
+
+        related = TECH_RELATIONS.get(
+            skill,
+            []
+        )
+
+        expanded.update(related)
+
+    return list(expanded)
+
 
 # =========================
 # Job Text
@@ -37,17 +100,35 @@ def build_job_text(job):
         "parsed_result",
         {}
     )
+    job_skills = expand_skills(
+    parsed.get(
+        "tech_stacks",
+        []
+    )
+)
 
     return f"""
-직무: {parsed.get("role", "")}
+직무: {job.get("job_title", "")}
 
-기술: {safe_join(parsed.get("required_skills", []))}
+경력조건: {parsed.get("career_level", "")}
 
-우대기술: {safe_join(parsed.get("preferred_skills", []))}
+기술스택:
+{safe_join(job_skills)}
 
-소프트스킬: {safe_join(parsed.get("soft_skills", []))}
+자격요건:
+{parsed.get("requirements", "")}
 
-업무: {safe_join(parsed.get("responsibilities", []))}
+우대사항:
+{parsed.get("preference", "")}
+
+인재상:
+{parsed.get("team_culture", "")}
+
+주요업무:
+{parsed.get("responsibilities", "")}
+
+복지혜택:
+{parsed.get("benefits", "")}
 """.strip()
 
 
@@ -61,16 +142,128 @@ def build_candidate_text(candidate):
         {}
     )
 
+    resume_data = candidate.get(
+        "resume_data",
+        {}
+    )
+
+    resume_skills = [
+        tech.get("tech_name", "")
+        for tech in resume_data.get(
+            "resume_tech_stack",
+            []
+        )
+    ]
+
+    resume_skills = expand_skills(
+    resume_skills
+)
+
+    career_years = (
+        resume_data
+        .get("resume", {})
+        .get("career_years", 0)
+    )
+
     return f"""
-성향: {safe_join(parsed.get("personality_traits", []))}
+희망직무:
+{parsed.get("career_orientation", "")}
 
-기술: {safe_join(parsed.get("technical_skills", []))}
+총 경력:
+{career_years}년
 
-소프트스킬: {safe_join(parsed.get("soft_skills", []))}
+보유기술스택:
+{safe_join(resume_skills)}
 
-문제해결: {parsed.get("problem_solving", "") or ""}
+기술역량:
+{safe_join(parsed.get("technical_skills", []))}
 
-희망직무: {parsed.get("job_preference", "") or ""}
+AI기술:
+{safe_join(parsed.get("ai_skills", []))}
+
+백엔드기술:
+{safe_join(parsed.get("backend_skills", []))}
+
+소프트스킬:
+{safe_join(parsed.get("soft_skills", []))}
+
+성향:
+{safe_join(parsed.get("personality_traits", []))}
+
+문제해결:
+{parsed.get("problem_solving", "")}
+
+프로젝트경험:
+{safe_join(parsed.get("project_experience", []))}
+""".strip()
+
+# =========================
+# Requirement Fit Job Text
+# =========================
+def build_requirement_text(job):
+
+    parsed = job.get(
+        "parsed_result",
+        {}
+    )
+
+    return f"""
+자격요건:
+{parsed.get("requirements", "")}
+
+주요업무:
+{parsed.get("responsibilities", "")}
+""".strip()
+
+
+# =========================
+# Requirement Fit Resume Text
+# =========================
+def build_resume_requirement_text(candidate):
+
+    parsed = candidate.get(
+        "analysis_result",
+        {}
+    )
+
+    resume_data = candidate.get(
+        "resume_data",
+        {}
+    )
+
+    career_text = ""
+
+    for career in resume_data.get(
+        "career",
+        []
+    ):
+
+        career_text += f"""
+회사:
+{career.get("company_name", "")}
+
+부서:
+{career.get("department", "")}
+
+직무:
+{career.get("position", "")}
+
+주요성과:
+{career.get("main_achievement", "")}
+"""
+
+    return f"""
+기술역량:
+{safe_join(parsed.get("technical_skills", []))}
+
+프로젝트경험:
+{safe_join(parsed.get("project_experience", []))}
+
+문제해결:
+{parsed.get("problem_solving", "")}
+
+경력:
+{career_text}
 """.strip()
 
 
@@ -141,6 +334,88 @@ def calculate_matching_score(
         job_embeddings[0]
     )
 
+# =========================
+# Requirement Fit
+# =========================
+def calculate_requirement_fit(
+    candidate_data,
+    job_data
+):
+
+    candidate_text = build_candidate_text(
+        candidate_data
+    )
+
+    parsed = job_data.get(
+        "parsed_result",
+        {}
+    )
+
+    # =========================
+    # 필수요건
+    # =========================
+    requirement_text = f"""
+    {parsed.get("requirements","")}
+    {safe_join(parsed.get("tech_stacks", []))}
+    """
+
+    # =========================
+    # 주요업무
+    # =========================
+    responsibility_text = f"""
+    {parsed.get("responsibilities","")}
+    """
+
+    # =========================
+    # 우대사항
+    # =========================
+    preference_text = f"""
+    {parsed.get("preference","")}
+    """
+
+    candidate_embedding = model.embed_query(
+        candidate_text
+    )
+
+    requirement_embedding = model.embed_query(
+        requirement_text
+    )
+
+    responsibility_embedding = model.embed_query(
+        responsibility_text
+    )
+
+    preference_embedding = model.embed_query(
+        preference_text
+    )
+
+    requirement_score = score(
+        candidate_embedding,
+        requirement_embedding
+    )
+
+    responsibility_score = score(
+        candidate_embedding,
+        responsibility_embedding
+    )
+
+    preference_score = score(
+        candidate_embedding,
+        preference_embedding
+    )
+
+    final_score = (
+    requirement_score * 0.7
+    +
+    responsibility_score * 0.25
+    +
+    preference_score * 0.05
+)
+
+    return round(
+        final_score,
+        4
+    )
 
 # =========================
 # 전체 공고 매칭
@@ -150,7 +425,7 @@ def match_candidate_to_jobs(
     jobs_data
 ):
 
-    candidate_text = build_candidate_text(
+    candidate_text = build_resume_requirement_text(
         candidate_data
     )
 

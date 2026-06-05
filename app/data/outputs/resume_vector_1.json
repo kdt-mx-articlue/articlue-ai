@@ -1,0 +1,217 @@
+{
+  "vector_text": "이름: 이준호\n희망직무: LLM 기반 AI 백엔드 시스템 개발 엔지니어\n희망지역: 서울\n경력연차: 2\n\n기술스택: Spring Python FastAPI MySQL\n\n기술역량: Spring Python FastAPI MySQL\n\nAI 기술: LLM\n\n백엔드 기술: Spring FastAPI REST API 비동기 처리\n\n소프트스킬: 협업 능력 코드 리뷰\n\n성향: 빠른 학습 능력\n\n프로젝트 경험:",
+  "metadata": {
+    "resume_id": 1,
+    "name": "이준호",
+    "desired_location": "서울",
+    "career_years": 2
+  },
+  "analysis_result": {
+    "personality_traits": [
+      "빠른 학습 능력"
+    ],
+    "technical_skills": [
+      "Spring",
+      "Python",
+      "FastAPI",
+      "MySQL"
+    ],
+    "backend_skills": [
+      "Spring",
+      "FastAPI",
+      "REST API",
+      "비동기 처리"
+    ],
+    "ai_skills": [
+      "LLM"
+    ],
+    "soft_skills": [
+      "협업 능력",
+      "코드 리뷰"
+    ],
+    "teamwork_style": "Git 기반 협업과 코드 리뷰를 통한 팀 개발 프로세스 이해",
+    "problem_solving": "API 성능 개선과 비동기 처리 구조 설계 경험을 통한 문제 해결",
+    "growth_potential": "새로운 기술을 빠르게 학습하고 실제 프로젝트에 적용하며 성장",
+    "project_experience": [],
+    "career_orientation": "LLM 기반 AI 백엔드 시스템 개발 엔지니어",
+    "strength_keywords": [
+      "API 성능 개선",
+      "비동기 처리"
+    ]
+  },
+  "star_analysis": [
+    {
+      "sub_title": "성장과정",
+      "star_analysis": {
+        "situation": false,
+        "task": false,
+        "action": true,
+        "result": true,
+        "star_score": 50
+      }
+    },
+    {
+      "sub_title": "협업 경험",
+      "star_analysis": {
+        "situation": false,
+        "task": false,
+        "action": true,
+        "result": false,
+        "star_score": 25
+      }
+    },
+    {
+      "sub_title": "강점",
+      "star_analysis": {
+        "situation": false,
+        "task": false,
+        "action": false,
+        "result": false,
+        "star_score": 0
+      }
+    },
+    {
+      "sub_title": "지원동기 및 목표",
+      "star_analysis": {
+        "situation": false,
+        "task": false,
+        "action": false,
+        "result": false,
+        "star_score": 0
+      }
+    }
+  ],
+  "resume_data": {
+    "resume": {
+      "resume_id": 1,
+      "member_id": 1,
+      "resume_title": "AI 백엔드 개발자 이력서",
+      "name": "이준호",
+      "phone": "01012345678",
+      "email": "minsu.kim@example.com",
+      "birth_date": "1999-03-14",
+      "address": "광주광역시 북구",
+      "gender": "male",
+      "military_status": "Y",
+      "desired_location": "서울",
+      "career_years": 2,
+      "resume_status": "작성완료",
+      "representative_yn": "Y",
+      "create_date": "2026-05-26",
+      "update_date": "2026-05-26"
+    },
+    "education": [
+      {
+        "education_id": 1,
+        "resume_id": 1,
+        "school_type": "대학교",
+        "school_name": "조선대학교",
+        "major": "컴퓨터공학과",
+        "gpa": 3.8,
+        "start_ym": "2021.03",
+        "end_ym": "2025.02"
+      }
+    ],
+    "career": [
+      {
+        "career_id": 1,
+        "resume_id": 1,
+        "company_name": "아티클루랩",
+        "department": "개발팀",
+        "position": "AI 백엔드 인턴",
+        "start_ym": "2025.06",
+        "end_ym": "2025.12",
+        "experience_months": 7,
+        "main_achievement": "FastAPI 기반 REST API 개발 및 ChromaDB 기반 RAG 검색 기능 구현 참여"
+      }
+    ],
+    "resume_activity": [
+      {
+        "activity_id": 1,
+        "resume_id": 1,
+        "activity_type": "교육",
+        "activity_name": "SMHRD AI 과정 수료",
+        "start_ym": "2024.09",
+        "end_ym": "2025.06"
+      },
+      {
+        "activity_id": 2,
+        "resume_id": 1,
+        "activity_type": "프로젝트",
+        "activity_name": "AI 기반 채용 추천 플랫폼 개발",
+        "start_ym": "2026.01",
+        "end_ym": "2026.05"
+      }
+    ],
+    "cover_letter": [
+      {
+        "cover_letter_id": 1,
+        "resume_id": 1,
+        "sub_title": "성장과정",
+        "content": "새로운 기술을 빠르게 학습하고 실제 프로젝트에 적용하는 과정에서 성장했습니다."
+      },
+      {
+        "cover_letter_id": 2,
+        "resume_id": 1,
+        "sub_title": "협업 경험",
+        "content": "Git 기반 협업 경험과 코드 리뷰 경험을 통해 팀 개발 프로세스를 이해했습니다."
+      },
+      {
+        "cover_letter_id": 3,
+        "resume_id": 1,
+        "sub_title": "강점",
+        "content": "API 성능 개선과 비동기 처리 구조 설계 경험이 강점입니다."
+      },
+      {
+        "cover_letter_id": 4,
+        "resume_id": 1,
+        "sub_title": "지원동기 및 목표",
+        "content": "LLM 기반 AI 백엔드 시스템을 개발하는 엔지니어로 성장하고 싶습니다."
+      }
+    ],
+    "resume_tech_stack": [
+      {
+        "resume_tech_id": 1,
+        "resume_id": 1,
+        "tech_stack_id": 1,
+        "tech_name": "Spring",
+        "proficiency_level": "상",
+        "experience_months": 18
+      },
+      {
+        "resume_tech_id": 2,
+        "resume_id": 1,
+        "tech_stack_id": 2,
+        "tech_name": "Python",
+        "proficiency_level": "상",
+        "experience_months": 36
+      },
+      {
+        "resume_tech_id": 3,
+        "resume_id": 1,
+        "tech_stack_id": 3,
+        "tech_name": "FastAPI",
+        "proficiency_level": "상",
+        "experience_months": 18
+      },
+      {
+        "resume_tech_id": 4,
+        "resume_id": 1,
+        "tech_stack_id": 4,
+        "tech_name": "MySQL",
+        "proficiency_level": "중",
+        "experience_months": 24
+      }
+    ],
+    "certificate": [
+      {
+        "certificate_id": 1,
+        "resume_id": 1,
+        "certificate_name": "정보처리기사",
+        "acquired_ym": "2025.11",
+        "issuer": "한국산업인력공단"
+      }
+    ]
+  },
+  "saved_at": "2026-06-05T10:14:48.720669"
+}

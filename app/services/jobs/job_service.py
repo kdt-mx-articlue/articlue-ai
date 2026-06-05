@@ -40,21 +40,28 @@ def process_job_postings(
         직무:
         {row.get("job_title", "")}
 
-        requirements:
+        경력조건:
+        {row.get("career_level", "")}
+
+        자격요건:
         {row.get("requirements", "")}
 
-        preferences:
-        {row.get("preferences", "")}
+        우대사항:
+        {row.get("preference", "")}
 
-        responsibilities:
+        주요업무:
         {row.get("responsibilities", "")}
 
-        tech_stacks:
+        기술스택:
         {row.get("tech_stacks", "")}
 
-        team_culture:
+        인재상:
         {row.get("team_culture", "")}
-        """
+
+        복지혜택:
+        {row.get("benefits", "")}
+         """.strip()
+        
 
         # =====================
         # 채용공고 LLM 분석

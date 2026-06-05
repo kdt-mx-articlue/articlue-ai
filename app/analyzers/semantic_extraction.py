@@ -7,19 +7,15 @@ from langchain_core.prompts import ChatPromptTemplate
 load_dotenv()
 
 
+# =========================
+# JSON 안전 처리
+# =========================
 def clean_json_response(text: str):
-
-    """
-    GPT markdown json 제거
-    """
 
     text = text.strip()
 
     if text.startswith("```json"):
-        text = text.replace(
-            "```json",
-            ""
-        )
+        text = text.replace("```json", "")
 
     if text.endswith("```"):
         text = text[:-3]
@@ -27,67 +23,55 @@ def clean_json_response(text: str):
     return text.strip()
 
 
-def analyze_cover_letter(
-    merged_text: str
-):
+# =========================
+# LLM 공통 실행
+# =========================
+def run_llm(prompt_path: str, input_key: str, input_text: str):
 
-    """
-    자기소개서 semantic 분석
-    """
+    with open(prompt_path, "r", encoding="utf-8") as f:
+        prompt_text = f.read()
 
-    with open(
+    prompt = ChatPromptTemplate.from_template(prompt_text)
+
+    llm = ChatOpenAI(
+        model="gpt-4.1-mini",
+        temperature=0
+    )
+
+    chain = prompt | llm
+
+    response = chain.invoke({
+        input_key: input_text
+    })
+
+    try:
+        cleaned = clean_json_response(response.content)
+        return json.loads(cleaned)
+
+    except Exception as e:
+        return {
+            "error": str(e),
+            "raw_response": response.content
+        }
+
+
+# =========================
+# 자기소개서 분석
+# =========================
+def analyze_cover_letter(merged_text: str):
+
+    return run_llm(
         "app/prompts/cover_letter_prompt.txt",
-        "r",
-        encoding="utf-8"
-    ) as f:
-
-        prompt_text = f.read()
-
-    prompt = ChatPromptTemplate.from_template(
-        prompt_text
+        "cover_letter",
+        merged_text
     )
 
-    llm = ChatOpenAI(
-        model="gpt-4.1-mini",
-        temperature=0
-    )
-
-    chain = prompt | llm
-
-    response = chain.invoke({
-        "cover_letter": merged_text
-    })
-
-    try:
-
-        cleaned_text = clean_json_response(
-            response.content
-        )
-
-        parsed_result = json.loads(
-            cleaned_text
-        )
-
-        return parsed_result
-
-    except Exception as e:
-
-        return {
-            "error": str(e),
-            "raw_response": response.content
-        }
-
-
-def analyze_job_posting(
-    job_text: str
+def analyze_star_structure(
+    cover_letter_text: str
 ):
 
-    """
-    채용공고 semantic 분석
-    """
-
     with open(
-        "app/prompts/job_posting_prompt.txt",
+        "app/prompts/star_analysis_prompt.txt",
         "r",
         encoding="utf-8"
     ) as f:
@@ -106,7 +90,7 @@ def analyze_job_posting(
     chain = prompt | llm
 
     response = chain.invoke({
-        "job_posting": job_text
+        "cover_letter": cover_letter_text
     })
 
     try:
@@ -115,11 +99,9 @@ def analyze_job_posting(
             response.content
         )
 
-        parsed_result = json.loads(
+        return json.loads(
             cleaned_text
         )
-
-        return parsed_result
 
     except Exception as e:
 
@@ -127,3 +109,31 @@ def analyze_job_posting(
             "error": str(e),
             "raw_response": response.content
         }
+
+# =========================
+# 채용공고 분석
+# =========================
+def analyze_job_posting(job_text: str):
+
+    result = run_llm(
+        "app/prompts/job_posting_prompt.txt",
+        "job_posting",
+        job_text
+    )
+
+    return result
+
+
+
+# =========================
+# (옵션) resume 분석용 확장 구조
+# =========================
+def analyze_resume(resume_text: str):
+
+    result = run_llm(
+        "app/prompts/resume_prompt.txt",
+        "resume",
+        resume_text
+    )
+
+    return result

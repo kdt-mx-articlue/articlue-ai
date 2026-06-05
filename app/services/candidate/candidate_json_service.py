@@ -1,7 +1,8 @@
 import json
 
 from app.analyzers.semantic_extraction import (
-    analyze_cover_letter
+    analyze_cover_letter,
+    analyze_star_structure
 )
 
 
@@ -77,6 +78,34 @@ def process_candidate_json(
     )
 
     # =========================
+    # STAR 분석
+    # =========================
+    star_results = []
+
+    for item in data.get(
+        "cover_letter",
+        []
+    ):
+
+        star_result = analyze_star_structure(
+            item.get(
+                "content",
+                ""
+            )
+        )
+
+        star_results.append({
+
+            "sub_title":
+            item.get(
+                "sub_title",
+                ""
+            ),
+
+            "star_analysis":
+            star_result
+        })
+    # =========================
     # 최종 반환
     # =========================
     return {
@@ -85,5 +114,8 @@ def process_candidate_json(
         data,
 
         "analysis_result":
-        result
-    }
+        result,
+
+        "star_analysis":
+        star_results
+}
