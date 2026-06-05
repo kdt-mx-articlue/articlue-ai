@@ -15,7 +15,12 @@ OUTPUT_JSON_DIR = os.path.abspath(
 )
 
 
-def save_resume_vector(resume_data, analysis_result,star_analysis=None):
+def save_resume_vector(
+    resume_data,
+    analysis_result,
+    star_analysis=None,
+    github_traits=None
+):
 
     embeddings = get_embedding_model()
 
@@ -56,6 +61,10 @@ AI 기술: {' '.join(ai_skills)}
 성향: {' '.join(personality_traits)}
 
 프로젝트 경험: {' '.join(analysis_result.get("project_experience", []))}
+
+GitHub 개발성향:
+{' '.join(github_traits or [])}
+
 """.strip()
 
     document = Document(
@@ -96,8 +105,10 @@ AI 기술: {' '.join(ai_skills)}
         "metadata": document.metadata,
         "analysis_result": analysis_result,
         "star_analysis": star_analysis,
+        "github_traits":github_traits,
         "resume_data": resume_data,
         "saved_at": datetime.now().isoformat()
+        
 }
 
     with open(output_file, "w", encoding="utf-8") as f:

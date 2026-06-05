@@ -134,5 +134,19 @@
       "acquired_ym": "2025.11",
       "issuer": "한국산업인력공단"
     }
-  ]
+  ],
+
+ 
+  "github": {
+    "repos": [
+      "AI Job Matching"
+    ],
+    "commits": [
+      "feat FastAPI API 구현",
+      "refactor matching service 개선",
+      "test scoring unit test 추가",
+      "fix async bug"
+    ]
+}
+
 }

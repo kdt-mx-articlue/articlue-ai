@@ -1,5 +1,5 @@
 {
-  "vector_text": "이름: 이준호\n희망직무: LLM 기반 AI 백엔드 시스템 개발 엔지니어\n희망지역: 서울\n경력연차: 2\n\n기술스택: Spring Python FastAPI MySQL\n\n기술역량: Spring Python FastAPI MySQL\n\nAI 기술: LLM\n\n백엔드 기술: Spring FastAPI REST API 비동기 처리\n\n소프트스킬: 협업 능력 코드 리뷰\n\n성향: 빠른 학습 능력\n\n프로젝트 경험:",
+  "vector_text": "이름: 이준호\n희망직무: LLM 기반 AI 백엔드 시스템 개발 엔지니어로 성장\n희망지역: 서울\n경력연차: 2\n\n기술스택: Spring Python FastAPI MySQL\n\n기술역량: Spring Python FastAPI MySQL\n\nAI 기술: LLM\n\n백엔드 기술: Spring FastAPI REST API 비동기 처리\n\n소프트스킬: 협업 능력 코드 리뷰\n\n성향: 빠른 학습 능력\n\n프로젝트 경험: API 성능 개선 프로젝트 비동기 처리 구조 설계 프로젝트\n\nGitHub 개발성향:\n구조 개선 선호 테스트 지향 문제 해결 중심 백엔드 중심",
   "metadata": {
     "resume_id": 1,
     "name": "이준호",
@@ -30,12 +30,15 @@
       "코드 리뷰"
     ],
     "teamwork_style": "Git 기반 협업과 코드 리뷰를 통한 팀 개발 프로세스 이해",
-    "problem_solving": "API 성능 개선과 비동기 처리 구조 설계 경험을 통한 문제 해결",
-    "growth_potential": "새로운 기술을 빠르게 학습하고 실제 프로젝트에 적용하며 성장",
-    "project_experience": [],
-    "career_orientation": "LLM 기반 AI 백엔드 시스템 개발 엔지니어",
+    "problem_solving": "API 성능 개선과 비동기 처리 구조 설계 경험을 통해 문제를 해결함",
+    "growth_potential": "새로운 기술을 빠르게 학습하고 실제 프로젝트에 적용하며 성장함",
+    "project_experience": [
+      "API 성능 개선 프로젝트",
+      "비동기 처리 구조 설계 프로젝트"
+    ],
+    "career_orientation": "LLM 기반 AI 백엔드 시스템 개발 엔지니어로 성장",
     "strength_keywords": [
-      "API 성능 개선",
+      "API 최적화",
       "비동기 처리"
     ]
   },
@@ -80,6 +83,12 @@
         "star_score": 0
       }
     }
+  ],
+  "github_traits": [
+    "구조 개선 선호",
+    "테스트 지향",
+    "문제 해결 중심",
+    "백엔드 중심"
   ],
   "resume_data": {
     "resume": {
@@ -211,7 +220,18 @@
         "acquired_ym": "2025.11",
         "issuer": "한국산업인력공단"
       }
-    ]
+    ],
+    "github": {
+      "repos": [
+        "AI Job Matching"
+      ],
+      "commits": [
+        "feat FastAPI API 구현",
+        "refactor matching service 개선",
+        "test scoring unit test 추가",
+        "fix async bug"
+      ]
+    }
   },
-  "saved_at": "2026-06-05T10:14:48.720669"
+  "saved_at": "2026-06-05T12:16:17.442432"
 }

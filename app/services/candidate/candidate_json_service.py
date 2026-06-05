@@ -5,6 +5,10 @@ from app.analyzers.semantic_extraction import (
     analyze_star_structure
 )
 
+from app.services.candidate.github_analyzer import (
+    extract_developer_traits
+)
+
 
 def process_candidate_json(
     json_path: str
@@ -86,6 +90,13 @@ def process_candidate_json(
         "cover_letter",
         []
     ):
+    
+        github_traits = extract_developer_traits(
+        data.get(
+            "github",
+            {}
+            )
+        )
 
         star_result = analyze_star_structure(
             item.get(
@@ -110,12 +121,15 @@ def process_candidate_json(
     # =========================
     return {
 
-        "resume_data":
-        data,
+    "resume_data":
+    data,
 
-        "analysis_result":
-        result,
+    "analysis_result":
+    result,
 
-        "star_analysis":
-        star_results
+    "star_analysis":
+    star_results,
+
+    "github_traits":
+    github_traits
 }
