@@ -32,9 +32,18 @@ def main():
     # Vector DB 저장
     # =========================
     save_resume_vector(
-        resume_data=result["resume_data"],
-        analysis_result=result["analysis_result"]
+    resume_data=result["resume_data"],
+    analysis_result=result["analysis_result"],
+    star_analysis=result["star_analysis"],
+    github_traits=result.get(
+        "github_traits",
+        []
+    ),
+    github_profile=result.get(
+        "github_profile",
+        {}
     )
+)
 
     # =========================
     # JSON 저장

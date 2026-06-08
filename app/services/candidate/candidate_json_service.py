@@ -9,6 +9,10 @@ from app.services.candidate.github_analyzer import (
     extract_developer_traits
 )
 
+from app.services.candidate.github_profile_service import (
+    build_github_profile
+)
+
 
 def process_candidate_json(
     json_path: str
@@ -43,42 +47,59 @@ def process_candidate_json(
         )
 
     merged_text = f"""
-    이름:
-    {
-        data.get(
-            "resume",
-            {}
-        ).get(
-            "name",
-            ""
-        )
-    }
+이름:
+{
+    data.get(
+        "resume",
+        {}
+    ).get(
+        "name",
+        ""
+    )
+}
 
-    학력:
-    {
-        data.get(
-            "education",
-            []
-        )
-    }
+학력:
+{
+    data.get(
+        "education",
+        []
+    )
+}
 
-    기술스택:
-    {", ".join(tech_stack)}
+기술스택:
+{", ".join(tech_stack)}
 
-    자기소개서:
-    {
-        data.get(
-            "cover_letter",
-            []
-        )
-    }
-    """
+자기소개서:
+{
+    data.get(
+        "cover_letter",
+        []
+    )
+}
+"""
 
     # =========================
     # LLM 분석
     # =========================
     result = analyze_cover_letter(
         merged_text
+    )
+
+    # =========================
+    # GitHub 분석
+    # =========================
+    github_traits = extract_developer_traits(
+        data.get(
+            "github",
+            {}
+        )
+    )
+
+    github_profile = build_github_profile(
+        data.get(
+            "github",
+            {}
+        )
     )
 
     # =========================
@@ -90,13 +111,6 @@ def process_candidate_json(
         "cover_letter",
         []
     ):
-    
-        github_traits = extract_developer_traits(
-        data.get(
-            "github",
-            {}
-            )
-        )
 
         star_result = analyze_star_structure(
             item.get(
@@ -116,20 +130,24 @@ def process_candidate_json(
             "star_analysis":
             star_result
         })
+
     # =========================
     # 최종 반환
     # =========================
     return {
 
-    "resume_data":
-    data,
+        "resume_data":
+        data,
 
-    "analysis_result":
-    result,
+        "analysis_result":
+        result,
 
-    "star_analysis":
-    star_results,
+        "star_analysis":
+        star_results,
 
-    "github_traits":
-    github_traits
-}
+        "github_traits":
+        github_traits,
+
+        "github_profile":
+        github_profile
+    }

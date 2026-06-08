@@ -1,5 +1,5 @@
 {
-  "vector_text": "이름: 이준호\n희망직무: LLM 기반 AI 백엔드 시스템 개발 엔지니어로 성장\n희망지역: 서울\n경력연차: 2\n\n기술스택: Spring Python FastAPI MySQL\n\n기술역량: Spring Python FastAPI MySQL\n\nAI 기술: LLM\n\n백엔드 기술: Spring FastAPI REST API 비동기 처리\n\n소프트스킬: 협업 능력 코드 리뷰\n\n성향: 빠른 학습 능력\n\n프로젝트 경험: API 성능 개선 프로젝트 비동기 처리 구조 설계 프로젝트\n\nGitHub 개발성향:\n구조 개선 선호 테스트 지향 문제 해결 중심 백엔드 중심",
+  "vector_text": "이름: 이준호\n희망직무: 백엔드 개발 및 AI 관련 시스템 개발\n희망지역: 서울\n경력연차: 2\n\n기술스택: Spring Python FastAPI MySQL\n\n기술역량: Spring Python FastAPI MySQL LangGraph ChromaDB\n\nAI 기술: LangGraph ChromaDB AI Agent 시스템\n\n백엔드 기술: Spring Python FastAPI MySQL\n\n소프트스킬: \n\n성향: 빠른 학습 능력 성취감 추구\n\n프로젝트 경험: LangGraph와 ChromaDB를 활용한 AI Agent 시스템 프로젝트 수행\n\nGitHub 개발성향:\n\n    GitHub 활동성:\n    0\n    ",
   "metadata": {
     "resume_id": 1,
     "name": "이준호",
@@ -8,88 +8,54 @@
   },
   "analysis_result": {
     "personality_traits": [
-      "빠른 학습 능력"
+      "빠른 학습 능력",
+      "성취감 추구"
     ],
     "technical_skills": [
       "Spring",
       "Python",
       "FastAPI",
-      "MySQL"
+      "MySQL",
+      "LangGraph",
+      "ChromaDB"
     ],
     "backend_skills": [
       "Spring",
+      "Python",
       "FastAPI",
-      "REST API",
-      "비동기 처리"
+      "MySQL"
     ],
     "ai_skills": [
-      "LLM"
+      "LangGraph",
+      "ChromaDB",
+      "AI Agent 시스템"
     ],
-    "soft_skills": [
-      "협업 능력",
-      "코드 리뷰"
-    ],
-    "teamwork_style": "Git 기반 협업과 코드 리뷰를 통한 팀 개발 프로세스 이해",
-    "problem_solving": "API 성능 개선과 비동기 처리 구조 설계 경험을 통해 문제를 해결함",
+    "soft_skills": [],
+    "teamwork_style": "",
+    "problem_solving": "",
     "growth_potential": "새로운 기술을 빠르게 학습하고 실제 프로젝트에 적용하며 성장함",
     "project_experience": [
-      "API 성능 개선 프로젝트",
-      "비동기 처리 구조 설계 프로젝트"
+      "LangGraph와 ChromaDB를 활용한 AI Agent 시스템 프로젝트 수행"
     ],
-    "career_orientation": "LLM 기반 AI 백엔드 시스템 개발 엔지니어로 성장",
+    "career_orientation": "백엔드 개발 및 AI 관련 시스템 개발",
     "strength_keywords": [
-      "API 최적화",
-      "비동기 처리"
+      "빠른 기술 학습",
+      "AI Agent 시스템 개발"
     ]
   },
   "star_analysis": [
     {
       "sub_title": "성장과정",
       "star_analysis": {
-        "situation": false,
-        "task": false,
-        "action": true,
-        "result": true,
-        "star_score": 50
-      }
-    },
-    {
-      "sub_title": "협업 경험",
-      "star_analysis": {
-        "situation": false,
-        "task": false,
+        "situation": true,
+        "task": true,
         "action": true,
         "result": false,
-        "star_score": 25
-      }
-    },
-    {
-      "sub_title": "강점",
-      "star_analysis": {
-        "situation": false,
-        "task": false,
-        "action": false,
-        "result": false,
-        "star_score": 0
-      }
-    },
-    {
-      "sub_title": "지원동기 및 목표",
-      "star_analysis": {
-        "situation": false,
-        "task": false,
-        "action": false,
-        "result": false,
-        "star_score": 0
+        "star_score": 75
       }
     }
   ],
-  "github_traits": [
-    "구조 개선 선호",
-    "테스트 지향",
-    "문제 해결 중심",
-    "백엔드 중심"
-  ],
+  "github_traits": [],
   "resume_data": {
     "resume": {
       "resume_id": 1,
@@ -103,9 +69,9 @@
       "gender": "male",
       "military_status": "Y",
       "desired_location": "서울",
-      "career_years": 2,
       "resume_status": "작성완료",
       "representative_yn": "Y",
+      "career_years": 2,
       "create_date": "2026-05-26",
       "update_date": "2026-05-26"
     },
@@ -119,19 +85,6 @@
         "gpa": 3.8,
         "start_ym": "2021.03",
         "end_ym": "2025.02"
-      }
-    ],
-    "career": [
-      {
-        "career_id": 1,
-        "resume_id": 1,
-        "company_name": "아티클루랩",
-        "department": "개발팀",
-        "position": "AI 백엔드 인턴",
-        "start_ym": "2025.06",
-        "end_ym": "2025.12",
-        "experience_months": 7,
-        "main_achievement": "FastAPI 기반 REST API 개발 및 ChromaDB 기반 RAG 검색 기능 구현 참여"
       }
     ],
     "resume_activity": [
@@ -157,59 +110,22 @@
         "cover_letter_id": 1,
         "resume_id": 1,
         "sub_title": "성장과정",
-        "content": "새로운 기술을 빠르게 학습하고 실제 프로젝트에 적용하는 과정에서 성장했습니다."
-      },
-      {
-        "cover_letter_id": 2,
-        "resume_id": 1,
-        "sub_title": "협업 경험",
-        "content": "Git 기반 협업 경험과 코드 리뷰 경험을 통해 팀 개발 프로세스를 이해했습니다."
-      },
-      {
-        "cover_letter_id": 3,
-        "resume_id": 1,
-        "sub_title": "강점",
-        "content": "API 성능 개선과 비동기 처리 구조 설계 경험이 강점입니다."
-      },
-      {
-        "cover_letter_id": 4,
-        "resume_id": 1,
-        "sub_title": "지원동기 및 목표",
-        "content": "LLM 기반 AI 백엔드 시스템을 개발하는 엔지니어로 성장하고 싶습니다."
+        "content": "새로운 기술을 빠르게 학습하고 실제 프로젝트에 적용하는 과정에서 성취감을 느끼며 성장해왔습니다. Python과 FastAPI 기반 백엔드 개발을 학습했고 LangGraph와 ChromaDB를 활용한 AI Agent 시스템 프로젝트를 수행했습니다.",
+        "create_date": "2026-05-26",
+        "update_date": "2026-05-26"
       }
     ],
-    "resume_tech_stack": [
+    "career": [
       {
-        "resume_tech_id": 1,
+        "career_id": 1,
         "resume_id": 1,
-        "tech_stack_id": 1,
-        "tech_name": "Spring",
-        "proficiency_level": "상",
-        "experience_months": 18
-      },
-      {
-        "resume_tech_id": 2,
-        "resume_id": 1,
-        "tech_stack_id": 2,
-        "tech_name": "Python",
-        "proficiency_level": "상",
-        "experience_months": 36
-      },
-      {
-        "resume_tech_id": 3,
-        "resume_id": 1,
-        "tech_stack_id": 3,
-        "tech_name": "FastAPI",
-        "proficiency_level": "상",
-        "experience_months": 18
-      },
-      {
-        "resume_tech_id": 4,
-        "resume_id": 1,
-        "tech_stack_id": 4,
-        "tech_name": "MySQL",
-        "proficiency_level": "중",
-        "experience_months": 24
+        "company_name": "아티클루랩",
+        "department": "개발팀",
+        "position": "AI 백엔드 인턴",
+        "start_ym": "2025.06",
+        "end_ym": "2025.12",
+        "experience_months": 7,
+        "main_achievement": "FastAPI 기반 REST API 개발 및 ChromaDB 기반 RAG 검색 기능 구현에 참여했습니다."
       }
     ],
     "certificate": [
@@ -221,17 +137,54 @@
         "issuer": "한국산업인력공단"
       }
     ],
-    "github": {
-      "repos": [
-        "AI Job Matching"
-      ],
-      "commits": [
-        "feat FastAPI API 구현",
-        "refactor matching service 개선",
-        "test scoring unit test 추가",
-        "fix async bug"
-      ]
-    }
+    "resume_tech_stack": [
+      {
+        "resume_tech_id": 1,
+        "resume_id": 1,
+        "tech_stack_id": 1,
+        "tech_name": "Spring",
+        "proficiency_level": "중상",
+        "experience_months": 18,
+        "main_usage": "백엔드 서비스 개발"
+      },
+      {
+        "resume_tech_id": 2,
+        "resume_id": 1,
+        "tech_stack_id": 2,
+        "tech_name": "Python",
+        "proficiency_level": "상",
+        "experience_months": 36,
+        "main_usage": "AI/백엔드 개발"
+      },
+      {
+        "resume_tech_id": 3,
+        "resume_id": 1,
+        "tech_stack_id": 3,
+        "tech_name": "FastAPI",
+        "proficiency_level": "상",
+        "experience_months": 18,
+        "main_usage": "REST API 및 AI 서비스 개발"
+      },
+      {
+        "resume_tech_id": 4,
+        "resume_id": 1,
+        "tech_stack_id": 4,
+        "tech_name": "MySQL",
+        "proficiency_level": "중",
+        "experience_months": 24,
+        "main_usage": "DB 설계 및 쿼리 처리"
+      }
+    ],
+    "self_introduction": [
+      {
+        "section": "성장과정",
+        "content": "빠르게 새로운 기술을 습득하고 실제 프로젝트에 적용하는 과정에서 성장했습니다."
+      },
+      {
+        "section": "강점",
+        "content": "API 성능 개선과 시스템 구조 설계가 강점이며 비동기 처리 경험이 있습니다."
+      }
+    ]
   },
-  "saved_at": "2026-06-05T12:16:17.442432"
+  "saved_at": "2026-06-05T16:50:56.866833"
 }

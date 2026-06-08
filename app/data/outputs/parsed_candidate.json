@@ -150,7 +150,8 @@
     ],
     "ai_skills": [
       "LangGraph",
-      "ChromaDB"
+      "ChromaDB",
+      "AI Agent 시스템"
     ],
     "soft_skills": [],
     "teamwork_style": "",
@@ -164,5 +165,23 @@
       "빠른 기술 학습",
       "AI Agent 시스템 개발"
     ]
+  },
+  "star_analysis": [
+    {
+      "sub_title": "성장과정",
+      "star_analysis": {
+        "situation": true,
+        "task": true,
+        "action": true,
+        "result": false,
+        "star_score": 75
+      }
+    }
+  ],
+  "github_traits": [],
+  "github_profile": {
+    "repo_count": 0,
+    "commit_count": 0,
+    "activity_score": 0
   }
 }

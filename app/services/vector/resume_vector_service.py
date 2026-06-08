@@ -19,11 +19,15 @@ def save_resume_vector(
     resume_data,
     analysis_result,
     star_analysis=None,
-    github_traits=None
+    github_traits=None,
+    github_profile=None
 ):
+    
+    github_profile = github_profile or {}
 
     embeddings = get_embedding_model()
 
+    
     # =========================
     # 안전한 구조 처리
     # =========================
@@ -66,6 +70,12 @@ GitHub 개발성향:
 {' '.join(github_traits or [])}
 
 """.strip()
+    
+    vector_text += f"""
+
+    GitHub 활동성:
+    {github_profile.get("activity_score")}
+    """
 
     document = Document(
         page_content=vector_text,

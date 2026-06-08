@@ -31,64 +31,6 @@ def safe_join(values):
         ]
     )
 
-    # =========================
-# 기술 스택 확장
-# =========================
-TECH_RELATIONS = {
-
-    "Python": [
-        "FastAPI",
-        "Django",
-        "Flask",
-        "Pandas",
-        "NumPy"
-    ],
-
-    "FastAPI": [
-        "Python",
-        "REST API",
-        "Swagger"
-    ],
-
-    "Spring": [
-        "Java",
-        "Spring Boot",
-        "JPA"
-    ],
-
-    "MySQL": [
-        "SQL",
-        "Database"
-    ],
-
-    "LangChain": [
-        "LLM",
-        "RAG",
-        "Prompt Engineering"
-    ],
-
-    "ChromaDB": [
-        "Vector DB",
-        "Embedding",
-        "RAG"
-    ]
-}
-
-
-def expand_skills(skills):
-
-    expanded = set(skills)
-
-    for skill in skills:
-
-        related = TECH_RELATIONS.get(
-            skill,
-            []
-        )
-
-        expanded.update(related)
-
-    return list(expanded)
 
 
 # =========================
@@ -130,6 +72,7 @@ def build_job_text(job):
 복지혜택:
 {parsed.get("benefits", "")}
 """.strip()
+
 
 
 # =========================
@@ -444,42 +387,81 @@ def match_candidate_to_jobs(
     results = []
 
     for job, job_embedding in zip(
-        jobs_data,
-        job_embeddings
-    ):
+    jobs_data,
+    job_embeddings
+):
 
-        results.append({
+        semantic_score = score(
+        candidate_embedding,
+        job_embedding
+    )
 
-            "job_id":
-            job.get(
-                "job_id",
-                -1
-            ),
+    github_profile = candidate_data.get(
+        "github_profile",
+        {}
+    )
 
-            "company_name":
-            job.get(
-                "company_name",
-                ""
-            ),
+    github_activity_score = (
+        github_profile.get(
+            "activity_score",
+            0
+        ) / 100
+    )
 
-            "job_title":
-            job.get(
-                "job_title",
-                ""
-            ),
+    final_score = (
 
-            "matching_score":
-            score(
-                candidate_embedding,
-                job_embedding
-            ),
+        semantic_score * 0.95
 
-            "parsed_result":
-            job.get(
-                "parsed_result",
-                {}
-            )
-        })
+        +
+
+        github_activity_score * 0.05
+    )
+
+    results.append({
+
+        "job_id":
+        job.get(
+            "job_id",
+            -1
+        ),
+
+        "company_name":
+        job.get(
+            "company_name",
+            ""
+        ),
+
+        "job_title":
+        job.get(
+            "job_title",
+            ""
+        ),
+
+        "semantic_score":
+        semantic_score,
+
+        "github_score":
+        round(
+            github_activity_score,
+            4
+        ),
+
+        "matching_score":
+        round(
+            final_score,
+            4
+        ),
+
+        "parsed_result":
+        job.get(
+            "parsed_result",
+            {}
+        )
+    })
+
+
+
+        
 
     results.sort(
         key=lambda x: x[

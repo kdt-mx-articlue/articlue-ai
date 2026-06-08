@@ -1,6 +1,4 @@
-def extract_developer_traits(
-    github_data
-):
+def extract_developer_traits(github_data):
 
     traits = []
 
@@ -9,31 +7,21 @@ def extract_developer_traits(
         []
     )
 
-    text = " ".join(commits)
+    text = " ".join(commits).lower()
 
     if "refactor" in text:
-        traits.append(
-            "구조 개선 선호"
-        )
+        traits.append("구조 개선 선호")
 
     if "test" in text:
-        traits.append(
-            "테스트 지향"
-        )
+        traits.append("테스트 지향")
 
     if "fix" in text:
-        traits.append(
-            "문제 해결 중심"
-        )
+        traits.append("문제 해결 중심")
 
-    if "FastAPI" in text:
-        traits.append(
-            "백엔드 중심"
-        )
+    if "fastapi" in text:
+        traits.append("백엔드 중심")
 
-    if "LangChain" in text:
-        traits.append(
-            "AI 서비스 개발"
-        )
+    if "langchain" in text:
+        traits.append("AI 서비스 개발")
 
     return traits
