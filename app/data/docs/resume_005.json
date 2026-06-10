@@ -1,106 +1,169 @@
 {
-  "resume": {
-    "resume_id": 12,
-    "member_id": 10,
-    "resume_title": "클라우드 기반 백엔드 엔지니어",
-    "name": "윤지훈",
-    "phone": "01077776666",
-    "email": "jihun.yoon@example.com",
-    "birth_date": "1996-10-03",
-    "address": "경기도 성남시 분당구",
-    "gender": "male",
-    "military_status": "Y",
-    "desired_location": "서울",
-    "resume_status": "작성완료",
-    "representative_yn": "N",
-    "career_years": 6,
-    "create_date": "2026-05-31",
-    "update_date": "2026-05-31"
-  },
+"resume": {
+"resume_id": 5,
+"member_id": 5,
+"resume_title": "Java 백엔드 개발자 이력서",
+"name": "최현우",
+"phone": "01074185296",
+"email": "[hyunwoo.choi@example.com](mailto:hyunwoo.choi@example.com)",
+"birth_date": "1999-09-02",
+"address": "인천광역시 연수구",
+"gender": "male",
+"military_status": "Y",
+"desired_location": "판교",
+"career_years": 2,
+"resume_status": "작성완료",
+"representative_yn": "Y",
+"create_date": "2026-06-04",
+"update_date": "2026-06-04"
+},
 
-  "education": [
-    {
-      "education_id": 11,
-      "resume_id": 12,
-      "school_type": "대학교",
-      "school_name": "경희대학교",
-      "major": "컴퓨터공학과",
-      "gpa": 3.5,
-      "start_ym": "2015.03",
-      "end_ym": "2021.02"
-    }
-  ],
+"education": [
+{
+"education_id": 5,
+"resume_id": 5,
+"school_type": "대학교",
+"school_name": "인하대학교",
+"major": "정보통신공학과",
+"gpa": 3.6,
+"start_ym": "2019.03",
+"end_ym": "2024.02"
+}
+],
 
-  "resume_activity": [
-    {
-      "activity_id": 13,
-      "resume_id": 12,
-      "activity_type": "프로젝트",
-      "activity_name": "AWS 기반 서버리스 아키텍처 구축",
-      "start_ym": "2024.01",
-      "end_ym": "2024.11"
-    }
-  ],
+"career": [
+{
+"career_id": 5,
+"resume_id": 5,
+"company_name": "넥스트소프트",
+"department": "백엔드개발팀",
+"position": "백엔드 개발자",
+"start_ym": "2024.04",
+"end_ym": "2026.04",
+"experience_months": 24,
+"main_achievement": "Spring Boot 기반 주문 처리 시스템 개발 및 API 응답속도 35% 개선"
+}
+],
 
-  "career": [
-    {
-      "career_id": 11,
-      "resume_id": 12,
-      "company_name": "CloudWave",
-      "department": "Cloud Engineering",
-      "position": "Backend Engineer",
-      "start_ym": "2022.02",
-      "end_ym": "2025.03",
-      "experience_months": 37,
-      "main_achievement": "AWS Lambda 및 ECS 기반 서비스 아키텍처 설계 및 운영"
-    }
-  ],
+"resume_activity": [
+{
+"activity_id": 9,
+"resume_id": 5,
+"activity_type": "교육",
+"activity_name": "기업 실무형 백엔드 개발 과정",
+"start_ym": "2023.01",
+"end_ym": "2023.08"
+},
+{
+"activity_id": 10,
+"resume_id": 5,
+"activity_type": "프로젝트",
+"activity_name": "전자상거래 플랫폼 개발",
+"start_ym": "2024.09",
+"end_ym": "2025.02"
+}
+],
 
-  "certificate": [
-    {
-      "certificate_id": 11,
-      "resume_id": 12,
-      "certificate_name": "AWS Solutions Architect Associate",
-      "acquired_ym": "2023.09",
-      "issuer": "Amazon"
-    }
-  ],
+"cover_letter": [
+{
+"cover_letter_id": 17,
+"resume_id": 5,
+"sub_title": "성장과정",
+"content": "사용자에게 안정적인 서비스를 제공하는 백엔드 시스템 개발에 관심을 갖고 꾸준히 역량을 쌓아왔습니다."
+},
+{
+"cover_letter_id": 18,
+"resume_id": 5,
+"sub_title": "협업 경험",
+"content": "Git Flow 전략과 코드 리뷰 문화를 통해 협업 역량을 향상시켰습니다."
+},
+{
+"cover_letter_id": 19,
+"resume_id": 5,
+"sub_title": "강점",
+"content": "Spring Boot 기반 서비스 설계와 데이터베이스 최적화 경험이 강점입니다."
+},
+{
+"cover_letter_id": 20,
+"resume_id": 5,
+"sub_title": "지원동기 및 목표",
+"content": "대규모 트래픽 환경에서도 안정적으로 동작하는 백엔드 시스템을 구축하는 개발자가 되고 싶습니다."
+}
+],
 
-  "resume_tech_stack": [
-    {
-      "resume_tech_id": 19,
-      "resume_id": 12,
-      "tech_name": "AWS",
-      "proficiency_level": "상",
-      "experience_months": 48,
-      "main_usage": "클라우드 인프라 설계"
-    },
-    {
-      "resume_tech_id": 20,
-      "resume_id": 12,
-      "tech_name": "Docker",
-      "proficiency_level": "상",
-      "experience_months": 36,
-      "main_usage": "컨테이너 기반 배포"
-    },
-    {
-      "resume_tech_id": 21,
-      "resume_id": 12,
-      "tech_name": "Kubernetes",
-      "proficiency_level": "중상",
-      "experience_months": 24,
-      "main_usage": "오케스트레이션 및 운영"
-    }
-  ],
+"resume_tech_stack": [
+{
+"resume_tech_id": 17,
+"resume_id": 5,
+"tech_stack_id": 1,
+"tech_name": "Java",
+"proficiency_level": "상",
+"experience_months": 48
+},
+{
+"resume_tech_id": 18,
+"resume_id": 5,
+"tech_stack_id": 2,
+"tech_name": "Spring Boot",
+"proficiency_level": "상",
+"experience_months": 30
+},
+{
+"resume_tech_id": 19,
+"resume_id": 5,
+"tech_stack_id": 3,
+"tech_name": "MySQL",
+"proficiency_level": "상",
+"experience_months": 36
+},
+{
+"resume_tech_id": 20,
+"resume_id": 5,
+"tech_stack_id": 4,
+"tech_name": "Redis",
+"proficiency_level": "중",
+"experience_months": 18
+}
+],
 
-  "self_introduction": [
-    {
-      "section": "성장과정",
-      "content": "인프라 자동화와 확장성 있는 시스템 설계에 관심을 가지며 클라우드 환경 중심으로 성장했습니다."
-    },
-    {
-      "section": "강점",
-      "content": "AWS 기반 아키텍처 설계 및 운영 자동화 경험이 강점입니다."
-    }
-  ]
+"certificate": [
+{
+"certificate_id": 5,
+"resume_id": 5,
+"certificate_name": "정보처리기사",
+"acquired_ym": "2024.09",
+"issuer": "한국산업인력공단"
+}
+],
+
+"github": {
+"repos": [
+"E-Commerce Backend",
+"Spring Boot Template",
+"Order Management Service",
+"Redis Cache Server",
+"Portfolio API"
+],
+
+
+"commits": [
+  "feat spring boot order api",
+  "feat payment service implementation",
+  "feat redis caching layer",
+  "feat jwt authentication",
+  "refactor service architecture",
+  "refactor common exception handler",
+  "refactor database layer",
+  "test integration test",
+  "test service unit test",
+  "test api validation",
+  "fix transaction issue",
+  "fix redis timeout bug",
+  "fix concurrency problem",
+  "feat monitoring dashboard",
+  "feat batch processing"
+]
+
+
+}
 }

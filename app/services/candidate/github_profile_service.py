@@ -16,6 +16,12 @@ def build_github_profile(
         )
     )
 
+    activity_score = min(
+        100,
+        repo_count * 10 +
+        commit_count * 3
+    )
+
     return {
 
         "repo_count":
@@ -25,9 +31,5 @@ def build_github_profile(
         commit_count,
 
         "activity_score":
-        min(
-            100,
-            repo_count * 20 +
-            commit_count * 10
-        )
+        activity_score
     }

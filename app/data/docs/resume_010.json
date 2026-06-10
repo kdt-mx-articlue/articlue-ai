@@ -1,106 +1,156 @@
 {
   "resume": {
-    "resume_id": 17,
-    "member_id": 15,
-    "resume_title": "AI 기반 추천 시스템 백엔드 엔지니어",
-    "name": "정우성",
-    "phone": "01056567777",
-    "email": "wooseong.jung@example.com",
-    "birth_date": "1997-08-05",
-    "address": "서울특별시 관악구",
+    "resume_id": 9,
+    "member_id": 9,
+    "resume_title": "AI 플랫폼 백엔드 개발자 이력서",
+    "name": "박도현",
+    "phone": "01044556677",
+    "email": "dohyun.park@example.com",
+    "birth_date": "2000-11-18",
+    "address": "부산광역시 해운대구",
     "gender": "male",
     "military_status": "Y",
-    "desired_location": "서울",
+    "desired_location": "판교",
+    "career_years": 1,
     "resume_status": "작성완료",
-    "representative_yn": "N",
-    "career_years": 5,
-    "create_date": "2026-06-01",
-    "update_date": "2026-06-01"
+    "representative_yn": "Y",
+    "create_date": "2026-06-08",
+    "update_date": "2026-06-08"
   },
 
   "education": [
     {
-      "education_id": 16,
-      "resume_id": 17,
+      "education_id": 9,
+      "resume_id": 9,
       "school_type": "대학교",
-      "school_name": "중앙대학교",
+      "school_name": "동아대학교",
       "major": "컴퓨터공학과",
-      "gpa": 3.6,
-      "start_ym": "2015.03",
-      "end_ym": "2021.02"
-    }
-  ],
-
-  "resume_activity": [
-    {
-      "activity_id": 18,
-      "resume_id": 17,
-      "activity_type": "프로젝트",
-      "activity_name": "실시간 추천 시스템 API 고도화",
-      "start_ym": "2024.02",
-      "end_ym": "2024.11"
+      "gpa": 3.9,
+      "start_ym": "2019.03",
+      "end_ym": "2025.02"
     }
   ],
 
   "career": [
     {
-      "career_id": 16,
-      "resume_id": 17,
-      "company_name": "RecoAI",
-      "department": "Recommendation Engineering",
-      "position": "Backend Engineer",
-      "start_ym": "2021.03",
-      "end_ym": "2025.04",
-      "experience_months": 49,
-      "main_achievement": "추천 모델 서빙 API latency 35% 개선 및 캐시 전략 재설계"
+      "career_id": 9,
+      "resume_id": 9,
+      "company_name": "에이아이솔루션즈",
+      "department": "AI플랫폼팀",
+      "position": "백엔드 개발자",
+      "start_ym": "2025.01",
+      "end_ym": "2026.05",
+      "experience_months": 17,
+      "main_achievement": "LLM 기반 문서 검색 플랫폼 구축 및 FastAPI API 서버 개발"
     }
   ],
 
-  "certificate": [
+  "resume_activity": [
     {
-      "certificate_id": 16,
-      "resume_id": 17,
-      "certificate_name": "SQLD",
-      "acquired_ym": "2022.09",
-      "issuer": "한국데이터산업진흥원"
+      "activity_id": 17,
+      "resume_id": 9,
+      "activity_type": "교육",
+      "activity_name": "생성형 AI 서비스 개발 과정",
+      "start_ym": "2024.01",
+      "end_ym": "2024.06"
+    },
+    {
+      "activity_id": 18,
+      "resume_id": 9,
+      "activity_type": "프로젝트",
+      "activity_name": "사내 RAG 챗봇 개발",
+      "start_ym": "2025.07",
+      "end_ym": "2025.11"
+    }
+  ],
+
+  "cover_letter": [
+    {
+      "cover_letter_id": 33,
+      "resume_id": 9,
+      "sub_title": "성장과정",
+      "content": "새로운 기술을 빠르게 습득하고 실제 서비스에 적용하는 과정에서 성장해왔습니다."
+    },
+    {
+      "cover_letter_id": 34,
+      "resume_id": 9,
+      "sub_title": "협업 경험",
+      "content": "GitHub 기반 협업과 코드 리뷰를 통해 안정적인 개발 프로세스를 경험했습니다."
+    },
+    {
+      "cover_letter_id": 35,
+      "resume_id": 9,
+      "sub_title": "강점",
+      "content": "LLM 서비스와 백엔드 API를 함께 설계하고 구현할 수 있는 역량이 강점입니다."
+    },
+    {
+      "cover_letter_id": 36,
+      "resume_id": 9,
+      "sub_title": "지원동기 및 목표",
+      "content": "AI 기술을 활용한 서비스 플랫폼을 개발하는 백엔드 엔지니어로 성장하고 싶습니다."
     }
   ],
 
   "resume_tech_stack": [
     {
-      "resume_tech_id": 34,
-      "resume_id": 17,
+      "resume_tech_id": 33,
+      "resume_id": 9,
+      "tech_stack_id": 21,
       "tech_name": "Python",
       "proficiency_level": "상",
-      "experience_months": 54,
-      "main_usage": "추천 알고리즘 API 개발"
+      "experience_months": 36
+    },
+    {
+      "resume_tech_id": 34,
+      "resume_id": 9,
+      "tech_stack_id": 22,
+      "tech_name": "FastAPI",
+      "proficiency_level": "상",
+      "experience_months": 24
     },
     {
       "resume_tech_id": 35,
-      "resume_id": 17,
-      "tech_name": "FastAPI",
-      "proficiency_level": "상",
-      "experience_months": 40,
-      "main_usage": "ML 서빙 API 구축"
+      "resume_id": 9,
+      "tech_stack_id": 23,
+      "tech_name": "LangChain",
+      "proficiency_level": "중상",
+      "experience_months": 12
     },
     {
       "resume_tech_id": 36,
-      "resume_id": 17,
-      "tech_name": "Redis",
-      "proficiency_level": "중상",
-      "experience_months": 28,
-      "main_usage": "추천 결과 캐싱"
+      "resume_id": 9,
+      "tech_stack_id": 24,
+      "tech_name": "PostgreSQL",
+      "proficiency_level": "중",
+      "experience_months": 18
     }
   ],
 
-  "self_introduction": [
+  "certificate": [
     {
-      "section": "성장과정",
-      "content": "추천 시스템 구조와 실시간 데이터 처리에 관심을 가지며 백엔드와 ML 서빙 영역을 함께 경험해왔습니다."
-    },
-    {
-      "section": "강점",
-      "content": "추천 시스템 아키텍처 설계 및 latency 최적화 경험이 강점입니다."
+      "certificate_id": 9,
+      "resume_id": 9,
+      "certificate_name": "SQLD",
+      "acquired_ym": "2025.04",
+      "issuer": "한국데이터산업진흥원"
     }
-  ]
+  ],
+
+  "github": {
+    "repos": [
+      "rag-chatbot",
+      "llm-document-search",
+      "fastapi-auth-server",
+      "vector-search-platform"
+    ],
+    "commits": [
+      "feat LangChain RAG pipeline 구현",
+      "feat FastAPI JWT 인증 추가",
+      "refactor vector search service 개선",
+      "test rag retrieval unit test 작성",
+      "fix embedding cache issue",
+      "feat PostgreSQL query optimization",
+      "docs API specification 작성"
+    ]
+  }
 }

@@ -1,106 +1,154 @@
 {
   "resume": {
-    "resume_id": 15,
-    "member_id": 13,
-    "resume_title": "머신러닝 기반 백엔드 개발자",
-    "name": "박도현",
-    "phone": "01023234545",
-    "email": "dohyun.park@example.com",
-    "birth_date": "1996-06-22",
-    "address": "서울특별시 동작구",
+    "resume_id": 6,
+    "member_id": 6,
+    "resume_title": "클라우드 백엔드 개발자 이력서",
+    "name": "김태윤",
+    "phone": "01066778899",
+    "email": "taeyoon.kim@example.com",
+    "birth_date": "1998-09-15",
+    "address": "대전광역시 유성구",
     "gender": "male",
     "military_status": "Y",
     "desired_location": "서울",
+    "career_years": 4,
     "resume_status": "작성완료",
-    "representative_yn": "N",
-    "career_years": 6,
-    "create_date": "2026-06-01",
-    "update_date": "2026-06-01"
+    "representative_yn": "Y",
+    "create_date": "2026-06-08",
+    "update_date": "2026-06-08"
   },
 
   "education": [
     {
-      "education_id": 14,
-      "resume_id": 15,
+      "education_id": 6,
+      "resume_id": 6,
       "school_type": "대학교",
-      "school_name": "고려대학교",
-      "major": "컴퓨터공학과",
-      "gpa": 3.6,
-      "start_ym": "2014.03",
-      "end_ym": "2020.02"
-    }
-  ],
-
-  "resume_activity": [
-    {
-      "activity_id": 16,
-      "resume_id": 15,
-      "activity_type": "연구",
-      "activity_name": "딥러닝 기반 추천 알고리즘 성능 개선",
-      "start_ym": "2023.02",
-      "end_ym": "2024.01"
+      "school_name": "충남대학교",
+      "major": "소프트웨어학과",
+      "gpa": 3.9,
+      "start_ym": "2017.03",
+      "end_ym": "2023.02"
     }
   ],
 
   "career": [
     {
-      "career_id": 14,
-      "resume_id": 15,
-      "company_name": "ML Systems Lab",
-      "department": "AI Engineering",
-      "position": "Machine Learning Engineer",
-      "start_ym": "2020.03",
-      "end_ym": "2025.03",
-      "experience_months": 60,
-      "main_achievement": "추천 시스템 모델 경량화 및 API 서빙 구조 개선"
+      "career_id": 6,
+      "resume_id": 6,
+      "company_name": "클라우드웨이브",
+      "department": "플랫폼개발팀",
+      "position": "백엔드 개발자",
+      "start_ym": "2023.03",
+      "end_ym": "2026.05",
+      "experience_months": 38,
+      "main_achievement": "Kubernetes 기반 MSA 환경 구축 및 API Gateway 성능 개선으로 응답속도 35% 향상"
     }
   ],
 
-  "certificate": [
+  "resume_activity": [
     {
-      "certificate_id": 14,
-      "resume_id": 15,
-      "certificate_name": "TensorFlow Developer Certificate",
-      "acquired_ym": "2022.11",
-      "issuer": "Google"
+      "activity_id": 11,
+      "resume_id": 6,
+      "activity_type": "프로젝트",
+      "activity_name": "클라우드 모니터링 플랫폼 개발",
+      "start_ym": "2025.01",
+      "end_ym": "2025.08"
+    },
+    {
+      "activity_id": 12,
+      "resume_id": 6,
+      "activity_type": "교육",
+      "activity_name": "AWS Advanced Architect 과정 수료",
+      "start_ym": "2024.03",
+      "end_ym": "2024.06"
+    }
+  ],
+
+  "cover_letter": [
+    {
+      "cover_letter_id": 21,
+      "resume_id": 6,
+      "sub_title": "성장과정",
+      "content": "서비스 안정성과 확장성을 고려하는 개발자로 성장하기 위해 꾸준히 클라우드 기술을 학습했습니다."
+    },
+    {
+      "cover_letter_id": 22,
+      "resume_id": 6,
+      "sub_title": "프로젝트 경험",
+      "content": "Kubernetes 기반 MSA 프로젝트에서 서비스 배포 자동화와 모니터링 시스템 구축을 담당했습니다."
+    },
+    {
+      "cover_letter_id": 23,
+      "resume_id": 6,
+      "sub_title": "강점",
+      "content": "대규모 트래픽 환경에서 성능 최적화와 장애 대응 경험을 보유하고 있습니다."
+    },
+    {
+      "cover_letter_id": 24,
+      "resume_id": 6,
+      "sub_title": "지원동기 및 목표",
+      "content": "클라우드 네이티브 환경에서 안정적인 서비스를 구축하는 시니어 엔지니어로 성장하고 싶습니다."
     }
   ],
 
   "resume_tech_stack": [
     {
-      "resume_tech_id": 28,
-      "resume_id": 15,
-      "tech_name": "Python",
+      "resume_tech_id": 21,
+      "resume_id": 6,
+      "tech_stack_id": 21,
+      "tech_name": "Java",
       "proficiency_level": "상",
-      "experience_months": 60,
-      "main_usage": "ML 모델 개발 및 서빙"
+      "experience_months": 48
     },
     {
-      "resume_tech_id": 29,
-      "resume_id": 15,
-      "tech_name": "TensorFlow",
+      "resume_tech_id": 22,
+      "resume_id": 6,
+      "tech_stack_id": 22,
+      "tech_name": "Spring Boot",
       "proficiency_level": "상",
-      "experience_months": 48,
-      "main_usage": "딥러닝 모델 학습"
+      "experience_months": 42
     },
     {
-      "resume_tech_id": 30,
-      "resume_id": 15,
-      "tech_name": "FastAPI",
+      "resume_tech_id": 23,
+      "resume_id": 6,
+      "tech_stack_id": 23,
+      "tech_name": "AWS",
+      "proficiency_level": "상",
+      "experience_months": 36
+    },
+    {
+      "resume_tech_id": 24,
+      "resume_id": 6,
+      "tech_stack_id": 24,
+      "tech_name": "Kubernetes",
       "proficiency_level": "중상",
-      "experience_months": 30,
-      "main_usage": "ML API 서비스 구축"
+      "experience_months": 30
     }
   ],
 
-  "self_introduction": [
+  "certificate": [
     {
-      "section": "성장과정",
-      "content": "머신러닝 모델을 실제 서비스에 연결하는 과정에 흥미를 느끼며 엔지니어링 역량을 키워왔습니다."
-    },
-    {
-      "section": "강점",
-      "content": "모델 최적화와 백엔드 서빙 구조 설계에 강점이 있습니다."
+      "certificate_id": 6,
+      "resume_id": 6,
+      "certificate_name": "AWS Solutions Architect Associate",
+      "acquired_ym": "2024.07",
+      "issuer": "Amazon"
     }
-  ]
+  ],
+
+  "github": {
+    "repos": [
+      "Cloud Monitoring Platform",
+      "Kubernetes Deployment Manager",
+      "MSA Gateway Service"
+    ],
+    "commits": [
+      "feat kubernetes auto scaling module",
+      "refactor spring gateway architecture",
+      "test monitoring service integration",
+      "fix memory leak issue",
+      "feat aws deployment pipeline",
+      "refactor logging system"
+    ]
+  }
 }

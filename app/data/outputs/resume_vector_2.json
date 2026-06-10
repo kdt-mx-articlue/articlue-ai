@@ -1,4 +1,96 @@
 {
+  "vector_text": "이름: 김도윤\n희망직무: LLM 기반 서비스 아키텍처를 설계하는 AI 백엔드 엔지니어\n희망지역: 서울\n경력연차: 1\n\n기술스택: Python FastAPI PostgreSQL Redis\n\n기술역량: Python FastAPI PostgreSQL Redis RAG\n\nAI 기술: RAG LLM\n\n백엔드 기술: FastAPI 백엔드 개발\n\n소프트스킬: 협업 능력 코드 리뷰\n\n성향: 빠른 학습 능력\n\n프로젝트 경험: FastAPI 기반 백엔드 개발 RAG 시스템 구축\n\nGitHub 개발성향:\n구조 개선 선호 테스트 지향 문제 해결 중심 백엔드 중심 AI 서비스 개발\n\n    GitHub 활동성:\n    100\n    ",
+  "metadata": {
+    "resume_id": 2,
+    "name": "김도윤",
+    "desired_location": "서울",
+    "career_years": 1
+  },
+  "analysis_result": {
+    "personality_traits": [
+      "빠른 학습 능력"
+    ],
+    "technical_skills": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Redis",
+      "RAG"
+    ],
+    "backend_skills": [
+      "FastAPI",
+      "백엔드 개발"
+    ],
+    "ai_skills": [
+      "RAG",
+      "LLM"
+    ],
+    "soft_skills": [
+      "협업 능력",
+      "코드 리뷰"
+    ],
+    "teamwork_style": "Git Flow 기반 협업과 코드 리뷰를 통해 팀 생산성을 향상시키는 방식",
+    "problem_solving": "새로운 기술을 빠르게 습득하고 실제 서비스에 적용하는 과정에서 문제를 해결함",
+    "growth_potential": "빠른 기술 습득과 실제 적용 경험을 통해 지속적으로 성장하는 태도",
+    "project_experience": [
+      "FastAPI 기반 백엔드 개발",
+      "RAG 시스템 구축"
+    ],
+    "career_orientation": "LLM 기반 서비스 아키텍처를 설계하는 AI 백엔드 엔지니어",
+    "strength_keywords": [
+      "FastAPI 기반 백엔드 개발",
+      "RAG 시스템 구축"
+    ]
+  },
+  "star_analysis": [
+    {
+      "sub_title": "성장과정",
+      "star_analysis": {
+        "situation": false,
+        "task": false,
+        "action": true,
+        "result": true,
+        "star_score": 50
+      }
+    },
+    {
+      "sub_title": "협업 경험",
+      "star_analysis": {
+        "situation": false,
+        "task": false,
+        "action": true,
+        "result": true,
+        "star_score": 50
+      }
+    },
+    {
+      "sub_title": "강점",
+      "star_analysis": {
+        "situation": false,
+        "task": false,
+        "action": false,
+        "result": false,
+        "star_score": 0
+      }
+    },
+    {
+      "sub_title": "지원동기 및 목표",
+      "star_analysis": {
+        "situation": false,
+        "task": false,
+        "action": false,
+        "result": false,
+        "star_score": 0
+      }
+    }
+  ],
+  "github_traits": [
+    "구조 개선 선호",
+    "테스트 지향",
+    "문제 해결 중심",
+    "백엔드 중심",
+    "AI 서비스 개발"
+  ],
   "resume_data": {
     "resume": {
       "resume_id": 2,
@@ -154,94 +246,5 @@
       ]
     }
   },
-  "analysis_result": {
-    "personality_traits": [
-      "빠른 학습 능력"
-    ],
-    "technical_skills": [
-      "Python",
-      "FastAPI",
-      "PostgreSQL",
-      "Redis",
-      "RAG"
-    ],
-    "backend_skills": [
-      "FastAPI",
-      "백엔드 개발"
-    ],
-    "ai_skills": [
-      "RAG",
-      "LLM"
-    ],
-    "soft_skills": [
-      "협업 능력",
-      "코드 리뷰"
-    ],
-    "teamwork_style": "Git Flow 기반 협업과 코드 리뷰를 통해 팀 생산성을 향상시키는 방식",
-    "problem_solving": "새로운 기술을 빠르게 습득하고 실제 서비스에 적용하는 과정에서 문제를 해결함",
-    "growth_potential": "빠른 기술 습득과 실제 적용 경험을 통해 지속적으로 성장하는 태도",
-    "project_experience": [
-      "FastAPI 기반 백엔드 개발",
-      "RAG 시스템 구축"
-    ],
-    "career_orientation": "LLM 기반 서비스 아키텍처를 설계하는 AI 백엔드 엔지니어",
-    "strength_keywords": [
-      "FastAPI 기반 백엔드 개발",
-      "RAG 시스템 구축"
-    ]
-  },
-  "star_analysis": [
-    {
-      "sub_title": "성장과정",
-      "star_analysis": {
-        "situation": false,
-        "task": false,
-        "action": true,
-        "result": true,
-        "star_score": 50
-      }
-    },
-    {
-      "sub_title": "협업 경험",
-      "star_analysis": {
-        "situation": false,
-        "task": false,
-        "action": true,
-        "result": true,
-        "star_score": 50
-      }
-    },
-    {
-      "sub_title": "강점",
-      "star_analysis": {
-        "situation": false,
-        "task": false,
-        "action": false,
-        "result": false,
-        "star_score": 0
-      }
-    },
-    {
-      "sub_title": "지원동기 및 목표",
-      "star_analysis": {
-        "situation": false,
-        "task": false,
-        "action": false,
-        "result": false,
-        "star_score": 0
-      }
-    }
-  ],
-  "github_traits": [
-    "구조 개선 선호",
-    "테스트 지향",
-    "문제 해결 중심",
-    "백엔드 중심",
-    "AI 서비스 개발"
-  ],
-  "github_profile": {
-    "repo_count": 5,
-    "commit_count": 12,
-    "activity_score": 100
-  }
+  "saved_at": "2026-06-08T10:51:02.350834"
 }

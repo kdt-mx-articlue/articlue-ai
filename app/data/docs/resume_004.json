@@ -1,106 +1,173 @@
 {
-  "resume": {
-    "resume_id": 11,
-    "member_id": 9,
-    "resume_title": "AI 백엔드 개발자 이력서",
-    "name": "강민재",
-    "phone": "01088889999",
-    "email": "minjae.kang@example.com",
-    "birth_date": "1998-04-17",
-    "address": "서울특별시 서초구",
-    "gender": "male",
-    "military_status": "Y",
-    "desired_location": "서울",
-    "resume_status": "작성완료",
-    "representative_yn": "Y",
-    "career_years": 4,
-    "create_date": "2026-05-30",
-    "update_date": "2026-05-30"
-  },
+"resume": {
+"resume_id": 4,
+"member_id": 4,
+"resume_title": "AI 플랫폼 엔지니어 이력서",
+"name": "정민수",
+"phone": "01024681357",
+"email": "[minsu.jung@example.com](mailto:minsu.jung@example.com)",
+"birth_date": "2001-05-18",
+"address": "대구광역시 수성구",
+"gender": "male",
+"military_status": "Y",
+"desired_location": "서울",
+"career_years": 1,
+"resume_status": "작성완료",
+"representative_yn": "Y",
+"create_date": "2026-06-03",
+"update_date": "2026-06-03"
+},
 
-  "education": [
-    {
-      "education_id": 10,
-      "resume_id": 11,
-      "school_type": "대학교",
-      "school_name": "서강대학교",
-      "major": "컴퓨터공학과",
-      "gpa": 3.7,
-      "start_ym": "2016.03",
-      "end_ym": "2022.02"
-    }
-  ],
+"education": [
+{
+"education_id": 4,
+"resume_id": 4,
+"school_type": "대학교",
+"school_name": "경북대학교",
+"major": "컴퓨터학부",
+"gpa": 4.1,
+"start_ym": "2020.03",
+"end_ym": "2025.02"
+}
+],
 
-  "resume_activity": [
-    {
-      "activity_id": 12,
-      "resume_id": 11,
-      "activity_type": "프로젝트",
-      "activity_name": "LLM 기반 채용 추천 시스템 개발",
-      "start_ym": "2025.01",
-      "end_ym": "2025.10"
-    }
-  ],
+"career": [
+{
+"career_id": 4,
+"resume_id": 4,
+"company_name": "에이아이브릿지",
+"department": "AI플랫폼팀",
+"position": "AI 엔지니어",
+"start_ym": "2025.03",
+"end_ym": "2026.03",
+"experience_months": 12,
+"main_achievement": "RAG 기반 사내 지식검색 시스템 구축 및 LLM 서비스 API 개발"
+}
+],
 
-  "career": [
-    {
-      "career_id": 10,
-      "resume_id": 11,
-      "company_name": "AI Nexus",
-      "department": "플랫폼팀",
-      "position": "백엔드 개발자",
-      "start_ym": "2023.03",
-      "end_ym": "2025.02",
-      "experience_months": 24,
-      "main_achievement": "FastAPI 기반 추천 시스템 API 설계 및 성능 개선"
-    }
-  ],
+"resume_activity": [
+{
+"activity_id": 7,
+"resume_id": 4,
+"activity_type": "교육",
+"activity_name": "생성형 AI 실무 과정",
+"start_ym": "2024.01",
+"end_ym": "2024.12"
+},
+{
+"activity_id": 8,
+"resume_id": 4,
+"activity_type": "프로젝트",
+"activity_name": "기업 채용 추천 AI 플랫폼 개발",
+"start_ym": "2025.06",
+"end_ym": "2025.12"
+}
+],
 
-  "certificate": [
-    {
-      "certificate_id": 10,
-      "resume_id": 11,
-      "certificate_name": "SQLD",
-      "acquired_ym": "2024.08",
-      "issuer": "한국데이터산업진흥원"
-    }
-  ],
+"cover_letter": [
+{
+"cover_letter_id": 13,
+"resume_id": 4,
+"sub_title": "성장과정",
+"content": "문제를 자동화하고 효율화하는 과정에 흥미를 느껴 AI 시스템 개발 역량을 키워왔습니다."
+},
+{
+"cover_letter_id": 14,
+"resume_id": 4,
+"sub_title": "협업 경험",
+"content": "GitHub 프로젝트와 코드 리뷰 문화를 통해 협업 능력을 향상시켰습니다."
+},
+{
+"cover_letter_id": 15,
+"resume_id": 4,
+"sub_title": "강점",
+"content": "LLM 서비스 구축 경험과 데이터 파이프라인 설계 경험이 강점입니다."
+},
+{
+"cover_letter_id": 16,
+"resume_id": 4,
+"sub_title": "지원동기 및 목표",
+"content": "생성형 AI 서비스 아키텍처를 설계하는 AI 플랫폼 엔지니어가 되고 싶습니다."
+}
+],
 
-  "resume_tech_stack": [
-    {
-      "resume_tech_id": 16,
-      "resume_id": 11,
-      "tech_name": "Python",
-      "proficiency_level": "상",
-      "experience_months": 40,
-      "main_usage": "AI 백엔드 서비스 개발"
-    },
-    {
-      "resume_tech_id": 17,
-      "resume_id": 11,
-      "tech_name": "FastAPI",
-      "proficiency_level": "상",
-      "experience_months": 24,
-      "main_usage": "REST API 서버 개발"
-    },
-    {
-      "resume_tech_id": 18,
-      "resume_id": 11,
-      "tech_name": "PostgreSQL",
-      "proficiency_level": "중상",
-      "experience_months": 20,
-      "main_usage": "데이터 모델링 및 최적화"
-    }
-  ],
+"resume_tech_stack": [
+{
+"resume_tech_id": 13,
+"resume_id": 4,
+"tech_stack_id": 1,
+"tech_name": "Python",
+"proficiency_level": "상",
+"experience_months": 48
+},
+{
+"resume_tech_id": 14,
+"resume_id": 4,
+"tech_stack_id": 2,
+"tech_name": "FastAPI",
+"proficiency_level": "상",
+"experience_months": 24
+},
+{
+"resume_tech_id": 15,
+"resume_id": 4,
+"tech_stack_id": 3,
+"tech_name": "LangChain",
+"proficiency_level": "상",
+"experience_months": 18
+},
+{
+"resume_tech_id": 16,
+"resume_id": 4,
+"tech_stack_id": 4,
+"tech_name": "ChromaDB",
+"proficiency_level": "중상",
+"experience_months": 12
+}
+],
 
-  "self_introduction": [
-    {
-      "section": "성장과정",
-      "content": "백엔드 시스템 구조와 AI 기술을 함께 학습하며 실무 중심으로 성장해왔습니다."
-    },
-    {
-      "section": "강점",
-      "content": "API 설계 및 LLM 기반 서비스 구조 이해도가 높습니다."
-    }
-  ]
+"certificate": [
+{
+"certificate_id": 4,
+"resume_id": 4,
+"certificate_name": "ADsP",
+"acquired_ym": "2025.08",
+"issuer": "한국데이터산업진흥원"
+}
+],
+
+"github": {
+"repos": [
+"AI Resume Analyzer",
+"LLM Job Matching",
+"RAG Knowledge Search",
+"LangGraph Workflow",
+"Prompt Engineering Lab",
+"FastAPI AI Server",
+"Vector Search Engine"
+],
+
+
+"commits": [
+  "feat LangChain pipeline implementation",
+  "feat ChromaDB vector retrieval",
+  "feat FastAPI inference server",
+  "feat LangGraph workflow engine",
+  "refactor matching algorithm",
+  "refactor project architecture",
+  "refactor rag service layer",
+  "test llm evaluation module",
+  "test vector search benchmark",
+  "test api integration test",
+  "fix embedding issue",
+  "fix async processing bug",
+  "fix memory optimization",
+  "feat prompt template manager",
+  "feat candidate ranking system",
+  "feat recruiter dashboard api",
+  "feat recommendation engine"
+]
+
+
+}
 }

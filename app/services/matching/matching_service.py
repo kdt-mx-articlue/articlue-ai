@@ -388,76 +388,122 @@ def match_candidate_to_jobs(
 
     for job, job_embedding in zip(
     jobs_data,
-    job_embeddings
+    job_embeddings  
 ):
-
+        
         semantic_score = score(
         candidate_embedding,
         job_embedding
+      )
+        candidate_skills = set(
+        expand_skills(
+            candidate_data["analysis_result"].get(
+                "technical_skills",
+                []
+            )
+        )
     )
 
-    github_profile = candidate_data.get(
-        "github_profile",
-        {}
+    job_skills = set(
+        expand_skills(
+            job.get(
+                "parsed_result",
+                {}
+            ).get(
+                "tech_stacks",
+                []
+            )
+        )
     )
 
-    github_activity_score = (
-        github_profile.get(
-            "activity_score",
-            0
-        ) / 100
+    matched_skills = list(
+        candidate_skills & job_skills
     )
 
-    final_score = (
-
-        semantic_score * 0.95
-
-        +
-
-        github_activity_score * 0.05
+    missing_skills = list(
+        job_skills - candidate_skills
     )
 
-    results.append({
-
-        "job_id":
-        job.get(
-            "job_id",
-            -1
-        ),
-
-        "company_name":
-        job.get(
-            "company_name",
-            ""
-        ),
-
-        "job_title":
-        job.get(
-            "job_title",
-            ""
-        ),
-
-        "semantic_score":
-        semantic_score,
-
-        "github_score":
-        round(
-            github_activity_score,
+    if len(job_skills) > 0:
+        skill_score = round(
+            len(matched_skills) /
+            len(job_skills),
             4
-        ),
-
-        "matching_score":
-        round(
-            final_score,
-            4
-        ),
-
-        "parsed_result":
-        job.get(
-            "parsed_result",
+        )
+    else:
+        skill_score = 0
+        github_profile = candidate_data.get(
+            "github_profile",
             {}
         )
-    })
+
+        github_score = round(
+            github_profile.get(
+                "activity_score",
+                0
+            ) / 100,
+            4
+            
+        )
+
+        final_score = round(
+
+           semantic_score * 0.70
+            +
+           skill_score * 0.20
+            +
+           github_score * 0.10,
+           4
+        )
+
+        results.append({
+            
+            "skill_score":
+            skill_score,
+
+            "matched_skills":
+            matched_skills,
+
+            "missing_skills":
+            missing_skills,
+
+            "job_id":
+            job.get(
+                "job_id",
+                -1
+            ),
+
+            "company_name":
+            job.get(
+                "company_name",
+                ""
+            ),
+
+            "job_title":
+            job.get(
+                "job_title",
+                ""
+            ),
+
+            "semantic_score":
+            semantic_score,
+
+            "github_score":
+            
+             github_score,
+
+            "final_score":
+            round(
+                final_score,
+                4
+            ),
+
+            "parsed_result":
+            job.get(
+                "parsed_result",
+                {}
+            )
+        })
 
 
 
@@ -465,7 +511,7 @@ def match_candidate_to_jobs(
 
     results.sort(
         key=lambda x: x[
-            "matching_score"
+            "final_score"
         ],
         reverse=True
     )

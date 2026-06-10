@@ -25,7 +25,7 @@ Path("app/data/vectors/job_vectors").mkdir(parents=True, exist_ok=True)
 # =========================
 # 파일 경로
 # =========================
-RESUME_PATH = "app/data/docs/resume_001.json"
+RESUME_PATH = "app/data/docs/resume_002.json"
 JOB_PATH = "app/data/parsed/job_postings_parsed.json"
 OUTPUT_PATH = "app/data/outputs/matching_results_top5.json"
 
@@ -147,42 +147,73 @@ def main():
 
     for job in jobs:
 
-        matching_score = calculate_matching_score(
-        candidate_result,
-        job
-    )
-        requirement_fit = calculate_requirement_fit(
+     semantic_score = calculate_matching_score(
         candidate_result,
         job
     )
 
-        results.append({
+     requirement_fit = calculate_requirement_fit(
+        candidate_result,
+        job
+    )
 
-                "company_name":
-                job.get(
-                    "company_name",
-                    ""
-                ),
+     github_profile = candidate_result.get(
+        "github_profile",
+        {}
+    )
 
-                "job_title":
-                job.get(
-                    "job_title",
-                    ""
-                ),
+     github_score = round(
+        github_profile.get(
+            "activity_score",
+            0
+        ) / 100,
+        4
+    )
 
-                "matching_score":
-                matching_score,
+     final_score = round(
+        semantic_score * 0.95
+        +
+        github_score * 0.05,
+        4
+    )
 
-                "requirement_fit":
-                requirement_fit
+     results.append({
 
-})
+        "company_name":
+        job.get(
+            "company_name",
+            ""
+        ),
+
+        "job_title":
+        job.get(
+            "job_title",
+            ""
+        ),
+
+        "semantic_score":
+        semantic_score,
+
+        "github_score":
+        github_score,
+
+        "final_score":
+        final_score,
+
+        "requirement_fit":
+        requirement_fit
+
+    })
+
+                
+
+
 
     # =========================
     # 점수 정렬
     # =========================
     results.sort(
-        key=lambda x: x["matching_score"],
+        key=lambda x: x["final_score"],
         reverse=True
     )
 
@@ -208,11 +239,16 @@ def main():
 직무:
 {result['job_title']}
 
-매칭 점수:
-{result['matching_score']}
+Semantic Score:
+{result['semantic_score']}
 
-Requirement Fit:
-{result['requirement_fit']}
+
+GitHub Score:
+{result['github_score']}
+
+Final Score:
+{result['final_score']}
+
 =========================
 """)
 

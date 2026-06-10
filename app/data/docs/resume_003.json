@@ -1,137 +1,170 @@
 {
-  "resume": {
-    "resume_id": 3,
-    "member_id": 1,
-    "resume_title": "AI 백엔드 엔지니어 이력서",
-    "name": "김도윤",
-    "phone": "01098765432",
-    "email": "doyun.kim@example.com",
-    "birth_date": "1998-07-21",
-    "address": "부산광역시 해운대구",
-    "gender": "male",
-    "military_status": "Y",
-    "desired_location": "서울",
-    "resume_status": "작성완료",
-    "representative_yn": "N",
-    "career_years": 3,
-    "create_date": "2026-05-26",
-    "update_date": "2026-05-26"
-  },
+"resume": {
+"resume_id": 3,
+"member_id": 3,
+"resume_title": "클라우드 백엔드 개발자 이력서",
+"name": "박서준",
+"phone": "01056781234",
+"email": "[seojun.park@example.com](mailto:seojun.park@example.com)",
+"birth_date": "1998-07-21",
+"address": "부산광역시 해운대구",
+"gender": "male",
+"military_status": "Y",
+"desired_location": "판교",
+"career_years": 3,
+"resume_status": "작성완료",
+"representative_yn": "Y",
+"create_date": "2026-06-02",
+"update_date": "2026-06-02"
+},
 
-  "education": [
-    {
-      "education_id": 2,
-      "resume_id": 3,
-      "school_type": "대학교",
-      "school_name": "부경대학교",
-      "major": "소프트웨어공학과",
-      "gpa": 3.6,
-      "start_ym": "2020.03",
-      "end_ym": "2024.02"
-    }
-  ],
+"education": [
+{
+"education_id": 3,
+"resume_id": 3,
+"school_type": "대학교",
+"school_name": "부경대학교",
+"major": "정보통신공학과",
+"gpa": 3.7,
+"start_ym": "2018.03",
+"end_ym": "2024.02"
+}
+],
 
-  "resume_activity": [
-    {
-      "activity_id": 3,
-      "resume_id": 3,
-      "activity_type": "교육",
-      "activity_name": "AI/백엔드 통합 개발 과정 수료",
-      "start_ym": "2024.06",
-      "end_ym": "2025.03"
-    },
-    {
-      "activity_id": 4,
-      "resume_id": 3,
-      "activity_type": "프로젝트",
-      "activity_name": "LLM 기반 이력서 분석 및 추천 시스템 개발",
-      "start_ym": "2025.10",
-      "end_ym": "2026.04"
-    }
-  ],
+"career": [
+{
+"career_id": 3,
+"resume_id": 3,
+"company_name": "클라우드랩스",
+"department": "플랫폼개발팀",
+"position": "백엔드 개발자",
+"start_ym": "2024.03",
+"end_ym": "2026.03",
+"experience_months": 24,
+"main_achievement": "MSA 기반 서비스 구축 및 Kubernetes 운영 자동화 환경 구축"
+}
+],
 
-  "cover_letter": [
-    {
-      "cover_letter_id": 2,
-      "resume_id": 3,
-      "sub_title": "성장과정",
-      "content": "대학 시절부터 백엔드와 AI 기술을 함께 학습하며 실전 프로젝트 중심으로 경험을 쌓아왔습니다. Python과 FastAPI를 기반으로 API 서버를 구축하고, LLM과 벡터DB를 활용한 추천 시스템 개발 경험이 있습니다.",
-      "create_date": "2026-05-26",
-      "update_date": "2026-05-26"
-    }
-  ],
+"resume_activity": [
+{
+"activity_id": 5,
+"resume_id": 3,
+"activity_type": "교육",
+"activity_name": "AWS 클라우드 전문가 과정",
+"start_ym": "2023.01",
+"end_ym": "2023.08"
+},
+{
+"activity_id": 6,
+"resume_id": 3,
+"activity_type": "프로젝트",
+"activity_name": "클라우드 모니터링 플랫폼 개발",
+"start_ym": "2025.04",
+"end_ym": "2025.10"
+}
+],
 
-  "career": [
-    {
-      "career_id": 2,
-      "resume_id": 3,
-      "company_name": "넥스트AI",
-      "department": "플랫폼개발팀",
-      "position": "백엔드 개발자",
-      "start_ym": "2024.07",
-      "end_ym": "2025.12",
-      "experience_months": 18,
-      "main_achievement": "FastAPI 기반 마이크로서비스 설계 및 벡터 검색 시스템 성능 개선 작업을 수행했습니다."
-    }
-  ],
+"cover_letter": [
+{
+"cover_letter_id": 9,
+"resume_id": 3,
+"sub_title": "성장과정",
+"content": "서비스의 안정성과 확장성을 고민하며 백엔드 엔지니어로 성장했습니다."
+},
+{
+"cover_letter_id": 10,
+"resume_id": 3,
+"sub_title": "협업 경험",
+"content": "GitHub Flow와 Jira를 활용하여 애자일 개발 문화를 경험했습니다."
+},
+{
+"cover_letter_id": 11,
+"resume_id": 3,
+"sub_title": "강점",
+"content": "클라우드 인프라 운영과 API 성능 최적화 경험이 강점입니다."
+},
+{
+"cover_letter_id": 12,
+"resume_id": 3,
+"sub_title": "지원동기 및 목표",
+"content": "대규모 트래픽을 처리하는 플랫폼 백엔드 개발자가 되고 싶습니다."
+}
+],
 
-  "certificate": [
-    {
-      "certificate_id": 2,
-      "resume_id": 3,
-      "certificate_name": "SQLD",
-      "acquired_ym": "2025.06",
-      "issuer": "한국데이터산업진흥원"
-    }
-  ],
+"resume_tech_stack": [
+{
+"resume_tech_id": 9,
+"resume_id": 3,
+"tech_stack_id": 1,
+"tech_name": "Java",
+"proficiency_level": "상",
+"experience_months": 36
+},
+{
+"resume_tech_id": 10,
+"resume_id": 3,
+"tech_stack_id": 2,
+"tech_name": "Spring Boot",
+"proficiency_level": "상",
+"experience_months": 30
+},
+{
+"resume_tech_id": 11,
+"resume_id": 3,
+"tech_stack_id": 3,
+"tech_name": "MySQL",
+"proficiency_level": "상",
+"experience_months": 36
+},
+{
+"resume_tech_id": 12,
+"resume_id": 3,
+"tech_stack_id": 4,
+"tech_name": "AWS",
+"proficiency_level": "중상",
+"experience_months": 24
+}
+],
 
-  "resume_tech_stack": [
-    {
-      "resume_tech_id": 5,
-      "resume_id": 3,
-      "tech_stack_id": 1,
-      "tech_name": "Spring",
-      "proficiency_level": "중",
-      "experience_months": 12,
-      "main_usage": "백엔드 API 개발"
-    },
-    {
-      "resume_tech_id": 6,
-      "resume_id": 3,
-      "tech_stack_id": 2,
-      "tech_name": "Python",
-      "proficiency_level": "상",
-      "experience_months": 30,
-      "main_usage": "AI 및 백엔드 서비스 개발"
-    },
-    {
-      "resume_tech_id": 7,
-      "resume_id": 3,
-      "tech_stack_id": 3,
-      "tech_name": "FastAPI",
-      "proficiency_level": "상",
-      "experience_months": 20,
-      "main_usage": "REST API 및 AI 시스템 구축"
-    },
-    {
-      "resume_tech_id": 8,
-      "resume_id": 3,
-      "tech_stack_id": 4,
-      "tech_name": "PostgreSQL",
-      "proficiency_level": "중상",
-      "experience_months": 18,
-      "main_usage": "데이터 모델링 및 쿼리 최적화"
-    }
-  ],
+"certificate": [
+{
+"certificate_id": 3,
+"resume_id": 3,
+"certificate_name": "AWS Solutions Architect Associate",
+"acquired_ym": "2025.03",
+"issuer": "Amazon"
+}
+],
 
-  "self_introduction": [
-    {
-      "section": "성장과정",
-      "content": "문제를 구조적으로 해결하는 방식에 흥미를 느끼며 백엔드와 AI 기술을 함께 학습해왔습니다."
-    },
-    {
-      "section": "강점",
-      "content": "시스템 설계와 API 성능 개선에 강점이 있으며, LLM 기반 서비스 구조 이해도가 높습니다."
-    }
-  ]
+"github": {
+"repos": [
+"Cloud Monitoring Platform",
+"Spring MSA Template",
+"Kubernetes Deploy Tool",
+"Backend Performance Lab",
+"AWS Automation Service",
+"DevOps Portfolio"
+],
+
+
+"commits": [
+  "feat spring boot monitoring api",
+  "feat kubernetes deployment automation",
+  "refactor msa architecture",
+  "refactor common module",
+  "test load test scenario",
+  "test integration pipeline",
+  "fix memory issue",
+  "fix redis connection error",
+  "feat aws ec2 provisioning",
+  "feat aws lambda service",
+  "feat docker deployment",
+  "feat prometheus monitoring",
+  "feat grafana dashboard",
+  "refactor logging module",
+  "test performance benchmark"
+]
+
+
+}
 }

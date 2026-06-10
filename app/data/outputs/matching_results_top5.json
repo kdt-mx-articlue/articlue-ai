@@ -1,32 +1,42 @@
 [
   {
-    "company_name": "베이글랩스",
-    "job_title": "디지털치료기기(DTx) 시니어 백엔드 개발자 (7년 이상)",
-    "matching_score": 0.7565,
-    "requirement_fit": 0.1443
-  },
-  {
-    "company_name": "뷰리드 강남오피스",
-    "job_title": "백엔드 개발자 (5년 이상)",
-    "matching_score": 0.7254,
-    "requirement_fit": 0.123
-  },
-  {
-    "company_name": "후플렉스",
-    "job_title": "Java 주니어 개발자",
-    "matching_score": 0.7186,
-    "requirement_fit": 0.1353
-  },
-  {
-    "company_name": "패스트레인(여신티켓)",
-    "job_title": "백엔드 개발자 (Java/Spring) 7년 이상",
-    "matching_score": 0.7177,
-    "requirement_fit": 0.1394
+    "company_name": "제너레잇",
+    "job_title": "Python Algorithm Engineer (파이썬 개발자)",
+    "semantic_score": 0.754,
+    "github_score": 0.86,
+    "final_score": 0.7593,
+    "requirement_fit": 0.135
   },
   {
     "company_name": "피알앤디컴퍼니(헤이딜러)",
     "job_title": "백엔드 개발자 (python)",
-    "matching_score": 0.7163,
-    "requirement_fit": 0.0978
+    "semantic_score": 0.7492,
+    "github_score": 0.86,
+    "final_score": 0.7547,
+    "requirement_fit": 0.0957
+  },
+  {
+    "company_name": "오아비스 솔루션",
+    "job_title": "데이터 엔지니어",
+    "semantic_score": 0.7393,
+    "github_score": 0.86,
+    "final_score": 0.7453,
+    "requirement_fit": 0.0912
+  },
+  {
+    "company_name": "브레인다이브",
+    "job_title": "Python SaaS 서비스 백엔드 개발자 (FastAPI)",
+    "semantic_score": 0.7339,
+    "github_score": 0.86,
+    "final_score": 0.7402,
+    "requirement_fit": 0.1357
+  },
+  {
+    "company_name": "케어랩스",
+    "job_title": "백엔드 개발자 (Python/AI)",
+    "semantic_score": 0.7147,
+    "github_score": 0.86,
+    "final_score": 0.722,
+    "requirement_fit": 0.1571
   }
 ]

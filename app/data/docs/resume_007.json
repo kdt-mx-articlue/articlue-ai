@@ -1,106 +1,159 @@
 {
   "resume": {
-    "resume_id": 14,
-    "member_id": 12,
-    "resume_title": "AI 서비스 플랫폼 백엔드 엔지니어",
-    "name": "김하린",
-    "phone": "01011112222",
-    "email": "harin.kim@example.com",
-    "birth_date": "1997-12-09",
-    "address": "서울특별시 강서구",
-    "gender": "female",
-    "military_status": "N",
+    "resume_id": 6,
+    "member_id": 6,
+    "resume_title": "AI 플랫폼 엔지니어 이력서",
+    "name": "최민재",
+    "phone": "01088776655",
+    "email": "mj.choi@example.com",
+    "birth_date": "1998-05-12",
+    "address": "대전광역시 유성구",
+    "gender": "male",
+    "military_status": "Y",
     "desired_location": "서울",
+    "career_years": 4,
     "resume_status": "작성완료",
-    "representative_yn": "N",
-    "career_years": 5,
-    "create_date": "2026-06-01",
-    "update_date": "2026-06-01"
+    "representative_yn": "Y",
+    "create_date": "2026-06-08",
+    "update_date": "2026-06-08"
   },
 
   "education": [
     {
-      "education_id": 13,
-      "resume_id": 14,
+      "education_id": 6,
+      "resume_id": 6,
       "school_type": "대학교",
-      "school_name": "이화여자대학교",
-      "major": "컴퓨터공학과",
-      "gpa": 3.8,
-      "start_ym": "2016.03",
+      "school_name": "충남대학교",
+      "major": "소프트웨어학과",
+      "gpa": 3.91,
+      "start_ym": "2018.03",
       "end_ym": "2022.02"
-    }
-  ],
-
-  "resume_activity": [
-    {
-      "activity_id": 15,
-      "resume_id": 14,
-      "activity_type": "프로젝트",
-      "activity_name": "LLM 기반 고객 상담 자동화 시스템",
-      "start_ym": "2024.05",
-      "end_ym": "2025.02"
     }
   ],
 
   "career": [
     {
-      "career_id": 13,
-      "resume_id": 14,
-      "company_name": "NeoAI",
-      "department": "Backend Platform Team",
-      "position": "Backend Engineer",
+      "career_id": 6,
+      "resume_id": 6,
+      "company_name": "넥스트데이터",
+      "department": "AI플랫폼팀",
+      "position": "백엔드 개발자",
       "start_ym": "2022.03",
-      "end_ym": "2025.04",
-      "experience_months": 37,
-      "main_achievement": "AI 서비스 API 아키텍처 설계 및 트래픽 최적화"
+      "end_ym": "2026.02",
+      "experience_months": 47,
+      "main_achievement": "LangChain 기반 사내 문서검색 시스템 구축 및 API 응답속도 40% 개선"
     }
   ],
 
-  "certificate": [
+  "resume_activity": [
     {
-      "certificate_id": 13,
-      "resume_id": 14,
-      "certificate_name": "SQLD",
-      "acquired_ym": "2023.07",
-      "issuer": "한국데이터산업진흥원"
+      "activity_id": 11,
+      "resume_id": 6,
+      "activity_type": "프로젝트",
+      "activity_name": "사내 AI 검색 플랫폼 개발",
+      "start_ym": "2024.01",
+      "end_ym": "2024.09"
+    },
+    {
+      "activity_id": 12,
+      "resume_id": 6,
+      "activity_type": "교육",
+      "activity_name": "생성형 AI 실무 교육 수료",
+      "start_ym": "2023.05",
+      "end_ym": "2023.07"
+    }
+  ],
+
+  "cover_letter": [
+    {
+      "cover_letter_id": 21,
+      "resume_id": 6,
+      "sub_title": "성장과정",
+      "content": "새로운 기술을 빠르게 검증하고 실제 서비스에 적용하는 과정을 즐깁니다."
+    },
+    {
+      "cover_letter_id": 22,
+      "resume_id": 6,
+      "sub_title": "프로젝트 경험",
+      "content": "RAG 기반 AI 검색 서비스를 구축하며 벡터DB 및 LLM 운영 경험을 쌓았습니다."
+    },
+    {
+      "cover_letter_id": 23,
+      "resume_id": 6,
+      "sub_title": "강점",
+      "content": "서비스 아키텍처 설계와 성능 최적화에 강점이 있습니다."
+    },
+    {
+      "cover_letter_id": 24,
+      "resume_id": 6,
+      "sub_title": "지원동기",
+      "content": "대규모 AI 플랫폼을 개발하는 엔지니어로 성장하고 싶습니다."
     }
   ],
 
   "resume_tech_stack": [
     {
-      "resume_tech_id": 25,
-      "resume_id": 14,
-      "tech_name": "Java",
+      "resume_tech_id": 21,
+      "resume_id": 6,
+      "tech_stack_id": 1,
+      "tech_name": "Python",
       "proficiency_level": "상",
-      "experience_months": 48,
-      "main_usage": "대규모 백엔드 시스템 개발"
+      "experience_months": 48
     },
     {
-      "resume_tech_id": 26,
-      "resume_id": 14,
-      "tech_name": "Spring Boot",
+      "resume_tech_id": 22,
+      "resume_id": 6,
+      "tech_stack_id": 2,
+      "tech_name": "FastAPI",
       "proficiency_level": "상",
-      "experience_months": 40,
-      "main_usage": "REST API 서버 구축"
+      "experience_months": 36
     },
     {
-      "resume_tech_id": 27,
-      "resume_id": 14,
-      "tech_name": "Redis",
-      "proficiency_level": "중상",
-      "experience_months": 24,
-      "main_usage": "캐싱 및 세션 관리"
+      "resume_tech_id": 23,
+      "resume_id": 6,
+      "tech_stack_id": 3,
+      "tech_name": "PostgreSQL",
+      "proficiency_level": "상",
+      "experience_months": 48
+    },
+    {
+      "resume_tech_id": 24,
+      "resume_id": 6,
+      "tech_stack_id": 4,
+      "tech_name": "LangChain",
+      "proficiency_level": "상",
+      "experience_months": 24
     }
   ],
 
-  "self_introduction": [
+  "certificate": [
     {
-      "section": "성장과정",
-      "content": "확장 가능한 서비스 구조와 안정적인 백엔드 설계에 관심을 가지며 실무 중심으로 성장했습니다."
-    },
-    {
-      "section": "강점",
-      "content": "고트래픽 환경에서의 API 설계 및 성능 튜닝 경험이 강점입니다."
+      "certificate_id": 6,
+      "resume_id": 6,
+      "certificate_name": "SQLD",
+      "acquired_ym": "2023.09",
+      "issuer": "한국데이터산업진흥원"
     }
-  ]
+  ],
+
+  "github": {
+    "repos": [
+      "enterprise-rag-platform",
+      "fastapi-template",
+      "vector-search-service",
+      "llm-observability"
+    ],
+    "commits": [
+      "feat rag retrieval optimization",
+      "feat langchain memory support",
+      "refactor vector search architecture",
+      "refactor service layer separation",
+      "test retrieval integration test",
+      "test api unit test",
+      "fix memory leak issue",
+      "fix async processing bug",
+      "feat monitoring dashboard",
+      "feat ci cd pipeline"
+    ]
+  }
 }
