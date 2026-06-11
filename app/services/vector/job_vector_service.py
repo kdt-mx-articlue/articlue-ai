@@ -59,13 +59,18 @@ def save_job_vectors(job_list):
 
     vector_store = Chroma.from_documents(
 
-        documents=documents,
+    documents=documents,
 
-        embedding=embeddings,
+    embedding=embeddings,
 
-        persist_directory=(
-            "app/data/vectors/job_vectors"
-        )
+    ids=[
+        str(job["job_id"])
+        for job in job_list
+    ],
+
+    persist_directory=(
+        "app/data/vectors/job_vectors"
     )
+)
 
     return vector_store

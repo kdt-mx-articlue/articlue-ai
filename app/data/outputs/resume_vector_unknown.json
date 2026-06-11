@@ -1,4 +1,30 @@
 {
+  "vector_text": "이름: \n희망직무: \n희망지역: \n경력연차: 0\n\n기술스택: \n\n기술역량: \n\nAI 기술: \n\n백엔드 기술: \n\n소프트스킬: \n\n성향: \n\n프로젝트 경험: \n\nGitHub 개발성향:\n구조 개선 선호 테스트 지향 문제 해결 중심\n\n    GitHub 활동성:\n    86\n    ",
+  "metadata": {
+    "resume_id": null,
+    "name": null,
+    "desired_location": null,
+    "career_years": 0
+  },
+  "analysis_result": {
+    "personality_traits": [],
+    "technical_skills": [],
+    "backend_skills": [],
+    "ai_skills": [],
+    "soft_skills": [],
+    "teamwork_style": "",
+    "problem_solving": "",
+    "growth_potential": "",
+    "project_experience": [],
+    "career_orientation": "",
+    "strength_keywords": []
+  },
+  "star_analysis": [],
+  "github_traits": [
+    "구조 개선 선호",
+    "테스트 지향",
+    "문제 해결 중심"
+  ],
   "resume_data": {
     "memberId": 3,
     "resumeTitle": "AI 백엔드 개발자 이력서",
@@ -182,28 +208,5 @@
       ]
     }
   },
-  "analysis_result": {
-    "personality_traits": [],
-    "technical_skills": [],
-    "backend_skills": [],
-    "ai_skills": [],
-    "soft_skills": [],
-    "teamwork_style": "",
-    "problem_solving": "",
-    "growth_potential": "",
-    "project_experience": [],
-    "career_orientation": "",
-    "strength_keywords": []
-  },
-  "star_analysis": [],
-  "github_traits": [
-    "구조 개선 선호",
-    "테스트 지향",
-    "문제 해결 중심"
-  ],
-  "github_profile": {
-    "repo_count": 5,
-    "commit_count": 12,
-    "activity_score": 86
-  }
+  "saved_at": "2026-06-11T11:55:32.556299"
 }

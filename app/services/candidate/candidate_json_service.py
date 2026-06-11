@@ -27,7 +27,15 @@ def process_candidate_json(json_path: str):
 
         data = json.load(f)
 
-    return process_candidate_json_data(data)
+    # 백엔드 응답이 success/message/data 구조인 경우 대응
+    resume_data = data.get(
+        "data",
+        data
+    )
+
+    return process_candidate_json_data(
+        resume_data
+    )
 
 
 # =========================
@@ -39,39 +47,72 @@ def process_candidate_json_data(data: dict):
     # 기술스택
     # =========================
     tech_stack = [
-        tech.get("tech_name", "")
+
+        tech.get(
+            "techName",
+            ""
+        )
+
         for tech in data.get(
-            "resume_tech_stack",
+            "techStacks",
             []
         )
+
     ]
 
     # =========================
     # 자기소개서 병합
     # =========================
-    cover_letter_text = "\n".join([
-        item.get(
-            "content",
-            ""
-        )
-        for item in data.get(
-            "cover_letter",
-            []
-        )
-    ])
+    cover_letter_text = "\n".join(
+
+        [
+
+            item.get(
+                "content",
+                ""
+            )
+
+            for cover in data.get(
+                "coverLetters",
+                []
+            )
+
+            for item in cover.get(
+                "items",
+                []
+            )
+
+        ]
+
+    )
 
     # =========================
     # LLM 입력 텍스트
     # =========================
     merged_text = f"""
 이름:
-{data.get("resume", {}).get("name", "")}
+{data.get("profile", {}).get("name", "")}
+
+희망직무:
+{data.get("desiredJob", "")}
+
+자기소개:
+{data.get("introduction", "")}
 
 학력:
-{data.get("education", [])}
+{data.get("educations", [])}
 
 기술스택:
 {", ".join(tech_stack)}
+
+프로젝트 및 활동:
+{data.get("experiences", [])}
+
+경력:
+{data.get("careers", [])}
+
+자격증:
+{data.get("certificates", [])}
 
 자기소개서:
 {cover_letter_text}
@@ -87,10 +128,14 @@ def process_candidate_json_data(data: dict):
     # =========================
     # GitHub 분석
     # =========================
-    github = data.get(
-        "github",
-        {}
-    )
+    github = {
+
+        "repos": data.get(
+            "githubRepositories",
+            []
+        )
+
+    }
 
     github_traits = extract_developer_traits(
         github
@@ -105,45 +150,65 @@ def process_candidate_json_data(data: dict):
     # =========================
     star_results = []
 
-    for item in data.get(
-        "cover_letter",
+    for cover in data.get(
+        "coverLetters",
         []
     ):
 
-        star_results.append({
+        for item in cover.get(
+            "items",
+            []
+        ):
 
-            "sub_title":
-            item.get(
-                "sub_title",
-                ""
-            ),
+            star_results.append(
 
-            "star_analysis":
-            analyze_star_structure(
-                item.get(
-                    "content",
-                    ""
-                )
+                {
+
+                    "sub_title":
+
+                    item.get(
+                        "subTitle",
+                        ""
+                    ),
+
+                    "star_analysis":
+
+                    analyze_star_structure(
+
+                        item.get(
+                            "content",
+                            ""
+                        )
+
+                    )
+
+                }
+
             )
-        })
 
     # =========================
-    # 반환
+    # 최종 반환
     # =========================
     return {
 
         "resume_data":
+
         data,
 
         "analysis_result":
+
         analysis_result,
 
         "star_analysis":
+
         star_results,
 
         "github_traits":
+
         github_traits,
 
         "github_profile":
+
         github_profile
+
     }

@@ -1,196 +1,171 @@
-
 {
-  "memberId": 3,
-  "resumeTitle": "AI 백엔드 개발자 이력서",
-  "desiredJob": "AI Backend Developer",
-  "introduction": "FastAPI, Python, ChromaDB, LLM 기반 AI 서비스를 개발하며 GitHub 데이터를 활용한 채용공고 매칭 프로젝트를 진행한 백엔드 개발자입니다.",
-
-  "desiredLocations": [
-    {
-      "locationName": "서울"
-    },
-    {
-      "locationName": "판교"
-    }
-  ],
-
-  "educations": [
-    {
-      "schoolType": "UNIVERSITY",
-      "schoolName": "조선대학교",
-      "major": "컴퓨터공학과",
-      "graduationStatus": "COMPLETED",
-      "gpa": 3.82,
-      "startYm": "202103",
-      "endYm": "202502"
-    },
-    {
-      "schoolType": "ACADEMY",
-      "schoolName": "광주인공지능사관학교",
-      "major": "AI 서비스 개발",
-      "graduationStatus": "COMPLETED",
-      "gpa": null,
-      "startYm": "202509",
-      "endYm": "202606"
-    }
-  ],
-
-  "experiences": [
-    {
-      "experienceType": "PROJECT",
-      "experienceName": "AI Resume Matching Platform",
-      "startYm": "202601",
-      "endYm": "202606"
-    },
-    {
-      "experienceType": "PROJECT",
-      "experienceName": "GitHub 기반 개발자 분석 시스템",
-      "startYm": "202603",
-      "endYm": "202606"
-    }
-  ],
-
-  "careers": [
-    {
-      "companyName": "개인 프로젝트",
-      "department": "AI Backend",
-      "position": "Backend Developer",
-      "startYm": "202601",
-      "endYm": "202606",
-      "mainAchievement": "FastAPI, ChromaDB, LangChain 기반 AI 채용 매칭 서비스를 개발하고 GitHub API 연동 및 벡터 검색 기능을 구현했습니다."
-    }
-  ],
-
-  "certificates": [
-    {
-      "certificateName": "정보처리기사",
-      "acquiredYm": "202511",
-      "issuer": "한국산업인력공단"
-    },
-    {
-      "certificateName": "SQLD",
-      "acquiredYm": "202505",
-      "issuer": "한국데이터산업진흥원"
-    }
-  ],
-
-  "coverLetters": [
-    {
-      "items": [
-        {
-          "questionOrder": 1,
-          "subTitle": "지원동기",
-          "content": "사용자의 역량을 AI와 데이터 기반으로 분석하여 적합한 기업을 추천하는 서비스에 관심이 있습니다. FastAPI와 LLM을 활용한 프로젝트를 진행하며 AI 백엔드 개발 역량을 키웠습니다."
+    "success": true,
+    "message": "이력서 상세 조회 성공",
+    "data": {
+        "resumeId": 1,
+        "memberId": 1,
+        "resumeTitle": "백엔드 개발자 지원 이력서",
+        "desiredJob": "백엔드 개발자",
+        "introduction": "Node.js와 Oracle 기반 백엔드 개발을 지향합니다.",
+        "resumeStatus": "DRAFT",
+        "representativeYn": "Y",
+        "createAt": "2026-05-18T15:00:00.000Z",
+        "updateAt": "2026-05-18T15:00:00.000Z",
+        "member": {
+            "loginId": "admin",
+            "email": "admin@naver.com",
+            "nickname": "admin",
+            "userType": "ADMIN"
         },
-        {
-          "questionOrder": 2,
-          "subTitle": "직무역량",
-          "content": "Python, FastAPI, LangChain, ChromaDB를 활용하여 벡터 검색 및 추천 시스템을 구현했습니다. REST API 설계와 비동기 처리 경험도 보유하고 있습니다."
+        "profile": {
+            "profileId": 1,
+            "name": "홍길동",
+            "phone": "01012345678",
+            "birthDate": "1999-12-30T15:00:00.000Z",
+            "address": "서울특별시 강남구",
+            "gender": "male",
+            "militaryStatus": "Y",
+            "profileImageUrl": null
         },
-        {
-          "questionOrder": 3,
-          "subTitle": "협업경험",
-          "content": "Git Flow 기반 협업과 코드리뷰를 수행하였으며, API 명세와 데이터 구조를 백엔드와 함께 설계한 경험이 있습니다."
-        },
-        {
-          "questionOrder": 4,
-          "subTitle": "입사 후 포부",
-          "content": "AI 서비스와 백엔드 시스템을 안정적으로 운영할 수 있는 개발자가 되어 추천 알고리즘과 데이터 파이프라인을 지속적으로 고도화하고 싶습니다."
-        }
-      ]
+        "desiredLocations": [
+            {
+                "desiredLocationId": 1,
+                "locationName": "서울"
+            }
+        ],
+        "educations": [
+            {
+                "educationId": 1,
+                "schoolType": "대학교",
+                "schoolName": "XX대학교",
+                "major": "컴퓨터공학과",
+                "graduationStatus": "졸업",
+                "gpa": 4.1,
+                "startYm": "2015-04",
+                "endYm": "2020-07"
+            }
+        ],
+        "experiences": [
+            {
+                "experienceId": 1,
+                "experienceType": "교육",
+                "experienceName": "동아MX School",
+                "startYm": "2025-12",
+                "endYm": "2026-07"
+            }
+        ],
+        "careers": [
+            {
+                "careerId": 1,
+                "companyName": "아티클루랩",
+                "department": "개발팀",
+                "position": "백엔드 인턴",
+                "startYm": "2025-06",
+                "endYm": "2025-12",
+                "mainAchievement": "Spring Boot 기반 REST API 개발과 Oracle DB 테이블 설계 및 파일 업로드 기능 구현에 참여했습니다."
+            }
+        ],
+        "certificates": [
+            {
+                "certificateId": 1,
+                "certificateName": "정보처리기사",
+                "acquiredYm": "2025-11",
+                "issuer": "한국산업인력공단"
+            }
+        ],
+        "coverLetters": [
+            {
+                "coverLetterId": 1,
+                "createAt": "2026-05-09T15:00:00.000Z",
+                "updateAt": "2026-06-09T15:00:00.000Z",
+                "items": [
+                    {
+                        "coverLetterItemId": 1,
+                        "questionOrder": 1,
+                        "subTitle": "자기소개서제목",
+                        "content": "자기소개서본문",
+                        "createAt": "2026-05-09T15:00:00.000Z",
+                        "updateAt": "2026-06-09T15:00:00.000Z"
+                    }
+                ]
+            }
+        ],
+        "portfolios": [
+            {
+                "portfolioId": 1,
+                "originalFileName": "홍길동포트폴리오",
+                "storedFileName": "홍길동포트폴리오2001132141532155",
+                "fileExtension": "pdf",
+                "filePath": "home/portfolio/홍길동",
+                "fileSize": 1633,
+                "uploadAt": "2026-05-18T15:00:00.000Z",
+                "fileStatus": "ACTIVE"
+            }
+        ],
+        "techStacks": [
+            {
+                "resumeTechId": 1,
+                "techCategoryCode": "T102016",
+                "techCategoryName": "framework",
+                "techName": "Express.js",
+                "createAt": "2026-05-21T15:00:00.000Z"
+            },
+            {
+                "resumeTechId": 2,
+                "techCategoryCode": "T103005",
+                "techCategoryName": "database",
+                "techName": "Oracle",
+                "createAt": "2026-05-21T15:00:00.000Z"
+            }
+        ],
+        "githubRepositories": [
+            {
+                "resumeGithubRepoId": 1,
+                "githubRepositoryId": 1,
+                "githubRepoExternalId": 20000001,
+                "name": "articlue-backend",
+                "fullName": "test1234/articlue-backend",
+                "htmlUrl": "https://github.com/test1234/articlue-backend",
+                "description": "Node.js와 Oracle 기반 채용 매칭 서비스 백엔드 저장소",
+                "fork": "N",
+                "archived": "N",
+                "defaultBranch": "main",
+                "githubCreatedAt": "2026-03-31T15:00:00.000Z",
+                "githubUpdatedAt": "2026-05-17T15:00:00.000Z",
+                "pushedAt": "2026-05-17T15:00:00.000Z",
+                "lastSyncAt": "2026-05-18T15:00:00.000Z",
+                "displayOrder": 1,
+                "projectDescription": "Node.js와 Oracle 기반 채용 매칭 서비스 백엔드 저장소입니다.",
+                "createdDate": "2026-05-18T15:00:00.000Z",
+                "techStacks": [
+                    {
+                        "githubRepoTechId": 1,
+                        "techCategoryCode": "T102016",
+                        "techCategoryName": "framework",
+                        "techName": "Express.js",
+                        "languageName": "JavaScript",
+                        "usageRatio": 72.5,
+                        "collectedAt": "2026-05-18T15:00:00.000Z"
+                    },
+                    {
+                        "githubRepoTechId": 2,
+                        "techCategoryCode": "T103005",
+                        "techCategoryName": "database",
+                        "techName": "Oracle",
+                        "languageName": "SQL",
+                        "usageRatio": 15,
+                        "collectedAt": "2026-05-18T15:00:00.000Z"
+                    }
+                ],
+                "commitDaily": [
+                    {
+                        "githubRepoCommitDailyId": 1,
+                        "commitDate": "2026-05-16T15:00:00.000Z",
+                        "commitCount": 5,
+                        "collectedAt": "2026-05-18T15:00:00.000Z"
+                    }
+                ]
+            }
+        ]
     }
-  ],
-
-  "techStacks": [
-    {
-      "techCategoryCode": "PYTHON",
-      "techName": "Python"
-    },
-    {
-      "techCategoryCode": "FASTAPI",
-      "techName": "FastAPI"
-    },
-    {
-      "techCategoryCode": "LANGCHAIN",
-      "techName": "LangChain"
-    },
-    {
-      "techCategoryCode": "CHROMADB",
-      "techName": "ChromaDB"
-    },
-    {
-      "techCategoryCode": "MYSQL",
-      "techName": "MySQL"
-    },
-    {
-      "techCategoryCode": "GIT",
-      "techName": "Git"
-    }
-  ],
-
-  "portfolios": [
-    {
-      "originalFileName": "resume_matching_portfolio.pdf",
-      "storedFileName": "202606_resume_matching_portfolio.pdf",
-      "fileExtension": "pdf",
-      "filePath": "/upload/portfolio/202606_resume_matching_portfolio.pdf",
-      "fileSize": 3145728,
-      "fileStatus": "ACTIVE"
-    }
-  ],
-
-  "github": {
-    "username": "junhyung-dev",
-    "followers": 18,
-    "following": 12,
-
-    "repos": [
-      {
-        "name": "ai-job-matching",
-        "language": "Python",
-        "stars": 15,
-        "forks": 3
-      },
-      {
-        "name": "github-analyzer",
-        "language": "Python",
-        "stars": 8,
-        "forks": 1
-      },
-      {
-        "name": "fastapi-template",
-        "language": "Python",
-        "stars": 5,
-        "forks": 0
-      },
-      {
-        "name": "rag-service",
-        "language": "Python",
-        "stars": 12,
-        "forks": 2
-      },
-      {
-        "name": "portfolio-site",
-        "language": "TypeScript",
-        "stars": 4,
-        "forks": 0
-      }
-    ],
-
-    "commits": [
-      "feat: matching algorithm",
-      "feat: github analyzer",
-      "refactor: vector search",
-      "fix: async api",
-      "feat: rag pipeline",
-      "feat: scoring service",
-      "test: matching test",
-      "docs: update readme",
-      "feat: resume parser",
-      "refactor: prompt",
-      "feat: chromadb",
-      "fix: bug"
-    ]
-  }
 }
-
