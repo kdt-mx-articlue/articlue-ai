@@ -13,7 +13,7 @@ import chromadb
 import os
 
 
-RESUME_PATH = "app/data/docs/resume_002.json"
+RESUME_PATH = "app/data/docs/resume_001.json"
 JOB_PATH = "app/data/parsed/job_postings_parsed.json"
 OUTPUT_PATH = "app/data/outputs/matching_results_all.json"
 

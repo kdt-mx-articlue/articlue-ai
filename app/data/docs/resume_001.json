@@ -1,152 +1,196 @@
+
 {
-  "resume": {
-    "resume_id": 1,
-    "member_id": 1,
-    "resume_title": "AI 백엔드 개발자 이력서",
-    "name": "이준호",
-    "phone": "01012345678",
-    "email": "minsu.kim@example.com",
-    "birth_date": "1999-03-14",
-    "address": "광주광역시 북구",
-    "gender": "male",
-    "military_status": "Y",
-    "desired_location": "서울",
-    "career_years": 2,
-    "resume_status": "작성완료",
-    "representative_yn": "Y",
-    "create_date": "2026-05-26",
-    "update_date": "2026-05-26"
-  },
+  "memberId": 3,
+  "resumeTitle": "AI 백엔드 개발자 이력서",
+  "desiredJob": "AI Backend Developer",
+  "introduction": "FastAPI, Python, ChromaDB, LLM 기반 AI 서비스를 개발하며 GitHub 데이터를 활용한 채용공고 매칭 프로젝트를 진행한 백엔드 개발자입니다.",
 
-  "education": [
+  "desiredLocations": [
     {
-      "education_id": 1,
-      "resume_id": 1,
-      "school_type": "대학교",
-      "school_name": "조선대학교",
+      "locationName": "서울"
+    },
+    {
+      "locationName": "판교"
+    }
+  ],
+
+  "educations": [
+    {
+      "schoolType": "UNIVERSITY",
+      "schoolName": "조선대학교",
       "major": "컴퓨터공학과",
-      "gpa": 3.8,
-      "start_ym": "2021.03",
-      "end_ym": "2025.02"
+      "graduationStatus": "COMPLETED",
+      "gpa": 3.82,
+      "startYm": "202103",
+      "endYm": "202502"
+    },
+    {
+      "schoolType": "ACADEMY",
+      "schoolName": "광주인공지능사관학교",
+      "major": "AI 서비스 개발",
+      "graduationStatus": "COMPLETED",
+      "gpa": null,
+      "startYm": "202509",
+      "endYm": "202606"
     }
   ],
 
-  "career": [
+  "experiences": [
     {
-      "career_id": 1,
-      "resume_id": 1,
-      "company_name": "아티클루랩",
-      "department": "개발팀",
-      "position": "AI 백엔드 인턴",
-      "start_ym": "2025.06",
-      "end_ym": "2025.12",
-      "experience_months": 7,
-      "main_achievement": "FastAPI 기반 REST API 개발 및 ChromaDB 기반 RAG 검색 기능 구현 참여"
+      "experienceType": "PROJECT",
+      "experienceName": "AI Resume Matching Platform",
+      "startYm": "202601",
+      "endYm": "202606"
+    },
+    {
+      "experienceType": "PROJECT",
+      "experienceName": "GitHub 기반 개발자 분석 시스템",
+      "startYm": "202603",
+      "endYm": "202606"
     }
   ],
 
-  "resume_activity": [
+  "careers": [
     {
-      "activity_id": 1,
-      "resume_id": 1,
-      "activity_type": "교육",
-      "activity_name": "SMHRD AI 과정 수료",
-      "start_ym": "2024.09",
-      "end_ym": "2025.06"
-    },
-    {
-      "activity_id": 2,
-      "resume_id": 1,
-      "activity_type": "프로젝트",
-      "activity_name": "AI 기반 채용 추천 플랫폼 개발",
-      "start_ym": "2026.01",
-      "end_ym": "2026.05"
+      "companyName": "개인 프로젝트",
+      "department": "AI Backend",
+      "position": "Backend Developer",
+      "startYm": "202601",
+      "endYm": "202606",
+      "mainAchievement": "FastAPI, ChromaDB, LangChain 기반 AI 채용 매칭 서비스를 개발하고 GitHub API 연동 및 벡터 검색 기능을 구현했습니다."
     }
   ],
 
-  "cover_letter": [
+  "certificates": [
     {
-      "cover_letter_id": 1,
-      "resume_id": 1,
-      "sub_title": "성장과정",
-      "content": "새로운 기술을 빠르게 학습하고 실제 프로젝트에 적용하는 과정에서 성장했습니다."
-    },
-    {
-      "cover_letter_id": 2,
-      "resume_id": 1,
-      "sub_title": "협업 경험",
-      "content": "Git 기반 협업 경험과 코드 리뷰 경험을 통해 팀 개발 프로세스를 이해했습니다."
-    },
-    {
-      "cover_letter_id": 3,
-      "resume_id": 1,
-      "sub_title": "강점",
-      "content": "API 성능 개선과 비동기 처리 구조 설계 경험이 강점입니다."
-    },
-    {
-      "cover_letter_id": 4,
-      "resume_id": 1,
-      "sub_title": "지원동기 및 목표",
-      "content": "LLM 기반 AI 백엔드 시스템을 개발하는 엔지니어로 성장하고 싶습니다."
-    }
-  ],
-
-  "resume_tech_stack": [
-    {
-      "resume_tech_id": 1,
-      "resume_id": 1,
-      "tech_stack_id": 1,
-      "tech_name": "Spring",
-      "proficiency_level": "상",
-      "experience_months": 18
-    },
-    {
-      "resume_tech_id": 2,
-      "resume_id": 1,
-      "tech_stack_id": 2,
-      "tech_name": "Python",
-      "proficiency_level": "상",
-      "experience_months": 36
-    },
-    {
-      "resume_tech_id": 3,
-      "resume_id": 1,
-      "tech_stack_id": 3,
-      "tech_name": "FastAPI",
-      "proficiency_level": "상",
-      "experience_months": 18
-    },
-    {
-      "resume_tech_id": 4,
-      "resume_id": 1,
-      "tech_stack_id": 4,
-      "tech_name": "MySQL",
-      "proficiency_level": "중",
-      "experience_months": 24
-    }
-  ],
-
-  "certificate": [
-    {
-      "certificate_id": 1,
-      "resume_id": 1,
-      "certificate_name": "정보처리기사",
-      "acquired_ym": "2025.11",
+      "certificateName": "정보처리기사",
+      "acquiredYm": "202511",
       "issuer": "한국산업인력공단"
+    },
+    {
+      "certificateName": "SQLD",
+      "acquiredYm": "202505",
+      "issuer": "한국데이터산업진흥원"
     }
   ],
 
- 
+  "coverLetters": [
+    {
+      "items": [
+        {
+          "questionOrder": 1,
+          "subTitle": "지원동기",
+          "content": "사용자의 역량을 AI와 데이터 기반으로 분석하여 적합한 기업을 추천하는 서비스에 관심이 있습니다. FastAPI와 LLM을 활용한 프로젝트를 진행하며 AI 백엔드 개발 역량을 키웠습니다."
+        },
+        {
+          "questionOrder": 2,
+          "subTitle": "직무역량",
+          "content": "Python, FastAPI, LangChain, ChromaDB를 활용하여 벡터 검색 및 추천 시스템을 구현했습니다. REST API 설계와 비동기 처리 경험도 보유하고 있습니다."
+        },
+        {
+          "questionOrder": 3,
+          "subTitle": "협업경험",
+          "content": "Git Flow 기반 협업과 코드리뷰를 수행하였으며, API 명세와 데이터 구조를 백엔드와 함께 설계한 경험이 있습니다."
+        },
+        {
+          "questionOrder": 4,
+          "subTitle": "입사 후 포부",
+          "content": "AI 서비스와 백엔드 시스템을 안정적으로 운영할 수 있는 개발자가 되어 추천 알고리즘과 데이터 파이프라인을 지속적으로 고도화하고 싶습니다."
+        }
+      ]
+    }
+  ],
+
+  "techStacks": [
+    {
+      "techCategoryCode": "PYTHON",
+      "techName": "Python"
+    },
+    {
+      "techCategoryCode": "FASTAPI",
+      "techName": "FastAPI"
+    },
+    {
+      "techCategoryCode": "LANGCHAIN",
+      "techName": "LangChain"
+    },
+    {
+      "techCategoryCode": "CHROMADB",
+      "techName": "ChromaDB"
+    },
+    {
+      "techCategoryCode": "MYSQL",
+      "techName": "MySQL"
+    },
+    {
+      "techCategoryCode": "GIT",
+      "techName": "Git"
+    }
+  ],
+
+  "portfolios": [
+    {
+      "originalFileName": "resume_matching_portfolio.pdf",
+      "storedFileName": "202606_resume_matching_portfolio.pdf",
+      "fileExtension": "pdf",
+      "filePath": "/upload/portfolio/202606_resume_matching_portfolio.pdf",
+      "fileSize": 3145728,
+      "fileStatus": "ACTIVE"
+    }
+  ],
+
   "github": {
+    "username": "junhyung-dev",
+    "followers": 18,
+    "following": 12,
+
     "repos": [
-      "AI Job Matching"
+      {
+        "name": "ai-job-matching",
+        "language": "Python",
+        "stars": 15,
+        "forks": 3
+      },
+      {
+        "name": "github-analyzer",
+        "language": "Python",
+        "stars": 8,
+        "forks": 1
+      },
+      {
+        "name": "fastapi-template",
+        "language": "Python",
+        "stars": 5,
+        "forks": 0
+      },
+      {
+        "name": "rag-service",
+        "language": "Python",
+        "stars": 12,
+        "forks": 2
+      },
+      {
+        "name": "portfolio-site",
+        "language": "TypeScript",
+        "stars": 4,
+        "forks": 0
+      }
     ],
+
     "commits": [
-      "feat FastAPI API 구현",
-      "refactor matching service 개선",
-      "test scoring unit test 추가",
-      "fix async bug"
+      "feat: matching algorithm",
+      "feat: github analyzer",
+      "refactor: vector search",
+      "fix: async api",
+      "feat: rag pipeline",
+      "feat: scoring service",
+      "test: matching test",
+      "docs: update readme",
+      "feat: resume parser",
+      "refactor: prompt",
+      "feat: chromadb",
+      "fix: bug"
     ]
+  }
 }
 
-}

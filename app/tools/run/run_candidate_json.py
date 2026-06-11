@@ -10,7 +10,7 @@ from app.services.vector.resume_vector_service import (
 
 
 JSON_PATH = (
-    "app/data/docs/resume_002.json"
+    "app/data/docs/resume_001.json"
 )
 
 OUTPUT_PATH = (

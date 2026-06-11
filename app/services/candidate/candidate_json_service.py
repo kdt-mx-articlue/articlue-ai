@@ -27,13 +27,13 @@ def process_candidate_json(json_path: str):
 
         data = json.load(f)
 
-    return process_candidate_data(data)
+    return process_candidate_json_data(data)
 
 
 # =========================
 # 백엔드(dict) 기반 처리
 # =========================
-def process_candidate_data(data: dict):
+def process_candidate_json_data(data: dict):
 
     # =========================
     # 기술스택

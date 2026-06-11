@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 from app.services.candidate.candidate_json_service import (
-    process_candidate_data
+    process_candidate_json_data
 )
 
 router = APIRouter(
@@ -15,7 +15,7 @@ async def analyze_resume(
     resume: dict
 ):
 
-    result = process_candidate_data(
+    result = process_candidate_json_data(
         resume
     )
 
