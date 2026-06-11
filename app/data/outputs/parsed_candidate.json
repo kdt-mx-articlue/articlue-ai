@@ -163,11 +163,14 @@
       "FastAPI",
       "PostgreSQL",
       "Redis",
-      "RAG"
+      "Git Flow",
+      "RAG",
+      "LLM"
     ],
     "backend_skills": [
       "FastAPI",
-      "백엔드 개발"
+      "PostgreSQL",
+      "Redis"
     ],
     "ai_skills": [
       "RAG",
@@ -179,15 +182,17 @@
     ],
     "teamwork_style": "Git Flow 기반 협업과 코드 리뷰를 통해 팀 생산성을 향상시키는 방식",
     "problem_solving": "새로운 기술을 빠르게 습득하고 실제 서비스에 적용하는 과정에서 문제를 해결함",
-    "growth_potential": "빠른 기술 습득과 실제 적용 경험을 통해 지속적으로 성장하는 태도",
+    "growth_potential": "빠른 학습 능력과 실제 적용 경험을 바탕으로 지속적으로 성장하는 태도",
     "project_experience": [
       "FastAPI 기반 백엔드 개발",
-      "RAG 시스템 구축"
+      "RAG 시스템 구축 경험"
     ],
     "career_orientation": "LLM 기반 서비스 아키텍처를 설계하는 AI 백엔드 엔지니어",
     "strength_keywords": [
-      "FastAPI 기반 백엔드 개발",
-      "RAG 시스템 구축"
+      "FastAPI 백엔드 개발",
+      "RAG 시스템 구축",
+      "빠른 기술 습득",
+      "Git Flow 협업"
     ]
   },
   "star_analysis": [
@@ -196,9 +201,9 @@
       "star_analysis": {
         "situation": false,
         "task": false,
-        "action": true,
+        "action": false,
         "result": true,
-        "star_score": 50
+        "star_score": 25
       }
     },
     {
@@ -242,6 +247,6 @@
   "github_profile": {
     "repo_count": 5,
     "commit_count": 12,
-    "activity_score": 100
+    "activity_score": 86
   }
 }

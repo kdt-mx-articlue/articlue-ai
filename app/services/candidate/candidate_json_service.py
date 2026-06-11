@@ -14,13 +14,11 @@ from app.services.candidate.github_profile_service import (
 )
 
 
-def process_candidate_json(
-    json_path: str
-):
+# =========================
+# JSON 파일 기반 처리
+# =========================
+def process_candidate_json(json_path: str):
 
-    # =========================
-    # JSON 로드
-    # =========================
     with open(
         json_path,
         "r",
@@ -29,77 +27,77 @@ def process_candidate_json(
 
         data = json.load(f)
 
-    # =========================
-    # 벡터 분석용 텍스트 생성
-    # =========================
-    tech_stack = []
+    return process_candidate_data(data)
 
-    for tech in data.get(
-        "resume_tech_stack",
-        []
-    ):
 
-        tech_stack.append(
-            tech.get(
-                "tech_name",
-                ""
-            )
+# =========================
+# 백엔드(dict) 기반 처리
+# =========================
+def process_candidate_data(data: dict):
+
+    # =========================
+    # 기술스택
+    # =========================
+    tech_stack = [
+        tech.get("tech_name", "")
+        for tech in data.get(
+            "resume_tech_stack",
+            []
         )
+    ]
 
+    # =========================
+    # 자기소개서 병합
+    # =========================
+    cover_letter_text = "\n".join([
+        item.get(
+            "content",
+            ""
+        )
+        for item in data.get(
+            "cover_letter",
+            []
+        )
+    ])
+
+    # =========================
+    # LLM 입력 텍스트
+    # =========================
     merged_text = f"""
 이름:
-{
-    data.get(
-        "resume",
-        {}
-    ).get(
-        "name",
-        ""
-    )
-}
+{data.get("resume", {}).get("name", "")}
 
 학력:
-{
-    data.get(
-        "education",
-        []
-    )
-}
+{data.get("education", [])}
 
 기술스택:
 {", ".join(tech_stack)}
 
 자기소개서:
-{
-    data.get(
-        "cover_letter",
-        []
-    )
-}
-"""
+{cover_letter_text}
+""".strip()
 
     # =========================
     # LLM 분석
     # =========================
-    result = analyze_cover_letter(
+    analysis_result = analyze_cover_letter(
         merged_text
     )
 
     # =========================
     # GitHub 분석
     # =========================
+    github = data.get(
+        "github",
+        {}
+    )
+
     github_traits = extract_developer_traits(
-        data.get(
-            "github",
-            {}
-        )
+        github
     )
 
     github_profile = build_github_profile(
-        data.get(
-            "github",
-            {}
-        )
+        github
     )
 
     # =========================
@@ -112,13 +110,6 @@ def process_candidate_json(
         []
     ):
 
-        star_result = analyze_star_structure(
-            item.get(
-                "content",
-                ""
-            )
-        )
-
         star_results.append({
 
             "sub_title":
@@ -128,11 +119,16 @@ def process_candidate_json(
             ),
 
             "star_analysis":
-            star_result
+            analyze_star_structure(
+                item.get(
+                    "content",
+                    ""
+                )
+            )
         })
 
     # =========================
-    # 최종 반환
+    # 반환
     # =========================
     return {
 
@@ -140,7 +136,7 @@ def process_candidate_json(
         data,
 
         "analysis_result":
-        result,
+        analysis_result,
 
         "star_analysis":
         star_results,
