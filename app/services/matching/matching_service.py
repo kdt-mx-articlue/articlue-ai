@@ -14,8 +14,18 @@ model = HuggingFaceEmbeddings(
 
 
 # =========================
-# 공통 유틸
+# 안전 유틸
 # =========================
+def safe_text(value):
+    if not value:
+        return ""
+
+    if isinstance(value, list):
+        return " ".join(str(v) for v in value if v)
+
+    return str(value)
+
+
 def safe_join(values):
     if not values:
         return ""
@@ -45,19 +55,19 @@ def build_job_text(job):
 {safe_join(job_skills)}
 
 자격요건:
-{parsed.get("requirements", "")}
+{safe_text(parsed.get("requirements", ""))}
 
 우대사항:
-{parsed.get("preference", "")}
+{safe_text(parsed.get("preference", ""))}
 
 인재상:
-{parsed.get("team_culture", "")}
+{safe_text(parsed.get("team_culture", ""))}
 
 주요업무:
-{parsed.get("responsibilities", "")}
+{safe_text(parsed.get("responsibilities", ""))}
 
 복지혜택:
-{parsed.get("benefits", "")}
+{safe_text(parsed.get("benefits", ""))}
 """.strip()
 
 
@@ -80,7 +90,7 @@ def build_candidate_text(candidate):
 
     return f"""
 희망직무:
-{parsed.get("career_orientation", "")}
+{safe_text(parsed.get("career_orientation", ""))}
 
 총 경력:
 {career_years}년
@@ -104,7 +114,7 @@ AI기술:
 {safe_join(parsed.get("personality_traits", []))}
 
 문제해결:
-{parsed.get("problem_solving", "")}
+{safe_text(parsed.get("problem_solving", ""))}
 
 프로젝트경험:
 {safe_join(parsed.get("project_experience", []))}
@@ -112,51 +122,25 @@ AI기술:
 
 
 # =========================
-# Requirement Text (Job)
+# Requirement Fit Text
 # =========================
 def build_requirement_text(job):
+
     parsed = job.get("parsed_result", {})
 
-    return f"""
-자격요건:
-{parsed.get("requirements", "")}
-
-주요업무:
-{parsed.get("responsibilities", "")}
-""".strip()
+    return safe_text(parsed.get("requirements", "")) + " " + safe_join(
+        parsed.get("tech_stacks", [])
+    )
 
 
-# =========================
-# Requirement Text (Resume)
-# =========================
-def build_resume_requirement_text(candidate):
+def build_responsibility_text(job):
+    parsed = job.get("parsed_result", {})
+    return safe_text(parsed.get("responsibilities", ""))
 
-    parsed = candidate.get("analysis_result", {})
-    resume_data = candidate.get("resume_data", {})
 
-    career_text = ""
-
-    for career in resume_data.get("career", []):
-        career_text += f"""
-회사: {career.get("company_name", "")}
-부서: {career.get("department", "")}
-직무: {career.get("position", "")}
-주요성과: {career.get("main_achievement", "")}
-"""
-
-    return f"""
-기술역량:
-{safe_join(parsed.get("technical_skills", []))}
-
-프로젝트경험:
-{safe_join(parsed.get("project_experience", []))}
-
-문제해결:
-{parsed.get("problem_solving", "")}
-
-경력:
-{career_text}
-""".strip()
+def build_preference_text(job):
+    parsed = job.get("parsed_result", {})
+    return safe_text(parsed.get("preference", ""))
 
 
 # =========================
@@ -169,15 +153,12 @@ def get_embeddings(candidate_text, job_texts):
     return embeddings[0], embeddings[1:]
 
 
-# =========================
-# Similarity Score
-# =========================
-def score(candidate_embedding, job_embedding):
+def score(a, b):
     return round(
         float(
             cosine_similarity(
-                [np.array(candidate_embedding)],
-                [np.array(job_embedding)]
+                [np.array(a)],
+                [np.array(b)]
             )[0][0]
         ),
         4
@@ -192,12 +173,9 @@ def calculate_matching_score(candidate_data, job_data):
     candidate_text = build_candidate_text(candidate_data)
     job_text = build_job_text(job_data)
 
-    candidate_embedding, job_embeddings = get_embeddings(
-        candidate_text,
-        [job_text]
-    )
+    cand_emb, job_embs = get_embeddings(candidate_text, [job_text])
 
-    return score(candidate_embedding, job_embeddings[0])
+    return score(cand_emb, job_embs[0])
 
 
 # =========================
@@ -206,21 +184,27 @@ def calculate_matching_score(candidate_data, job_data):
 def calculate_requirement_fit(candidate_data, job_data):
 
     candidate_text = build_candidate_text(candidate_data)
-    parsed = job_data.get("parsed_result", {})
 
-    requirement_text = f"""
-    {parsed.get("requirements","")}
-    {safe_join(parsed.get("tech_stacks", []))}
-    """
-
-    responsibility_text = parsed.get("responsibilities", "")
-    preference_text = parsed.get("preference", "")
+    requirement_text = build_requirement_text(job_data)
+    responsibility_text = build_responsibility_text(job_data)
+    preference_text = build_preference_text(job_data)
 
     candidate_embedding = model.embed_query(candidate_text)
 
-    requirement_score = score(candidate_embedding, model.embed_query(requirement_text))
-    responsibility_score = score(candidate_embedding, model.embed_query(responsibility_text))
-    preference_score = score(candidate_embedding, model.embed_query(preference_text))
+    requirement_score = score(
+        candidate_embedding,
+        model.embed_query(requirement_text)
+    )
+
+    responsibility_score = score(
+        candidate_embedding,
+        model.embed_query(responsibility_text)
+    )
+
+    preference_score = score(
+        candidate_embedding,
+        model.embed_query(preference_text)
+    )
 
     final_score = (
         requirement_score * 0.7 +
@@ -236,36 +220,35 @@ def calculate_requirement_fit(candidate_data, job_data):
 # =========================
 def match_candidate_to_jobs(candidate_data, jobs_data):
 
-    candidate_text = build_resume_requirement_text(candidate_data)
+    candidate_text = build_candidate_text(candidate_data)
     job_texts = [build_job_text(job) for job in jobs_data]
 
-    candidate_embedding, job_embeddings = get_embeddings(
-        candidate_text,
-        job_texts
-    )
+    cand_emb, job_embs = get_embeddings(candidate_text, job_texts)
 
     results = []
 
     # =========================
-    # GitHub profile
+    # GitHub score (fixed)
     # =========================
     repos = candidate_data.get("githubRepositories", [])
 
+    total_commits = sum(
+        d.get("commitCount", 0)
+        for r in repos
+        for d in r.get("commitDaily", [])
+    )
+
     github_score = round(
-        sum(
-            d.get("commitCount", 0)
-            for r in repos
-            for d in r.get("commitDaily", [])
-        ) / 100,
+        min(100, total_commits + len(repos) * 5) / 100,
         4
     )
 
     # =========================
     # Job loop
     # =========================
-    for job, job_embedding in zip(jobs_data, job_embeddings):
+    for job, job_emb in zip(jobs_data, job_embs):
 
-        semantic_score = score(candidate_embedding, job_embedding)
+        semantic_score = score(cand_emb, job_emb)
 
         candidate_skills = set(
             expand_skills(
