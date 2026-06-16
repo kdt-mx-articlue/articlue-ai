@@ -1,26 +1,36 @@
-import json
+def load_cover_letters(resume_data: dict):
 
+    # 1. API 구조 or DB 구조 둘 다 대응
+    cover_letters = []
 
-def load_cover_letters(path: str):
+    if isinstance(resume_data, dict):
 
-    with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
+        cover_letters = (
+            resume_data.get("data", {}).get("coverLetters")
+            or resume_data.get("coverLetters")
+            or []
+        )
 
-    return data["cover_letter"]
+    texts = []
 
+    for cl in cover_letters or []:
 
-def combine_cover_letters(cover_letters):
+        if not isinstance(cl, dict):
+            continue
 
-    merged_text = ""
+        items = cl.get("items", [])
 
-    for item in cover_letters:
+        if not isinstance(items, list):
+            continue
 
-        merged_text += f"""
-        [소제목]
-        {item['sub_title']}
+        for item in items:
 
-        [내용]
-        {item['content']}
-        """
+            if not isinstance(item, dict):
+                continue
 
-    return merged_text
+            content = item.get("content")
+
+            if isinstance(content, str) and content.strip():
+                texts.append(content.strip())
+
+    return texts

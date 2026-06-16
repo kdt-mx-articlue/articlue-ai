@@ -5,8 +5,13 @@ from app.analyzers.embedding_service import (
     get_embedding_model
 )
 
+print("★★★★★★★★★★★★★★★★")
+print(__file__)
+print("★★★★★★★★★★★★★★★★")
 
 def save_job_vectors(job_list):
+    print("🔥 save_job_vectors 실행")
+    print("job 개수 :", len(job_list))
 
     embeddings = get_embedding_model()
 
@@ -71,6 +76,8 @@ def save_job_vectors(job_list):
     persist_directory=(
         "app/data/vectors/job_vectors"
     )
+    
 )
+    print("✅ Job Vector 저장 완료")
 
     return vector_store

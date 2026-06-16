@@ -1,6 +1,39 @@
-from app.services.normalization.skill_normalizer import (
-    normalize_skill
-)
+from app.services.normalization.skill_normalizer import normalize_skill
+from datetime import datetime
+
+
+def calc_career_years(careers):
+
+    total_months = 0
+
+    for c in careers:
+
+        start = c.get("startYm")
+        end = c.get("endYm")
+
+        if not start:
+            continue
+
+        try:
+
+            sy, sm = map(int, start.split("-"))
+
+            if end:
+                ey, em = map(int, end.split("-"))
+            else:
+                now = datetime.now()
+                ey, em = now.year, now.month
+
+            total_months += (
+                (ey - sy) * 12
+                +
+                (em - sm)
+            )
+
+        except:
+            continue
+
+    return total_months / 12
 
 
 def weighted_score(
@@ -11,111 +44,160 @@ def weighted_score(
 ):
 
     # =========================
-    # 기존 이력서 기술스택
+    # resume 실제 데이터
+    # =========================
+    data = resume.get(
+        "data",
+        {}
+    )
+
+    # =========================
+    # 기술스택
     # =========================
     resume_skills = {
 
         normalize_skill(
-            t["tech_name"]
+            t.get(
+                "techName",
+                ""
+            )
         )
 
-        for t in resume["resume_tech_stack"]
+        for t in data.get(
+            "techStacks",
+            []
+        )
+
+        if t.get("techName")
     }
 
     # =========================
-    # LLM 추출 기술 추가
+    # LLM 추출 스킬 추가
     # =========================
     if analysis_result:
 
         ai_skills = {
 
-            normalize_skill(skill)
+            normalize_skill(s)
 
-            for skill in analysis_result.get(
+            for s in analysis_result.get(
                 "ai_skills",
                 []
             )
+
         }
 
         backend_skills = {
 
-            normalize_skill(skill)
+            normalize_skill(s)
 
-            for skill in analysis_result.get(
+            for s in analysis_result.get(
                 "backend_skills",
                 []
             )
+
         }
 
         technical_skills = {
 
-            normalize_skill(skill)
+            normalize_skill(s)
 
-            for skill in analysis_result.get(
+            for s in analysis_result.get(
                 "technical_skills",
                 []
             )
+
         }
 
         resume_skills.update(ai_skills)
-
         resume_skills.update(backend_skills)
-
         resume_skills.update(technical_skills)
 
     # =========================
-    # 채용공고 기술
+    # 채용공고 스킬
     # =========================
     job_skills = {
 
-        normalize_skill(skill)
+        normalize_skill(s)
 
-        for skill in job["required_skills"]
+        for s in job.get(
+            "required_skills",
+            []
+        )
+
     }
 
-    # =========================
-    # 겹치는 기술
-    # =========================
     overlap = (
-        resume_skills &
+        resume_skills
+        &
         job_skills
     )
 
-    # =========================
-    # 기술 점수
-    # =========================
     skill_score = (
 
-        len(overlap) /
+        len(overlap)
+        /
         len(job_skills)
 
     ) * 100 if job_skills else 0
 
     # =========================
-    # 경력 점수
+    # 경력
     # =========================
-    career_years = resume["resume"].get(
-        "career_years",
-        0
+    career_years = calc_career_years(
+
+        data.get(
+            "careers",
+            []
+        )
+
     )
 
     career_score = min(
-
-        career_years / 3 * 100,
-
+        (
+            career_years
+            /
+            3
+        ) * 100,
         100
     )
 
     # =========================
-    # 학력 점수
+    # 학력
     # =========================
     education_score = (
 
-        80 if resume.get(
-            "education"
+        80
+
+        if data.get(
+            "educations"
         )
 
         else 50
+
+    )
+
+    # =========================
+    # 디버깅
+    # =========================
+    print(
+        "resume_skills =",
+        resume_skills
+    )
+
+    print(
+        "job_skills =",
+        job_skills
+    )
+
+    print(
+        "overlap =",
+        overlap
+    )
+
+    print(
+        "career_years =",
+        career_years
     )
 
     # =========================
@@ -123,13 +205,20 @@ def weighted_score(
     # =========================
     final_score = (
 
-        skill_score * 0.4 +
+        skill_score * 0.4
 
-        career_score * 0.3 +
+        +
 
-        education_score * 0.1 +
+        career_score * 0.3
+
+        +
+
+        education_score * 0.1
+
+        +
 
         semantic_score * 0.2
+
     )
 
     return {
@@ -159,4 +248,5 @@ def weighted_score(
         "matched_skills": list(
             overlap
         )
+
     }

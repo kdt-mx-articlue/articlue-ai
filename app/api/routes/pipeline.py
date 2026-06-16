@@ -1,141 +1,66 @@
-from fastapi import APIRouter, BackgroundTasks, HTTPException
-from pydantic import BaseModel, Field
-from typing import Optional
-import uuid
+from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel
+from typing import Dict, Any
 
 from app.pipeline.service import run_pipeline
 
 router = APIRouter()
 
-# =========================
-# In-Memory Job Store
-# =========================
-JOB_STORE = {}
-
 
 # =========================
-# Request Schema
+# REQUEST
 # =========================
 class PipelineRequest(BaseModel):
-
-    json_path: str = Field(
-        ...,
-        min_length=5,
-        description="이력서 JSON 경로"
-    )
-
-    resume_id: int = Field(
-        ...,
-        gt=0,
-        description="이력서 ID"
-    )
+    success: bool
+    message: str
+    data: Dict[str, Any]
 
 
 # =========================
-# Response Schema
+# ANALYZE
 # =========================
-class PipelineStatusResponse(BaseModel):
-
-    job_id: str
-
-    status: str
-
-    result: Optional[dict] = None
-
-    error: Optional[str] = None
-
-
-# =========================
-# Background Pipeline
-# =========================
-def process_pipeline(
-    job_id: str,
-    json_path: str,
-    resume_id: int
-):
+@router.post("/pipeline/analyze")
+def analyze(req: PipelineRequest):
 
     try:
 
-        # =========================
-        # Pipeline 실행
-        # =========================
+        print("========== Request ==========")
+        print(req.model_dump())
+        print("=============================")
+
+        resume_data = req.model_dump()
+
+        resume_id = (
+            resume_data["data"]
+            .get("resumeId")
+        )
+
+        if not resume_id:
+
+            raise HTTPException(
+                status_code=400,
+                detail="resumeId 없음"
+            )
+
         result = run_pipeline(
-            json_path=json_path,
+            resume_data=resume_data,
             resume_id=resume_id
         )
 
-        JOB_STORE[job_id] = {
-            "status": "done",
+        return {
+            "success": True,
+            "message": "분석 완료",
             "result": result
         }
 
     except Exception as e:
 
-        JOB_STORE[job_id] = {
-            "status": "failed",
-            "error": str(e)
-        }
+        import traceback
 
-
-# =========================
-# Pipeline 실행 API
-# =========================
-@router.post(
-    "/pipeline/analyze",
-    response_model=PipelineStatusResponse
-)
-def analyze(
-    req: PipelineRequest,
-    background_tasks: BackgroundTasks
-):
-
-    # =========================
-    # Job ID 생성
-    # =========================
-    job_id = str(uuid.uuid4())
-
-    # =========================
-    # 초기 상태 저장
-    # =========================
-    JOB_STORE[job_id] = {
-        "status": "processing"
-    }
-
-    # =========================
-    # Background Task 등록
-    # =========================
-    background_tasks.add_task(
-        process_pipeline,
-        job_id,
-        req.json_path,
-        req.resume_id
-    )
-
-    return {
-        "job_id": job_id,
-        "status": "processing"
-    }
-
-
-# =========================
-# 결과 조회 API
-# =========================
-@router.get(
-    "/pipeline/result/{job_id}",
-    response_model=PipelineStatusResponse
-)
-def get_result(job_id: str):
-
-    job = JOB_STORE.get(job_id)
-
-    if not job:
+        print("❌ PIPELINE ERROR")
+        print(traceback.format_exc())
 
         raise HTTPException(
-            status_code=404,
-            detail="job_id not found"
+            status_code=500,
+            detail=str(e)
         )
-
-    return {
-        "job_id": job_id,
-        **job
-    }

@@ -10,7 +10,7 @@ from app.services.vector.job_vector_service import (
 
 
 EXCEL_PATH = (
-    "app/data/docs/articlue_job_postings_datase.xlsx"
+    "app/data/raw/articlue_job_postings_datase.xlsx"
 )
 
 OUTPUT_PATH = (
@@ -25,15 +25,17 @@ def main():
     # 채용공고 파싱
     # =========================
     results = process_job_postings(
-        EXCEL_PATH
-    )
+    EXCEL_PATH
+)
 
-    # =========================
-    # Vector DB 저장
-    # =========================
+    print("111111111111111")
+
     save_job_vectors(
         results
     )
+
+    print("222222222222222")
+ 
 
     # =========================
     # JSON 저장

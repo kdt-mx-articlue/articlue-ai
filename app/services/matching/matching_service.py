@@ -228,9 +228,13 @@ def match_candidate_to_jobs(candidate_data, jobs_data):
     results = []
 
     # =========================
-    # GitHub score (fixed)
+    # GitHub score
     # =========================
-    repos = candidate_data.get("githubRepositories", [])
+    repos = (
+        candidate_data
+        .get("resume_data", {})
+        .get("githubRepositories", [])
+    )
 
     total_commits = sum(
         d.get("commitCount", 0)
@@ -239,7 +243,10 @@ def match_candidate_to_jobs(candidate_data, jobs_data):
     )
 
     github_score = round(
-        min(100, total_commits + len(repos) * 5) / 100,
+        min(
+            100,
+            total_commits + len(repos) * 5
+        ) / 100,
         4
     )
 

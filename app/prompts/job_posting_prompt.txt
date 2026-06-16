@@ -8,7 +8,7 @@ JSON 외 출력 금지
 
 출력 형식:
 
-{
+{{
     "job_title": "",
     "career_level": "",
     "tech_stacks": [],
@@ -17,7 +17,7 @@ JSON 외 출력 금지
     "responsibilities": "",
     "team_culture": "",
     "benefits": ""
-}
+}}
 
 규칙:
 

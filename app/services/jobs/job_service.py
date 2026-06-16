@@ -31,7 +31,10 @@ def process_job_postings(
     # =========================
     # 전체 row 처리
     # =========================
-    for idx, row in df.iterrows():
+    for idx, (_, row) in enumerate(
+    df.head(5).iterrows(),
+    start=1
+):
 
         merged_text = f"""
         회사명:
@@ -92,7 +95,7 @@ def process_job_postings(
         )
 
         print(
-            f"[완료] {idx + 1}번째 채용공고 분석 완료"
+            f"[완료] {idx}번째 채용공고 분석 완료"
         )
 
     # =========================
@@ -124,3 +127,28 @@ def process_job_postings(
     )
 
     return results
+
+
+
+
+def get_job_by_id(job_id):
+
+    with open(
+
+        "app/data/job_postings_parsed.json",
+
+        "r",
+
+        encoding="utf-8"
+
+    ) as f:
+
+        jobs = json.load(f)
+
+    for job in jobs:
+
+        if job["job_id"] == job_id:
+
+            return job
+
+    return None

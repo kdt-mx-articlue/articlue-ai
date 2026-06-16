@@ -125,24 +125,17 @@ def process_candidate_json_data(data: dict):
         merged_text
     )
 
-    # =========================
+    
     # GitHub 분석
     # =========================
-    github = {
-
-        "repos": data.get(
-            "githubRepositories",
-            []
-        )
-
-    }
+    # =========================
 
     github_traits = extract_developer_traits(
-        github
+        data
     )
 
     github_profile = build_github_profile(
-        github
+        data
     )
 
     # =========================

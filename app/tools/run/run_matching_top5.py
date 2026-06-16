@@ -25,7 +25,7 @@ Path("app/data/vectors/job_vectors").mkdir(parents=True, exist_ok=True)
 # =========================
 # 파일 경로
 # =========================
-RESUME_PATH = "app/data/docs/resume_002.json"
+RESUME_PATH = "app/data/docs/resume_001.json"
 JOB_PATH = "app/data/parsed/job_postings_parsed.json"
 OUTPUT_PATH = "app/data/outputs/matching_results_top5.json"
 
@@ -90,27 +90,33 @@ def save_jobs_to_chroma(jobs):
         texts.append(text)
 
         ids.append(
-            str(
-                job.get(
-                    "job_id",
-                    len(ids)
-                )
-            )
+    str(
+        job.get(
+            "job_posting_id"
         )
+    )
+)
 
-        metadatas.append({
-            "company":
-            job.get(
-                "company_name",
-                ""
-            ),
+    metadatas.append({
 
-            "title":
-            job.get(
-                "job_title",
-                ""
-            )
-        })
+    "job_id":
+    job.get(
+        "job_posting_id"
+    ),
+
+    "company_name":
+    job.get(
+        "company_name",
+        ""
+    ),
+
+    "job_title":
+    job.get(
+        "job_title",
+        ""
+    )
+
+})
 
     embeddings = embedding_model.embed_documents(
         texts

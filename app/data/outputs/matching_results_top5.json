@@ -1,42 +1,42 @@
 [
   {
-    "company_name": "키다리스튜디오",
-    "job_title": "AI 활용 시스템 백엔드 개발자",
-    "semantic_score": 0.8462,
-    "github_score": 0.0,
-    "final_score": 0.8039,
-    "requirement_fit": 0.1092
+    "company_name": "패스트레인(여신티켓)",
+    "job_title": "백엔드 개발자 (Java/Spring) 7년 이상",
+    "semantic_score": 0.5642,
+    "github_score": 0.25,
+    "final_score": 0.5485,
+    "requirement_fit": 0.1277
   },
   {
-    "company_name": "하나은행 (IT본부)",
-    "job_title": "AI QUANT",
-    "semantic_score": 0.8452,
-    "github_score": 0.0,
-    "final_score": 0.8029,
-    "requirement_fit": 0.19
+    "company_name": "코딧(CODITCorp.)",
+    "job_title": "백엔드 개발자 (Node.js, 2년 이상)",
+    "semantic_score": 0.5616,
+    "github_score": 0.25,
+    "final_score": 0.546,
+    "requirement_fit": 0.1259
   },
   {
-    "company_name": "하나은행 (IT본부)",
-    "job_title": "AI  모델링",
-    "semantic_score": 0.8383,
-    "github_score": 0.0,
-    "final_score": 0.7964,
-    "requirement_fit": 0.1955
+    "company_name": "문토",
+    "job_title": "Node.js 개발자",
+    "semantic_score": 0.561,
+    "github_score": 0.25,
+    "final_score": 0.5454,
+    "requirement_fit": 0.1288
   },
   {
-    "company_name": "GS리테일 (Tech/Data)",
-    "job_title": "데이터 사이언 티스트",
-    "semantic_score": 0.835,
-    "github_score": 0.0,
-    "final_score": 0.7932,
-    "requirement_fit": 0.1728
+    "company_name": "닥커넥트",
+    "job_title": "백엔드 개발자(2년차 이상 / node.js / devOps)",
+    "semantic_score": 0.5605,
+    "github_score": 0.25,
+    "final_score": 0.545,
+    "requirement_fit": 0.1138
   },
   {
-    "company_name": "미래에셋증권",
-    "job_title": "Data플랫폼",
-    "semantic_score": 0.8232,
-    "github_score": 0.0,
-    "final_score": 0.782,
-    "requirement_fit": 0.1692
+    "company_name": "페칭",
+    "job_title": "글로벌 패션 커머스 주니어 Node.js 백엔드 개발자 (병역특례 가능)",
+    "semantic_score": 0.5422,
+    "github_score": 0.25,
+    "final_score": 0.5276,
+    "requirement_fit": 0.1206
   }
 ]
