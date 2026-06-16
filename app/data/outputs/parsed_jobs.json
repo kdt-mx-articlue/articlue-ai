@@ -1,17 +1,16 @@
 [
   {
-    "job_id": 0,
+    "job_posting_id": 1,
     "company_name": "비큐에이아이",
     "job_title": "백엔드개발자(AIROOT)",
     "parsed_result": {
       "job_title": "백엔드개발자(AIROOT)",
       "career_level": "3년 이상",
       "tech_stacks": [
-        "Python",
-        "FastAPI",
-        "Flask",
         "Spring",
-        "Springboot",
+        "Python",
+        "Flask",
+        "FastAPI",
         "MySQL",
         "PostgreSQL",
         "MongoDB",
@@ -25,7 +24,7 @@
     }
   },
   {
-    "job_id": 1,
+    "job_posting_id": 2,
     "company_name": "아드리엘(Adriel)",
     "job_title": "Jr. 백엔드 개발자",
     "parsed_result": {
@@ -44,7 +43,7 @@
     }
   },
   {
-    "job_id": 2,
+    "job_posting_id": 3,
     "company_name": "딥파인",
     "job_title": "백엔드 개발자 3년차 이상",
     "parsed_result": {
@@ -60,12 +59,12 @@
       "requirements": "경력 3년 이상, 대학교(2,3년제) 이상, 서비스 레벨의 API 설계 및 개발 경험, RDBMS 성능 및 트랜잭션 이해, Linux 환경에서 백엔드 어플리케이션 배포 및 운영 경험",
       "preference": "",
       "responsibilities": "확장 가능한 백엔드 시스템 아키텍처 설계, Java 및 Node.js 기반 백엔드 서버 RESTful API 개발, RDBMS 기반 SQL문 작성 및 Database 구축, 자사 서비스 운영 및 신규 서비스 시스템 설계 및 개발",
-      "team_culture": "XR 기술을 활용하여 새로운 메타버스 생태계를 구축하는 자부심을 가지고 함께 성장하는 것을 중시하는 인재 환영",
+      "team_culture": "XR 기술을 활용하여 새로운 메타버스 생태계를 구축하는 자부심을 가지고 함께 성장하는 가치를 중시하는 인재 환영",
       "benefits": "자기계발지원, 커피·스낵바, 50명 이하 소규모 조직, 설립 4~9년, 인원 급성장, 업계 평균 이상의 연봉, 보너스, 건강검진지원, 유망산업, 편의시설"
     }
   },
   {
-    "job_id": 3,
+    "job_posting_id": 4,
     "company_name": "코리아포트원",
     "job_title": "AI-Native 소프트웨어 엔지니어",
     "parsed_result": {
@@ -80,7 +79,7 @@
         "Kubernetes",
         "AWS"
       ],
-      "requirements": "최소 3년 이상의 Backend 엔지니어링 경험, AI 기반 업무 방식에 익숙하거나 실제 업무 활용 경험, AI가 업무 방식을 혁신할 수 있는 방법에 대한 고민, 소프트웨어 엔지니어링 기본기(자료구조, 알고리즘, 아키텍처 등) 보유, 기술적 개념을 비개발직군이나 고객에게 쉽게 전달할 수 있는 커뮤니케이션 능력, 문제 정의부터 실행, 결과까지 책임지고 완결한 경험",
+      "requirements": "최소 3년 이상의 Backend 엔지니어링 경험, AI 기반 업무 방식에 익숙하거나 활용 경험, AI가 업무 방식을 혁신할 수 있는 방법에 대한 고민, 소프트웨어 엔지니어링 기본기(자료구조, 알고리즘, 아키텍처 등) 보유, 기술적 개념을 비개발직군이나 고객에게 쉽게 전달할 수 있는 커뮤니케이션 능력, 문제 정의부터 실행, 결과까지 책임지고 완결한 경험",
       "preference": "",
       "responsibilities": "AI 도구 및 자동화 워크플로우 활용하여 개발 생산성 극대화, 제품 개발 전반 주도적 참여, 확장 가능하고 안정적인 서비스 구축, 고객 및 비개발 직군과 소통하며 기술적 언어를 비즈니스 가치로 변환, 기술적 의사결정 및 문제 정의, 해결",
       "team_culture": "문제 정의부터 해결까지 주도하는 Product Engineer로서 일함, AI Literacy와 설계 역량을 핵심으로 빠르게 성장하는 팀",
@@ -88,7 +87,7 @@
     }
   },
   {
-    "job_id": 4,
+    "job_posting_id": 5,
     "company_name": "디오티스",
     "job_title": "서버 개발자 (7년 이상)",
     "parsed_result": {

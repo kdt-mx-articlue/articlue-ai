@@ -75,20 +75,20 @@ def process_job_postings(
 
         parsed_job = {
 
-            "job_id": idx,
+        "job_posting_id": idx,
 
-            "company_name": row.get(
-                "company_name",
-                ""
-            ),
+        "company_name": row.get(
+            "company_name",
+            ""
+        ),
 
-            "job_title": row.get(
-                "job_title",
-                ""
-            ),
+        "job_title": row.get(
+            "job_title",
+            ""
+        ),
 
-            "parsed_result": result
-        }
+        "parsed_result": result
+    }
 
         results.append(
             parsed_job
@@ -147,7 +147,7 @@ def get_job_by_id(job_id):
 
     for job in jobs:
 
-        if job["job_id"] == job_id:
+        if job["job_posting_id"] == job_id:
 
             return job
 

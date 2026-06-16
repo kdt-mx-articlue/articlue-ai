@@ -48,17 +48,16 @@ def save_job_vectors(job_list):
 
             metadata={
 
-                "job_id": job["job_id"],
+            "job_posting_id":
+            job["job_posting_id"],
 
-                "company_name": (
-                    job["company_name"]
-                ),
+            "company_name":
+            job["company_name"],
 
-                "job_title": (
-                    job["job_title"]
-                )
+            "job_title":
+            job["job_title"]
             }
-        )
+            )
 
         documents.append(doc)
 
@@ -69,7 +68,7 @@ def save_job_vectors(job_list):
     embedding=embeddings,
 
     ids=[
-        str(job["job_id"])
+        str(job["job_posting_id"])
         for job in job_list
     ],
 

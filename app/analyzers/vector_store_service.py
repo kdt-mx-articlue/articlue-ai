@@ -194,7 +194,7 @@ def search_similar_jobs(
             "resume_id": resume_id,
 
             "job_posting_id": document.metadata.get(
-                "job_id"
+                "job_posting_id"
             ),
 
             "similarity": similarity
