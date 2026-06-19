@@ -68,16 +68,16 @@ class SkillNormalizer:
             # =====================
             # Express
             # =====================
-            "express.js": "express",
-            "expressjs": "express",
-            "express": "express",
+            "express.js": "nodejs",
+            "expressjs": "nodejs",
+            "express": "nodejs",
 
             # =====================
             # Spring
             # =====================
-            "spring boot": "springboot",
-            "spring-boot": "springboot",
-            "springboot": "springboot",
+            "spring boot": "spring",
+            "spring-boot": "spring",
+            "springboot": "spring",
             "spring": "spring",
 
             # =====================
@@ -91,6 +91,12 @@ class SkillNormalizer:
 
             "mongo": "mongodb",
             "mongodb": "mongodb",
+
+            # 관계형 DB
+            "rdbms": "sql",
+
+            # SQL
+            "sql": "sql",
 
             # =====================
             # AI / ML

@@ -1,45 +1,42 @@
 from datetime import datetime
-
+from app.services.normalization.skill_normalizer import normalize_skill
 
 # =========================
 # 기술스택 유사어 매핑
 # =========================
 SKILL_ALIAS = {
 
-    "spring boot": [
-        "spring"
-    ],
+    "oracle": {
+        "sql": 0.7,
+        "rdbms": 0.7
+    },
 
-    "spring": [
-        "spring boot"
-    ],
+    "mysql": {
+        "sql": 0.7,
+        "rdbms": 0.7
+    },
 
-    "oracle": [
-        "sql",
-        "rdbms"
-    ],
+    "postgresql": {
+        "sql": 0.7,
+        "rdbms": 0.7
+    },
 
-    "mysql": [
-        "sql",
-        "rdbms"
-    ],
+    "nodejs": {
+        "javascript": 1.0
+    },
 
-    "postgresql": [
-        "sql",
-        "rdbms"
-    ],
+    "javascript": {
+        "nodejs": 1.0
+    },
 
-    "node.js": [
-        "javascript"
-    ],
+    "spring": {
+        "springboot": 1.0
+    },
 
-    "express.js": [
-        "node.js",
-        "javascript"
-    ]
-
+    "springboot": {
+        "spring": 1.0
+    }
 }
-
 
 # =========================
 # 기술스택 적합도
@@ -53,14 +50,22 @@ def calculate_tech_stack_fit(
         return 0
 
     resume_set = {
-        str(skill).lower().strip()
-        for skill in resume_skills
-    }
+
+    normalize_skill(skill)
+
+    for skill in resume_skills
+
+    if skill
+}
 
     job_set = {
-        str(skill).lower().strip()
-        for skill in job_skills
-    }
+
+    normalize_skill(skill)
+
+    for skill in job_skills
+
+    if skill
+}
 
     exact_match = 0
     alias_match = 0
@@ -76,14 +81,14 @@ def calculate_tech_stack_fit(
         # 유사어 일치
         aliases = SKILL_ALIAS.get(
             resume_skill,
-            []
+            {}
         )
 
-        for alias in aliases:
+        for alias, weight in aliases.items():
 
             if alias in job_set:
 
-                alias_match += 0.5
+                alias_match += weight
                 break
 
     print("resume =", resume_set)
@@ -337,3 +342,52 @@ def calculate_business_fit(
     )
 
     return round(score, 2)
+
+
+def calculate_culture_fit(
+    analysis_result: dict
+):
+
+    score = 30
+
+    soft_skills = [
+
+        skill.lower()
+
+        for skill in analysis_result.get(
+            "soft_skills",
+            []
+        )
+    ]
+
+    teamwork = str(
+        analysis_result.get(
+            "teamwork_style",
+            ""
+        )
+    ).lower()
+
+    keywords = {
+
+        "협업": 15,
+        "커뮤니케이션": 15,
+        "문서화": 10,
+        "리더십": 15,
+        "책임감": 10,
+        "문제 해결": 15
+
+    }
+
+    for keyword, point in keywords.items():
+
+        if keyword in " ".join(soft_skills):
+
+            score += point
+
+    if "협업" in teamwork:
+        score += 10
+
+    if "팀" in teamwork:
+        score += 5
+
+    return min(score, 100)

@@ -35,7 +35,7 @@ def process_job_postings(
     df.head(5).iterrows(),
     start=1
 ):
-
+        
         merged_text = f"""
         회사명:
         {row.get("company_name", "")}
@@ -50,7 +50,7 @@ def process_job_postings(
         {row.get("requirements", "")}
 
         우대사항:
-        {row.get("preference", "")}
+        {row.get("preferences", "")}
 
         주요업무:
         {row.get("responsibilities", "")}

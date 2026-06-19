@@ -12,6 +12,11 @@ from app.api.routes.resume_router import (
     router as resume_router
 )
 
+from app.api.routes.interview import (
+    router as interview_router
+)
+
+
 # =========================
 # FastAPI App
 # =========================
@@ -28,4 +33,12 @@ app.include_router(
 
 app.include_router(
     resume_router
+)
+
+
+
+app.include_router(
+    interview_router,
+    prefix="/interview",
+    tags=["Interview"]
 )
