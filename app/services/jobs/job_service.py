@@ -32,7 +32,7 @@ def process_job_postings(
     # 전체 row 처리
     # =========================
     for idx, (_, row) in enumerate(
-    df.head(5).iterrows(),
+    df.iterrows(),
     start=1
 ):
 
