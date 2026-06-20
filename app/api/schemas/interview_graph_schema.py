@@ -1,4 +1,4 @@
-from typing import Any, Literal, Optional
+from typing import Literal, Optional
 from pydantic import BaseModel, Field, ConfigDict
 
 
@@ -53,6 +53,7 @@ class ControlState(BaseCamelModel):
     max_follow_up_per_question: int = Field(default=3, alias="maxFollowUpPerQuestion")
 
     current_question_set_no: int = Field(default=0, alias="currentQuestionSetNo")
+    current_base_question_id: Optional[int] = Field(default=None, alias="currentBaseQuestionId")
     current_follow_up_count: int = Field(default=0, alias="currentFollowUpCount")
 
     remaining_question_set_count: int = Field(default=0, alias="remainingQuestionSetCount")
@@ -60,6 +61,10 @@ class ControlState(BaseCamelModel):
 
     total_question_count: int = Field(default=0, alias="totalQuestionCount")
     total_answer_count: int = Field(default=0, alias="totalAnswerCount")
+
+    follow_up_allowed: bool = Field(default=True, alias="followUpAllowed")
+    force_next_action: Optional[str] = Field(default=None, alias="forceNextAction")
+    guard_reason: Optional[str] = Field(default=None, alias="guardReason")
 
 
 class InterviewContext(BaseCamelModel):
@@ -91,6 +96,21 @@ class TurnScore(BaseCamelModel):
     evidence_score: float = Field(alias="evidenceScore")
     job_fit_score: float = Field(alias="jobFitScore")
     total_score: float = Field(alias="totalScore")
+
+    answer_status: Optional[str] = Field(default=None, alias="answerStatus")
+    intent_matched: Optional[bool] = Field(default=None, alias="intentMatched")
+    answer_completeness: Optional[str] = Field(default=None, alias="answerCompleteness")
+
+    has_technical_anchor: Optional[bool] = Field(default=None, alias="hasTechnicalAnchor")
+    technical_anchors: list[str] = Field(default_factory=list, alias="technicalAnchors")
+    missing_core_points: list[str] = Field(default_factory=list, alias="missingCorePoints")
+    risk_flags: list[str] = Field(default_factory=list, alias="riskFlags")
+
+    follow_up_policy: Optional[str] = Field(default=None, alias="followUpPolicy")
+    follow_up_worthiness: Optional[float] = Field(default=None, alias="followUpWorthiness")
+    should_ask_follow_up: Optional[bool] = Field(default=None, alias="shouldAskFollowUp")
+    recommended_follow_up_focus: Optional[str] = Field(default=None, alias="recommendedFollowUpFocus")
+
     feedback: str
 
 
