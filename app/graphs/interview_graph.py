@@ -369,6 +369,7 @@ def summary_node(state: InterviewGraphState) -> InterviewGraphState:
         resume_text=context.resume_text,
         job_posting_text=context.job_posting_text,
         portfolio_text=context.portfolio_text,
+        weak_points_text=getattr(context, "weak_points_text", "") or "",
     )
 
     result = llm.invoke_json(

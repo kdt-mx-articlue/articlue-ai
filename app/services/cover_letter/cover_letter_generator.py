@@ -170,11 +170,13 @@ def _restructure(
 위 문항에 맞게 자소서를 {"재구성" if has_base else "작성"}해주세요.
 {"기존 자소서의 핵심 경험을 살리되, 이 회사/직무에 맞게 강조점을 바꾸고 문항 구조에 맞게 재배치하세요." if has_base else ""}
 
-반드시 아래 형태의 JSON 배열로만 응답하세요:
-[
-  {{"question": "문항 텍스트", "answer": "답변 내용"}},
-  ...
-]"""
+반드시 아래 형태의 JSON으로만 응답하세요:
+{{
+  "items": [
+    {{"question": "문항 텍스트", "answer": "답변 내용"}},
+    ...
+  ]
+}}"""
 
     response = client.chat.completions.create(
         model="gpt-4o",
@@ -196,17 +198,28 @@ def _parse_items(raw: str, questions: list[str]) -> list[dict]:
     if isinstance(parsed, list):
         items = parsed
     elif isinstance(parsed, dict):
-        items = (
+        candidate = (
             parsed.get("items")
+            or parsed.get("coverLetters")
             or parsed.get("questions")
             or parsed.get("answers")
             or list(parsed.values())[0]
         )
+        # response_format=json_object 사용 시 GPT가 배열을 JSON 문자열로 감싸는 경우 대비
+        if isinstance(candidate, str):
+            try:
+                candidate = json.loads(candidate)
+            except Exception:
+                raise ValueError(f"GPT 응답 items가 파싱 불가한 문자열입니다: {candidate[:100]}")
+        items = candidate
     else:
         raise ValueError("GPT 응답 파싱 실패")
 
+    if not isinstance(items, list):
+        raise ValueError(f"GPT 응답 items가 리스트가 아닙니다: {type(items)}")
+
     # 문항 수 보정 (부족하면 빈 항목 추가)
-    existing_q = {item.get("question") for item in items}
+    existing_q = {item.get("question") for item in items if isinstance(item, dict)}
     for q in questions:
         if q not in existing_q:
             items.append({"question": q, "answer": ""})
