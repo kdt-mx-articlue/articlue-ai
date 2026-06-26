@@ -126,10 +126,15 @@ def calculate_requirement_fit(
         []
     )
 
-    projects = data.get(
+    github_repos = data.get(
         "githubRepositories",
         []
     )
+
+    proj_exps = [
+        e for e in data.get("experiences", [])
+        if e.get("experienceType") == "프로젝트"
+    ]
 
     certificates = data.get(
         "certificates",
@@ -209,11 +214,11 @@ def calculate_requirement_fit(
     )
 
     # =====================
-    # 프로젝트 점수
+    # 프로젝트 점수 (GitHub 저장소 + 프로젝트 경험 합산)
     # =====================
     project_score = min(
         100,
-        len(projects) * 40
+        (len(github_repos) + len(proj_exps)) * 40
     )
 
     # =====================

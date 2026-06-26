@@ -29,7 +29,7 @@ from app.services.matching.match_score_service import (
     calculate_culture_fit
 )
 
-def run_pipeline(resume_data: dict, resume_id: int):
+def run_pipeline(resume_data: dict, resume_id: int, analysis_stage: str = "RESUME"):
 
     print("▶ resume load 완료")
 
@@ -274,65 +274,69 @@ Github 프로젝트
         print("action =", action_score)
         print("business =", business_score)
 
-    final_matches.append({
+        final_matches.append({
 
-        "resume_id": resume_id,
+            "resume_id": resume_id,
 
-        "job_posting_id": job["job_posting_id"],
+            "job_posting_id": job["job_posting_id"],
 
-        "analysis": {
+            "analysis": {
 
-            "type": "RESUME",
+                "type": analysis_stage,
 
-            "overall_score": business_score,
+                "overall_score": business_score,
 
-            "metrics": {
+                "metrics": {
 
-                "business_fit": {
-                    "score": business_score,
-                    "reason_text": ai_result.get(
-                        "business_fit_reason",
-                        ""
-                    )
+                    "business_fit": {
+                        "score": business_score,
+                        "reason_text": ai_result.get(
+                            "business_fit_reason",
+                            ""
+                        )
+                    },
+
+                    "action_result_fit": {
+                        "score": action_score,
+                        "reason_text": ai_result.get(
+                            "action_result_fit_reason",
+                            ""
+                        )
+                    },
+
+                    "tech_stack_fit": {
+                        "score": tech_score,
+                        "reason_text": ai_result.get(
+                            "tech_stack_fit_reason",
+                            ""
+                        )
+                    },
+
+                    "requirement_fit": {
+                        "score": requirement_score,
+                        "reason_text": ai_result.get(
+                            "requirement_fit_reason",
+                            ""
+                        )
+                    },
+
+                    "culture_fit": {
+                        "score": culture_score,
+                        "reason_text": ai_result.get(
+                            "culture_fit_reason",
+                            ""
+                        )
+                    }
+
                 },
 
-                "action_result_fit": {
-                    "score": action_score,
-                    "reason_text": ai_result.get(
-                        "action_result_fit_reason",
-                        ""
-                    )
-                },
+                "diagnosis": ai_result.get("diagnosis", {}),
 
-                "tech_stack_fit": {
-                    "score": tech_score,
-                    "reason_text": ai_result.get(
-                        "tech_stack_fit_reason",
-                        ""
-                    )
-                },
-
-                "requirement_fit": {
-                    "score": requirement_score,
-                    "reason_text": ai_result.get(
-                        "requirement_fit_reason",
-                        ""
-                    )
-                },
-
-                "culture_fit": {
-                    "score": culture_score,
-                    "reason_text": ai_result.get(
-                        "culture_fit_reason",
-                        ""
-                    )
-                }
+                "action_plans": ai_result.get("action_plans", [])
 
             }
 
-        }
-
-    })
+        })
 
     # =========================
     # 7. 결과 반환
