@@ -29,7 +29,7 @@ from app.services.matching.match_score_service import (
     calculate_culture_fit
 )
 
-def run_pipeline(resume_data: dict, resume_id: int):
+def run_pipeline(resume_data: dict, resume_id: int, analysis_stage: str = "RESUME"):
 
     print("▶ resume load 완료")
 
@@ -282,7 +282,7 @@ Github 프로젝트
 
         "analysis": {
 
-            "type": "RESUME",
+            "type": analysis_stage,
 
             "overall_score": business_score,
 
@@ -328,7 +328,11 @@ Github 프로젝트
                     )
                 }
 
-            }
+            },
+
+            "diagnosis": ai_result.get("diagnosis", {}),
+
+            "action_plans": ai_result.get("action_plans", [])
 
         }
 
