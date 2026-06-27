@@ -173,6 +173,20 @@ def process_job_postings(
 
 
 
+def get_all_jobs():
+    """
+    전체 채용공고를 {job_posting_id: job} 딕셔너리로 반환 (파일 1회 로드)
+    """
+    with open(
+        "app/data/job_postings_parsed.json",
+        "r",
+        encoding="utf-8"
+    ) as f:
+        jobs = json.load(f)
+
+    return {job["job_posting_id"]: job for job in jobs}
+
+
 def get_job_by_id(job_id):
 
     with open(
