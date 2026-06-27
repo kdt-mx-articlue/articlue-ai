@@ -14,6 +14,7 @@ class PipelineRequest(BaseModel):
     success: bool
     message: str
     data: Dict[str, Any]
+    analysis_stage: str = "RESUME"
 
 
 # =========================
@@ -42,9 +43,12 @@ def analyze(req: PipelineRequest):
                 detail="resumeId 없음"
             )
 
+        analysis_stage = resume_data.get("analysis_stage", "RESUME").upper()
+
         result = run_pipeline(
             resume_data=resume_data,
-            resume_id=resume_id
+            resume_id=resume_id,
+            analysis_stage=analysis_stage
         )
 
         return {

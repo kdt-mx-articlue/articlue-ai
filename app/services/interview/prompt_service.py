@@ -74,10 +74,14 @@ SUMMARY_USER_PROMPT = """
 [포트폴리오]
 {portfolio_text}
 
+[1차 분석 약점 - 면접 집중 검증 영역]
+{weak_points_text}
+
 [요약 지시]
 1. documentSummary에는 지원자의 핵심 프로젝트, 기술스택, 직무 적합성을 요약한다.
 2. questionFocusList에는 서로 겹치지 않는 검증 포인트를 최소 5개 작성한다.
-3. 검증 포인트는 아래 영역이 최대한 분산되도록 작성한다.
+3. [1차 분석 약점]이 있으면 해당 약점 영역을 questionFocusList 앞쪽에 포함시켜 면접 질문이 약점 보완에 집중되도록 한다.
+4. 검증 포인트는 아래 영역이 최대한 분산되도록 작성한다.
    - 프로젝트 구조와 본인 역할
    - DB 설계와 트랜잭션 처리
    - API 설계와 서버 간 연동
@@ -579,6 +583,17 @@ FINAL_REPORT_USER_PROMPT = """
 
 아래 JSON으로만 반환해라.
 
+각 feedbackType 설명:
+- SUMMARY: 면접 전체 종합 요약 (1-2문장)
+- STRENGTH: 지원자의 핵심 강점 (답변에서 확인된 내용)
+- WEAKNESS: 보완이 필요한 핵심 약점
+- OVERALL: 종합 평가 및 다음 면접을 위한 개선 방향
+- LOGIC: 논리성 세부 피드백 (logicScore 기반)
+- TECH: 기술 이해도 세부 피드백 (techUnderstandingScore 기반)
+- BUSINESS: 비즈니스 연결성 세부 피드백 (businessLinkScore 기반)
+- EVIDENCE: 경험 근거 활용도 세부 피드백 (evidenceScore 기반)
+- JOB_FIT: 직무 적합도 세부 피드백 (jobFitScore 기반)
+
 {{
   "logicScore": 0,
   "techUnderstandingScore": 0,
@@ -590,23 +605,48 @@ FINAL_REPORT_USER_PROMPT = """
   "reportItems": [
     {{
       "feedbackType": "SUMMARY",
-      "feedbackContent": "전체 요약 피드백",
+      "feedbackContent": "면접 전체를 종합한 요약 피드백 (2-3문장)",
       "displayOrder": 1
     }},
     {{
       "feedbackType": "STRENGTH",
-      "feedbackContent": "강점 피드백",
+      "feedbackContent": "답변에서 확인된 핵심 강점",
       "displayOrder": 2
     }},
     {{
       "feedbackType": "WEAKNESS",
-      "feedbackContent": "약점 피드백",
+      "feedbackContent": "보완이 필요한 핵심 약점",
       "displayOrder": 3
     }},
     {{
-      "feedbackType": "ACTION",
-      "feedbackContent": "개선 방향",
+      "feedbackType": "OVERALL",
+      "feedbackContent": "종합 평가 및 다음 면접을 위한 구체적 개선 방향",
       "displayOrder": 4
+    }},
+    {{
+      "feedbackType": "LOGIC",
+      "feedbackContent": "논리성 세부 피드백: 답변의 논리 구조와 근거 제시 방식 평가",
+      "displayOrder": 5
+    }},
+    {{
+      "feedbackType": "TECH",
+      "feedbackContent": "기술 이해도 세부 피드백: 기술 개념 이해와 실무 적용 능력 평가",
+      "displayOrder": 6
+    }},
+    {{
+      "feedbackType": "BUSINESS",
+      "feedbackContent": "비즈니스 연결성 세부 피드백: 기술을 비즈니스 가치와 연결하는 능력 평가",
+      "displayOrder": 7
+    }},
+    {{
+      "feedbackType": "EVIDENCE",
+      "feedbackContent": "경험 근거 세부 피드백: 실제 경험을 근거로 답변하는 능력 평가",
+      "displayOrder": 8
+    }},
+    {{
+      "feedbackType": "JOB_FIT",
+      "feedbackContent": "직무 적합도 세부 피드백: 지원 직무와의 적합성 평가",
+      "displayOrder": 9
     }}
   ]
 }}

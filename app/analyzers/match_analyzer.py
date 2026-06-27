@@ -44,11 +44,11 @@ def analyze_resume_job_match(
 - category: "TECH" | "PROJECT" | "BUSINESS" | "DOMAIN" 중 하나
 - action_plan_title: 액션 제목 (간결하게)
 - action_plan_summary: 구체적 실행 방법 (1~2줄)
+- recommended_learning: 추천 학습 자료 또는 방법
 - priority: 1부터 시작하는 우선순위 숫자
+- expected_period: 예상 소요 기간 (예: "2-4주")
 
 반드시 JSON만 반환하세요.
-
-예시
 
 {{
     "business_fit_reason": "...",
@@ -69,7 +69,9 @@ def analyze_resume_job_match(
             "category": "TECH",
             "action_plan_title": "TypeScript 학습",
             "action_plan_summary": "공식 문서와 실습 프로젝트를 통해 TypeScript 기초를 익히세요.",
-            "priority": 1
+            "recommended_learning": "TypeScript 공식 문서, Udemy 강의",
+            "priority": 1,
+            "expected_period": "2-4주"
         }}
     ]
 }}

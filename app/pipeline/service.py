@@ -36,7 +36,7 @@ TOTAL_JOB_COUNT = 484
 # GPT 정밀 분석 대상 상위 N개
 GPT_TOP_N = 5
 
-def run_pipeline(resume_data: dict, resume_id: int):
+def run_pipeline(resume_data: dict, resume_id: int, analysis_stage: str = "RESUME"):
 
     print("▶ resume load 완료")
 
@@ -265,7 +265,7 @@ Github 프로젝트
 
             "analysis": {
 
-                "type": "RESUME",
+                "type": analysis_stage,
 
                 "overall_score": match["business_score"],
 

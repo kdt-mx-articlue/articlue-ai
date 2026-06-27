@@ -71,6 +71,7 @@ class InterviewContext(BaseCamelModel):
     resume_text: str = Field(default="", alias="resumeText")
     job_posting_text: str = Field(default="", alias="jobPostingText")
     portfolio_text: str = Field(default="", alias="portfolioText")
+    weak_points_text: str = Field(default="", alias="weakPointsText")
 
 
 class QaItem(BaseCamelModel):

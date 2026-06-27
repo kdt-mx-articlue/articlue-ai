@@ -1,9 +1,27 @@
+import csv
 import json
+import os
+
 import pandas as pd
 
 from app.analyzers.semantic_extraction import (
     analyze_job_posting
 )
+
+CSV_FIELDS = [
+    "job_posting_id",
+    "company_name",
+    "job_title",
+    "career_level",
+    "deadline",
+    "apply_url",
+    "tech_stacks",
+    "requirements",
+    "preferences",
+    "responsibilities",
+    "team_culture",
+    "benefits",
+]
 
 
 def process_job_postings(
@@ -74,21 +92,20 @@ def process_job_postings(
         )
 
         parsed_job = {
-
-        "job_posting_id": idx,
-
-        "company_name": row.get(
-            "company_name",
-            ""
-        ),
-
-        "job_title": row.get(
-            "job_title",
-            ""
-        ),
-
-        "parsed_result": result
-    }
+            "job_posting_id":   idx,
+            "company_name":     row.get("company_name",     ""),
+            "job_title":        row.get("job_title",        ""),
+            "career_level":     row.get("career_level",     ""),
+            "deadline":         row.get("deadline",         ""),
+            "apply_url":        row.get("apply_url",        ""),
+            "tech_stacks":      row.get("tech_stacks",      ""),
+            "requirements":     row.get("requirements",     ""),
+            "preferences":      row.get("preferences",      ""),
+            "responsibilities": row.get("responsibilities", ""),
+            "team_culture":     row.get("team_culture",     ""),
+            "benefits":         row.get("benefits",         ""),
+            "parsed_result":    result,
+        }
 
         results.append(
             parsed_job
@@ -120,6 +137,31 @@ def process_job_postings(
 
     print(
         f"\n채용공고 저장 완료: {save_path}"
+    )
+
+    # =========================
+    # CSV 저장 (job_posting_id 포함)
+    # JOB_CSV_PATH 환경변수로 경로 지정 가능
+    # (Docker Compose: 프론트엔드 public 폴더를 마운트해서 직접 갱신)
+    # =========================
+    csv_path = os.environ.get(
+        "JOB_CSV_PATH",
+        "app/data/outputs/job_postings.csv"
+    )
+
+    os.makedirs(os.path.dirname(csv_path), exist_ok=True)
+
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=CSV_FIELDS,
+            extrasaction="ignore"
+        )
+        writer.writeheader()
+        writer.writerows(results)
+
+    print(
+        f"CSV 저장 완료: {csv_path}"
     )
 
     print(
