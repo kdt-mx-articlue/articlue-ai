@@ -141,12 +141,13 @@ def process_job_postings(
 
     # =========================
     # CSV 저장 (job_posting_id 포함)
-    # JOB_CSV_PATH 환경변수로 경로 지정 가능
-    # (Docker Compose: 프론트엔드 public 폴더를 마운트해서 직접 갱신)
+    # JOB_CSV_PATH 환경변수로 경로를 지정한다.
+    # 기본값: 프론트엔드 public 폴더 (로컬 개발 기준 상대경로)
+    # Docker Compose 환경에서는 볼륨 마운트 경로로 재설정할 것.
     # =========================
     csv_path = os.environ.get(
         "JOB_CSV_PATH",
-        "app/data/outputs/job_postings.csv"
+        "../articlue-frontend/public/job_postings.csv"
     )
 
     os.makedirs(os.path.dirname(csv_path), exist_ok=True)
@@ -161,7 +162,7 @@ def process_job_postings(
         writer.writerows(results)
 
     print(
-        f"CSV 저장 완료: {csv_path}"
+        f"CSV 저장 완료 (job_posting_id 포함): {csv_path}"
     )
 
     print(

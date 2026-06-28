@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.git/
+.gitignore
+*.env
+.env*
+app/data/embeddings/
+app/data/vectors/
+app/data/outputs/
