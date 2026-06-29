@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 WORKDIR /code
 
@@ -20,10 +20,13 @@ ENV PATH="/code/.venv/bin:$PATH"
 COPY requirements.txt .
 RUN uv pip install --no-cache -r requirements.txt
 
-# 소스 복사
+# 소스 + 데이터 복사 (xlsx, 벡터 DB 포함)
 COPY . .
 
 EXPOSE 5000
 
-# 배포 환경 — --reload 없음, private 서버에서만 실행
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "5000"]
+# entrypoint: 벡터 DB 없으면 job 파싱 후 서버 시작
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
