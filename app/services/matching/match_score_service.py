@@ -108,7 +108,7 @@ def calculate_tech_stack_fit(
         1
     ) * 100
 
-    return round(score, 2)
+    return round(min(score, 100), 2)
 
 
 # =========================

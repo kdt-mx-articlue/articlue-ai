@@ -273,27 +273,27 @@ Github 프로젝트
 
                     "business_fit": {
                         "score": match["business_score"],
-                        "reason_text": gpt.get("business_fit_reason", "")
+                        "reason_text": gpt.get("business_fit_reason", "-")
                     },
 
                     "action_result_fit": {
                         "score": match["action_score"],
-                        "reason_text": gpt.get("action_result_fit_reason", "")
+                        "reason_text": gpt.get("action_result_fit_reason", "-")
                     },
 
                     "tech_stack_fit": {
                         "score": match["tech_score"],
-                        "reason_text": gpt.get("tech_stack_fit_reason", "")
+                        "reason_text": gpt.get("tech_stack_fit_reason", "-")
                     },
 
                     "requirement_fit": {
                         "score": match["requirement_score"],
-                        "reason_text": gpt.get("requirement_fit_reason", "")
+                        "reason_text": gpt.get("requirement_fit_reason", "-")
                     },
 
                     "culture_fit": {
                         "score": match["culture_score"],
-                        "reason_text": gpt.get("culture_fit_reason", "")
+                        "reason_text": gpt.get("culture_fit_reason", "-")
                     }
 
                 },
@@ -314,4 +314,59 @@ Github 프로젝트
         "analysis": analysis_result,
         "score": score_result,
         "job_matches": final_matches
+    }
+
+
+def run_single_job_pipeline(resume_data: dict, resume_id: int, job_posting_id: int):
+    """
+    단일 공고에 대한 GPT 정밀 분석만 수행한다.
+    전체 484개 벡터 검색 + 점수 계산 없이 GPT 1회만 호출하므로 빠르다.
+    기존 COMPANY_RECOMMENDATION 점수는 유지하고,
+    PORTFOLIO_DIAGNOSIS + RECOMMENDATION_ACTION 데이터만 생성/갱신한다.
+    """
+
+    print(f"▶ 단일 공고 GPT 분석 시작: resume_id={resume_id}, job_posting_id={job_posting_id}")
+
+    data = resume_data["data"]
+
+    # 1. Text Merge (전체 파이프라인과 동일)
+    merged_text = (
+        f"희망직무\n{data.get('desiredJob', '')}\n\n"
+        f"소개\n{data.get('introduction', '')}\n\n"
+        f"기술스택\n{' '.join(tech.get('techName', '') for tech in data.get('techStacks', []))}\n\n"
+        f"경력\n{' '.join(career.get('mainAchievement', '') for career in data.get('careers', []))}\n\n"
+        f"Github 프로젝트\n{' '.join(repo.get('projectDescription', '') for repo in data.get('githubRepositories', []))}\n\n"
+        f"자격증\n{' '.join(cert.get('certificateName', '') for cert in data.get('certificates', []))}\n\n"
+        f"자기소개서\n{' '.join(item.get('content', '') for cl in data.get('coverLetters', []) for item in cl.get('items', []))}"
+    )
+
+    # 2. LLM 이력서 분석
+    analysis_result = analyze_cover_letter(merged_text)
+
+    # 3. 대상 공고 데이터 조회
+    job_data = get_job_by_id(job_posting_id)
+    if job_data is None:
+        raise ValueError(f"job_posting_id={job_posting_id} 공고 데이터를 찾을 수 없습니다.")
+
+    # 4. GPT 정밀 분석 (단 1회)
+    print(f"▶ GPT 분석 중: job_posting_id={job_posting_id}")
+    ai_result = analyze_resume_job_match(
+        resume_analysis=analysis_result,
+        job_analysis=job_data["parsed_result"]
+    )
+
+    print(f"▶ 단일 공고 GPT 분석 완료: job_posting_id={job_posting_id}")
+
+    return {
+        "resume_id": resume_id,
+        "job_posting_id": job_posting_id,
+        "diagnosis": ai_result.get("diagnosis"),
+        "action_plans": ai_result.get("action_plans", []),
+        "reasons": {
+            "business_fit":      ai_result.get("business_fit_reason", "-"),
+            "action_result_fit": ai_result.get("action_result_fit_reason", "-"),
+            "tech_stack_fit":    ai_result.get("tech_stack_fit_reason", "-"),
+            "requirement_fit":   ai_result.get("requirement_fit_reason", "-"),
+            "culture_fit":       ai_result.get("culture_fit_reason", "-"),
+        },
     }
