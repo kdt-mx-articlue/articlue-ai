@@ -20,7 +20,9 @@ def final_match(
 
         request.resume,
 
-        request.interview
+        request.interview,
+
+        request.company_name
 
     )
 
@@ -44,7 +46,10 @@ def final_match(
         result["overall_score"],
 
         "metrics":
-        result["metrics"]
+        result["metrics"],
+
+        "action_plans":
+        result.get("action_plans", [])
 
     }
 
