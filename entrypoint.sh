@@ -1,12 +1,12 @@
 #!/bin/sh
 set -e
 
-VECTOR_DIR="app/data/vectors/job_vectors"
+VECTOR_FILE="app/data/vectors/job_vectors/chroma.sqlite3"
 
 echo "===== Articlue AI Server 시작 ====="
 
-# 벡터 DB가 없으면 job 파싱 먼저 실행
-if [ ! -d "$VECTOR_DIR" ]; then
+# 벡터 DB 실제 데이터가 없으면 job 파싱 먼저 실행
+if [ ! -f "$VECTOR_FILE" ]; then
     echo "벡터 DB 없음 → job 파싱 실행 중..."
     python -m app.tools.run.run_job_parsing
     echo "job 파싱 완료"
