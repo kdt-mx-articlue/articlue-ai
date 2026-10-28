@@ -8,9 +8,10 @@ from app.utils.json_utils import extract_json_object
 
 
 class LlmJsonService:
-    def __init__(self):
+    def __init__(self, model: str | None = None):
+        # model 미지정 시 OPENAI_MODEL (호출이 잦은 단계는 저렴한 기본 모델)
         self.model = ChatOpenAI(
-            model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+            model=model or os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
             temperature=float(os.getenv("OPENAI_TEMPERATURE", "0.2")),
         )
 
