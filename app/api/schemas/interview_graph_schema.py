@@ -153,6 +153,17 @@ class FinalReportItem(BaseCamelModel):
     display_order: int = Field(alias="displayOrder")
 
 
+class QuestionFeedback(BaseCamelModel):
+    """질문별 피드백 — 질문순번(questionOrder)으로 INTERVIEW_QA 와 연결"""
+    question_order: int = Field(alias="questionOrder")
+    verdict: Optional[str] = None
+    score: Optional[float] = None
+    strengths: str = ""
+    problems: str = ""
+    model_answer: str = Field(default="", alias="modelAnswer")
+    keywords: list[str] = Field(default_factory=list)
+
+
 class FinalReport(BaseCamelModel):
     logic_score: float = Field(alias="logicScore")
     tech_understanding_score: float = Field(alias="techUnderstandingScore")
@@ -162,6 +173,7 @@ class FinalReport(BaseCamelModel):
     total_score: float = Field(alias="totalScore")
     summary: str
     report_items: list[FinalReportItem] = Field(alias="reportItems")
+    question_feedbacks: list[QuestionFeedback] = Field(default_factory=list, alias="questionFeedbacks")
 
 
 class InterviewGraphResponse(BaseCamelModel):

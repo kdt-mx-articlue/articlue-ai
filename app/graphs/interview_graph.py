@@ -1,3 +1,4 @@
+import os
 from typing import Any, TypedDict
 
 from langgraph.graph import END, START, StateGraph
@@ -70,6 +71,10 @@ class InterviewGraphState(TypedDict, total=False):
 
 
 llm = LlmJsonService()
+
+# 최종 리포트는 면접 1회당 1번 호출 → 지시 이행이 좋은 모델 사용
+# (gpt-4o-mini 는 주제가 다른 답변을 PARTIAL 로 봐주고 기술 사실 오류를 짚지 못함)
+report_llm = LlmJsonService(model=os.getenv("INTERVIEW_REPORT_MODEL", "gpt-4.1-mini"))
 
 
 def _to_dict(value: Any) -> dict[str, Any]:
@@ -857,6 +862,34 @@ def route_after_followup_judge(state: InterviewGraphState) -> str:
     return END
 
 
+def _normalize_question_feedbacks(items: Any) -> list[dict[str, Any]]:
+    """LLM 이 준 질문별 피드백 중 질문순번이 있는 것만, 형식을 맞춰 반환"""
+    if not isinstance(items, list):
+        return []
+
+    normalized = []
+
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+
+        question_order = _to_int(item.get("questionOrder"), default=-1)
+        if question_order < 0:
+            continue
+
+        normalized.append({
+            "questionOrder": question_order,
+            "verdict": _normalize_answer_status(item.get("verdict")) if item.get("verdict") else None,
+            "score": clamp_score(item.get("score")) if item.get("score") is not None else None,
+            "strengths": str(item.get("strengths") or ""),
+            "problems": str(item.get("problems") or ""),
+            "modelAnswer": str(item.get("modelAnswer") or ""),
+            "keywords": _to_list(item.get("keywords")),
+        })
+
+    return normalized
+
+
 def final_report_node(state: InterviewGraphState) -> InterviewGraphState:
     request = state["request"]
     session = request.session
@@ -870,7 +903,7 @@ def final_report_node(state: InterviewGraphState) -> InterviewGraphState:
         previous_scores=_format_scores(request),
     )
 
-    result = llm.invoke_json(
+    result = report_llm.invoke_json(
         system_prompt=FINAL_REPORT_SYSTEM_PROMPT,
         user_prompt=user_prompt,
     )
@@ -900,6 +933,7 @@ def final_report_node(state: InterviewGraphState) -> InterviewGraphState:
         "totalScore": total_score,
         "summary": result.get("summary", ""),
         "reportItems": result.get("reportItems", []),
+        "questionFeedbacks": _normalize_question_feedbacks(result.get("questionFeedbacks")),
     }
 
     return {
