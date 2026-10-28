@@ -12,6 +12,11 @@ from app.analyzers.vector_store_service import (
 from app.services.matching.scoring import weighted_score
 
 from app.services.vector.job_vector_service import get_job_vector_store
+from app.services.matching.career_check import (
+    CAREER_MISMATCH_FACTOR,
+    calculate_resume_years,
+    check_career
+)
 
 from app.analyzers.match_analyzer import (
     analyze_resume_job_match
@@ -181,6 +186,10 @@ Github 프로젝트
     # 전체 공고 한 번에 로드 (파일 1회 접근)
     all_jobs_map = get_all_jobs()
 
+    # 이력서 경력 연차 (아르바이트 제외) — 공고 경력 요건 비교용
+    resume_years = calculate_resume_years(data.get("careers", []))
+    print(f"▶ 이력서 경력 {resume_years}년")
+
     all_scored = []
 
     for job in job_matches:
@@ -214,6 +223,12 @@ Github 프로젝트
             culture_score
         )
 
+        # 경력 요건 미달(요구 연차 > 보유 + 2년)이면 크게 감점 → 상위 추천·GPT 정밀 분석 대상에서 밀려남
+        career_check = check_career(job_data, resume_years)
+        if career_check["mismatch"]:
+            business_score = round(business_score * CAREER_MISMATCH_FACTOR, 1)
+            requirement_score = round(requirement_score * CAREER_MISMATCH_FACTOR, 1)
+
         all_scored.append({
             "resume_id": resume_id,
             "job_posting_id": job_id,
@@ -223,6 +238,7 @@ Github 프로젝트
             "action_score": action_score,
             "culture_score": culture_score,
             "business_score": business_score,
+            "career_check": career_check,
         })
 
     # 전체 점수 기준 내림차순 정렬
@@ -314,7 +330,10 @@ Github 프로젝트
 
                 "diagnosis": gpt.get("diagnosis", None),
 
-                "action_plans": gpt.get("action_plans", [])
+                "action_plans": gpt.get("action_plans", []),
+
+                # 경력 요건 판정 { required_years, resume_years, mismatch }
+                "career_check": match["career_check"]
 
             }
 
