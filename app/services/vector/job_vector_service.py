@@ -9,19 +9,14 @@ print("★★★★★★★★★★★★★★★★")
 print(__file__)
 print("★★★★★★★★★★★★★★★★")
 
-def save_job_vectors(job_list):
-    print("🔥 save_job_vectors 실행")
-    print("job 개수 :", len(job_list))
+JOB_VECTOR_DIR = "app/data/vectors/job_vectors"
 
-    embeddings = get_embedding_model()
 
-    documents = []
+def build_job_document(job):
 
-    for job in job_list:
+    parsed = job["parsed_result"]
 
-        parsed = job["parsed_result"]
-
-        text = f"""
+    text = f"""
         회사명: {job['company_name']}
 
         직무: {job['job_title']}
@@ -42,24 +37,39 @@ def save_job_vectors(job_list):
         {parsed.get('responsibilities', '')}
         """.strip()
 
-        doc = Document(
+    return Document(
 
-            page_content=text,
+        page_content=text,
 
-            metadata={
+        metadata={
 
-            "job_posting_id":
-            job["job_posting_id"],
+        "job_posting_id":
+        job["job_posting_id"],
 
-            "company_name":
-            job["company_name"],
+        "company_name":
+        job["company_name"],
 
-            "job_title":
-            job["job_title"]
-            }
-            )
+        "job_title":
+        job["job_title"]
+        }
+        )
 
-        documents.append(doc)
+
+def get_job_vector_store():
+
+    return Chroma(
+        embedding_function=get_embedding_model(),
+        persist_directory=JOB_VECTOR_DIR
+    )
+
+
+def save_job_vectors(job_list):
+    print("🔥 save_job_vectors 실행")
+    print("job 개수 :", len(job_list))
+
+    embeddings = get_embedding_model()
+
+    documents = [build_job_document(job) for job in job_list]
 
     vector_store = Chroma.from_documents(
 
@@ -73,10 +83,37 @@ def save_job_vectors(job_list):
     ],
 
     persist_directory=(
-        "app/data/vectors/job_vectors"
+        JOB_VECTOR_DIR
     )
     
 )
     print("✅ Job Vector 저장 완료")
 
     return vector_store
+
+
+def upsert_job_vectors(job_list):
+    """
+    수집 공고 벡터 추가/갱신 — 같은 ID 는 삭제 후 다시 추가 (전체 재생성 없음)
+    """
+    if not job_list:
+        return
+
+    vector_store = get_job_vector_store()
+    ids = [str(job["job_posting_id"]) for job in job_list]
+
+    vector_store.delete(ids=ids)
+    vector_store.add_documents(
+        [build_job_document(job) for job in job_list],
+        ids=ids
+    )
+
+
+def remove_job_vectors(job_ids):
+    """
+    마감 공고 벡터 제거
+    """
+    if not job_ids:
+        return
+
+    get_job_vector_store().delete(ids=[str(job_id) for job_id in job_ids])
