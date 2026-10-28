@@ -7,6 +7,7 @@ import pandas as pd
 from app.analyzers.semantic_extraction import (
     analyze_job_posting
 )
+from app.services.jobs import job_store
 
 CSV_FIELDS = [
     "job_posting_id",
@@ -22,6 +23,55 @@ CSV_FIELDS = [
     "team_culture",
     "benefits",
 ]
+
+
+def build_job_text(row):
+    """
+    채용공고 1건 → LLM 분석용 텍스트 (엑셀 행 / 수집 공고 dict 공통)
+    """
+    return f"""
+        회사명:
+        {row.get("company_name", "")}
+
+        직무:
+        {row.get("job_title", "")}
+
+        경력조건:
+        {row.get("career_level", "")}
+
+        자격요건:
+        {row.get("requirements", "")}
+
+        우대사항:
+        {row.get("preferences", "")}
+
+        주요업무:
+        {row.get("responsibilities", "")}
+
+        기술스택:
+        {row.get("tech_stacks", "")}
+
+        인재상:
+        {row.get("team_culture", "")}
+
+        복지혜택:
+        {row.get("benefits", "")}
+         """.strip()
+
+
+def parse_job(job):
+    """
+    수집 공고 1건 LLM 분석 → 저장 형식 (process_job_postings 의 parsed_job 과 동일)
+    """
+    result = analyze_job_posting(
+        build_job_text(job)
+    )
+
+    return {
+        **{field: job.get(field, "") for field in CSV_FIELDS},
+        "job_posting_id": int(job["job_posting_id"]),
+        "parsed_result": result,
+    }
 
 
 def process_job_postings(
@@ -54,34 +104,7 @@ def process_job_postings(
     start=1
 ):
         
-        merged_text = f"""
-        회사명:
-        {row.get("company_name", "")}
-
-        직무:
-        {row.get("job_title", "")}
-
-        경력조건:
-        {row.get("career_level", "")}
-
-        자격요건:
-        {row.get("requirements", "")}
-
-        우대사항:
-        {row.get("preferences", "")}
-
-        주요업무:
-        {row.get("responsibilities", "")}
-
-        기술스택:
-        {row.get("tech_stacks", "")}
-
-        인재상:
-        {row.get("team_culture", "")}
-
-        복지혜택:
-        {row.get("benefits", "")}
-         """.strip()
+        merged_text = build_job_text(row)
         
 
         # =====================
@@ -176,36 +199,11 @@ def process_job_postings(
 
 def get_all_jobs():
     """
-    전체 채용공고를 {job_posting_id: job} 딕셔너리로 반환 (파일 1회 로드)
+    전체 채용공고를 {job_posting_id: job} 딕셔너리로 반환 (파일 변경 시에만 다시 로드)
     """
-    with open(
-        "app/data/job_postings_parsed.json",
-        "r",
-        encoding="utf-8"
-    ) as f:
-        jobs = json.load(f)
-
-    return {job["job_posting_id"]: job for job in jobs}
+    return job_store.load_jobs()
 
 
 def get_job_by_id(job_id):
 
-    with open(
-
-        "app/data/job_postings_parsed.json",
-
-        "r",
-
-        encoding="utf-8"
-
-    ) as f:
-
-        jobs = json.load(f)
-
-    for job in jobs:
-
-        if job["job_posting_id"] == job_id:
-
-            return job
-
-    return None
+    return job_store.load_jobs().get(int(job_id))

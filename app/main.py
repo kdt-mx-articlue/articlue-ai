@@ -10,6 +10,7 @@ from app.api.routes.interview_graph import router as interview_graph_router
 from app.api.routes.crawler.article_router import router as article_router
 from app.api.routes.interview import router as interview_router
 from app.api.routes.cover_letter_router import router as cover_letter_router
+from app.api.routes.job_ingest_router import router as job_ingest_router
 
 # =========================
 # FastAPI App
@@ -36,3 +37,5 @@ app.include_router(article_router)
 app.include_router(interview_router, prefix="/interview")
 
 app.include_router(cover_letter_router)
+
+app.include_router(job_ingest_router)
