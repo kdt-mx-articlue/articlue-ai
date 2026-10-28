@@ -1,3 +1,6 @@
+import os
+from concurrent.futures import ThreadPoolExecutor
+
 from app.analyzers.cover_letter_analyzer import load_cover_letters
 from app.analyzers.semantic_extraction import analyze_cover_letter
 
@@ -30,8 +33,8 @@ from app.services.matching.match_score_service import (
     calculate_culture_fit
 )
 
-# 전체 공고 수
-TOTAL_JOB_COUNT = 484
+# 유사도 검색으로 추릴 후보 공고 수 (이 안에서만 점수 계산·저장 → 공고가 늘어도 분석 시간 일정)
+MATCH_TOP_K = int(os.environ.get("MATCH_TOP_K", "50"))
 
 # GPT 정밀 분석 대상 상위 N개
 GPT_TOP_N = 5
@@ -90,16 +93,16 @@ Github 프로젝트
     analysis_result = analyze_cover_letter(merged_text)
 
     # =========================
-    # 3. Semantic Search — 전체 공고 대상
+    # 3. Semantic Search — 유사도 상위 MATCH_TOP_K 개 후보
     # =========================
     job_matches = search_similar_jobs(
         semantic_text=merged_text,
         resume_id=resume_id,
-        top_k=TOTAL_JOB_COUNT
+        top_k=MATCH_TOP_K
     )
 
     print(f"\n===================")
-    print(f"전체 공고 유사도 검색 완료: {len(job_matches)}개")
+    print(f"후보 공고 유사도 검색 완료: {len(job_matches)}개")
     print(f"===================\n")
 
     # semantic_score: 1위 공고 기준 (score_result 계산용)
@@ -224,31 +227,32 @@ Github 프로젝트
 
     # =========================
     # 7. 상위 GPT_TOP_N개만 GPT 정밀 분석
+    #    (서로 독립적인 호출이라 동시에 실행 → 대기 시간 약 1/N)
     # =========================
-    top_ids = set(m["job_posting_id"] for m in all_scored[:GPT_TOP_N])
-    gpt_results = {}
+    gpt_targets = [
+        (match["job_posting_id"], all_jobs_map[match["job_posting_id"]])
+        for match in all_scored[:GPT_TOP_N]
+        if match["job_posting_id"] in all_jobs_map
+    ]
 
-    for match in all_scored[:GPT_TOP_N]:
-
-        job_id = match["job_posting_id"]
-        job_data = all_jobs_map.get(job_id)
-
-        if job_data is None:
-            continue
-
+    def analyze_target(target):
+        job_id, job_data = target
         print(f"▶ GPT 분석 중: job_posting_id={job_id}")
-
-        ai_result = analyze_resume_job_match(
+        return job_id, analyze_resume_job_match(
             resume_analysis=analysis_result,
             job_analysis=job_data["parsed_result"]
         )
 
-        gpt_results[job_id] = ai_result
+    gpt_results = {}
+
+    if gpt_targets:
+        with ThreadPoolExecutor(max_workers=len(gpt_targets)) as pool:
+            gpt_results = dict(pool.map(analyze_target, gpt_targets))
 
     print(f"▶ GPT 분석 완료: {len(gpt_results)}개")
 
     # =========================
-    # 8. 전체 final_matches 구성 (484개)
+    # 8. 후보 공고 final_matches 구성 (MATCH_TOP_K 개)
     # =========================
     final_matches = []
 
