@@ -11,6 +11,8 @@ from app.analyzers.vector_store_service import (
 
 from app.services.matching.scoring import weighted_score
 
+from app.services.vector.job_vector_service import get_job_vector_store
+
 from app.analyzers.match_analyzer import (
     analyze_resume_job_match
 )
@@ -33,8 +35,16 @@ from app.services.matching.match_score_service import (
     calculate_culture_fit
 )
 
-# 유사도 검색으로 추릴 후보 공고 수 (이 안에서만 점수 계산·저장 → 공고가 늘어도 분석 시간 일정)
-MATCH_TOP_K = int(os.environ.get("MATCH_TOP_K", "50"))
+# 1차 매칭 점수를 계산할 공고 수. 0(기본) = 벡터 DB 의 전체 공고
+#  - 화면 검색·상세 분석이 "1차 점수가 있는 공고"를 전제로 하므로 전체를 계산한다
+#  - 규칙 기반 점수라 빠르고, 비용이 드는 GPT 정밀 분석은 상위 GPT_TOP_N 건만
+MATCH_TOP_K = int(os.environ.get("MATCH_TOP_K", "0"))
+
+
+def resolve_match_top_k():
+    if MATCH_TOP_K > 0:
+        return MATCH_TOP_K
+    return get_job_vector_store()._collection.count()
 
 # GPT 정밀 분석 대상 상위 N개
 GPT_TOP_N = 5
@@ -93,12 +103,12 @@ Github 프로젝트
     analysis_result = analyze_cover_letter(merged_text)
 
     # =========================
-    # 3. Semantic Search — 유사도 상위 MATCH_TOP_K 개 후보
+    # 3. Semantic Search — 전체 공고 (MATCH_TOP_K 지정 시 상위 N개)
     # =========================
     job_matches = search_similar_jobs(
         semantic_text=merged_text,
         resume_id=resume_id,
-        top_k=MATCH_TOP_K
+        top_k=resolve_match_top_k()
     )
 
     print(f"\n===================")
@@ -252,7 +262,7 @@ Github 프로젝트
     print(f"▶ GPT 분석 완료: {len(gpt_results)}개")
 
     # =========================
-    # 8. 후보 공고 final_matches 구성 (MATCH_TOP_K 개)
+    # 8. final_matches 구성 (검색된 전체 공고)
     # =========================
     final_matches = []
 
