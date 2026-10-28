@@ -15,6 +15,8 @@ venv/
 # FastAPI
 *.db
 *.sqlite3
+# 채용공고 벡터 DB 는 이미지에 포함 (빈 볼륨 최초 기동 시 484건 재파싱 방지)
+!app/data/vectors/job_vectors/chroma.sqlite3
 
 # Logs
 *.log
