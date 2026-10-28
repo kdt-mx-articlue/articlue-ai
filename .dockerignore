@@ -7,5 +7,3 @@ __pycache__/
 *.env
 .env*
 app/data/embeddings/
-app/data/vectors/
-app/data/outputs/

@@ -149,6 +149,10 @@ def search_similar_jobs(
         k=top_k
     )
 
+    if not results:
+        print("검색 결과 없음 → 빈 배열 반환")
+        return []
+
     scores = [
         score
         for _, score in results
